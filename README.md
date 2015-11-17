@@ -2,7 +2,7 @@
 
 ## Objectives
 
-1. 
+1. Build RESTful routes to create, show, edit, and delete items from the database
 
 ## Instructions
 
