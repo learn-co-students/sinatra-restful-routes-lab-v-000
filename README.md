@@ -10,7 +10,7 @@ Instead of keeping all your recipes on index cards (just like your grandma did!)
 
 ### Step 1
 
-Create a new table in the database to store the recipes. Recipes should have a `title`, `ingredients` (which can be written as one string containing all the recipes), and `cook_time`.
+Create a new table in the database to store the recipes. Recipes should have a `name`, `ingredients` (which can be written as one string containing all the recipes), and `cook_time`.
 
 ### Step 2
 Make sure you have a corresponding model for your recipes.
