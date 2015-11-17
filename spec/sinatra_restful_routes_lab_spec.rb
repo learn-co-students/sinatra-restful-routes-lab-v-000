@@ -26,8 +26,8 @@ describe "Recipe App" do
     end
 
     it "contains links to each recipe's show page" do
-      all_link_hrefs = page.all(:css, "a[href]").map do |element| 
-        element[:href] 
+      all_link_hrefs = page.all(:css, "a[href]").map do |element|
+        element[:href]
       end
       expect(all_link_hrefs).to include("/recipes/#{@recipe1.id}")
       expect(all_link_hrefs).to include("/recipes/#{@recipe2.id}")
@@ -35,7 +35,7 @@ describe "Recipe App" do
 
   end
 
-    
+
   describe "show page '/recipes/:id'" do
     before do
       visit "/recipes/#{@recipe1.id}"
@@ -117,8 +117,8 @@ describe "Recipe App" do
     end
   end
 
-  describe "creating a new recipe" do 
-    before do 
+  describe "creating a new recipe" do
+    before do
       params = {
         "name" => "pumpkin pie",
         "ingredients" => "pumpkin, flour, butter, sugar",
@@ -133,7 +133,7 @@ describe "Recipe App" do
       expect(Recipe.last.name).to eq("pumpkin pie")
     end
 
-    it "redirects to the recipe show page" do 
+    it "redirects to the recipe show page" do
       expect(last_request.url).to include("/recipes/#{Recipe.last.id}")
     end
   end
@@ -141,9 +141,9 @@ describe "Recipe App" do
   describe "updating a recipe" do
     before do
       @cookie = Recipe.create(
-        name:   "Chocolate Chip Cookies", 
-        ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
+        name:   "Chocolate Chip Cookies",
+        ingredients:  "chocolate chips, flour, sugar, butter",
+        cook_time:  "30 minutes",
       )
 
       visit "/recipes/#{@cookie.id}/edit"
@@ -171,9 +171,9 @@ describe "Recipe App" do
 
     before do
       @cookie = Recipe.create(
-        name:   "Chocolate Chip Cookies", 
-        ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
+        name:   "Chocolate Chip Cookies",
+        ingredients:  "chocolate chips, flour, sugar, butter",
+        cook_time:  "30 minutes",
       )
       visit  "/recipes/#{@cookie.id}"
 
@@ -185,5 +185,5 @@ describe "Recipe App" do
     end
 
   end
-  
+
 end
