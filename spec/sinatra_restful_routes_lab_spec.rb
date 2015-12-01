@@ -145,23 +145,9 @@ describe "Recipe App" do
       end
     end
 
-    describe "deletes a pigeon from the database" do
-      before do
-        @cookie = Recipe.create(
-          name:   "Chocolate Chip Cookies", 
-          ingredients:  "chocolate chips, flour, sugar, butter", 
-          cook_time:  "30 minutes", 
-        )
-        post "/recipes/#{@cookie.id}/delete"
-        follow_redirect!
-      end
 
-    it "redirects to the pigeons index page" do
-      expect(last_request.url).to eq("http://example.org/recipes")
-      expect(last_response.body).to include("waldorf salad")
-      expect(last_response.body).to_not include("Chocolate Chip Cookies")
-    end
-  end
+
+
   end
        
 
