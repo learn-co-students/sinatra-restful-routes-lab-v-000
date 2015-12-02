@@ -35,3 +35,5 @@ Create a controller action (index action) that displays all the recipes in the d
 
 Add to the recipe show page a form that allows a user to delete a recipe. This form should submit to a controller action that deletes the entry from the database and redirects to the index page.
 
+
+<a href='https://learn.co/lessons/sinatra-restful-routes-lab' data-visibility='hidden'>View this lesson on Learn.co</a>
