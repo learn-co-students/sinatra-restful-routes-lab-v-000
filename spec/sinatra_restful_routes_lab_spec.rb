@@ -153,11 +153,6 @@ describe "Recipe App" do
         ingredients:  "chocolate chips, flour, sugar, butter", 
         cook_time:  "30 minutes", 
       )
-      @cake = Recipe.create(
-        name:   "Funfetti Cake",
-        ingredients:  "spinkles, sugar, butter, flour",
-        cook_time:  "1 hour",
-      )
       params = {
         :name   => "Double chocolate chip cookies",
         :ingredients => "chocolate chips, flour, sugar, butter, cocoa powder",
