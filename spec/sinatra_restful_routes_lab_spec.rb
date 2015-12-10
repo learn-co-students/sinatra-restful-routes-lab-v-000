@@ -146,7 +146,6 @@ describe "Recipe App" do
   describe "deleting a recipe" do
     before do
       @cookie = Recipe.create(
-<<<<<<< HEAD
         name:   "Chocolate Chip Cookies",
         ingredients:  "chocolate chips, flour, sugar, butter",
         cook_time:  "30 minutes",
@@ -160,30 +159,4 @@ describe "Recipe App" do
     end
   end
 
-=======
-        name:   "Chocolate Chip Cookies", 
-        ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
-      )
-      @cake = Recipe.create(
-        name:   "Funfetti Cake",
-        ingredients:  "spinkles, sugar, butter, flour",
-        cook_time:  "1 hour",
-      )
-      params = {
-        :name   => "Double chocolate chip cookies",
-        :ingredients => "chocolate chips, flour, sugar, butter, cocoa powder",
-        :cook_time  => "30 minutes",
-      }
-      post "/recipes/#{@cookie.id}", params
-      follow_redirect!
-    end
-
-    it "deletes a recipe" do
-      post "/recipes/#{@cookie.id}/delete"
-      expect(Recipe.find_by_name(@cookie.name)).to eq(nil)
-    end
-  end
-  
->>>>>>> delete test
 end
