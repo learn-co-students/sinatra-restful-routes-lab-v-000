@@ -16,7 +16,6 @@ describe "Recipe App" do
     end
 
     it 'responds with a 200 status code' do
-      # get '/recipes'
       expect(last_response.status).to eq(200)
     end
 
@@ -38,7 +37,6 @@ describe "Recipe App" do
     end
 
     it 'responds with a 200 status code' do
-      # get "/recipes/#{@recipe1.id}"
       expect(last_response.status).to eq(200)
     end
 
@@ -66,7 +64,6 @@ describe "Recipe App" do
     end
 
     it 'responds with a 200 status code' do
-      # get "/recipes/#{@recipe1.id}/edit"
       expect(last_response.status).to eq(200)
     end
 
@@ -87,7 +84,6 @@ describe "Recipe App" do
     end
 
     it 'responds with a 200 status code' do
-      # get "/recipes/new"
       expect(last_response.status).to eq(200)
     end
 
@@ -113,7 +109,7 @@ describe "Recipe App" do
     end
 
     it "redirects to the recipe show page" do 
-      expect(last_request.url).to eq("http://example.org/recipes/#{Recipe.last.id}")
+      expect(last_request.url).to include("/recipes/#{Recipe.last.id}")
     end
   end
 
@@ -123,11 +119,6 @@ describe "Recipe App" do
         name:   "Chocolate Chip Cookies", 
         ingredients:  "chocolate chips, flour, sugar, butter", 
         cook_time:  "30 minutes", 
-      )
-      @cake = Recipe.create(
-        name:   "Funfetti Cake",
-        ingredients:  "spinkles, sugar, butter, flour",
-        cook_time:  "1 hour",
       )
       params = {
         :name   => "Double chocolate chip cookies",
@@ -139,7 +130,7 @@ describe "Recipe App" do
     end
 
     it "redirects to the recipe show page" do
-      expect(last_request.url).to eq("http://example.org/recipes/#{@cookie.id}")
+      expect(last_request.url).to include("/recipes/#{@cookie.id}")
       expect(last_response.body).to include("Double chocolate chip cookies")
       expect(last_response.body).to include("chocolate chips, flour, sugar, butter, cocoa powder")
       expect(last_response.body).to include("30 minutes")
