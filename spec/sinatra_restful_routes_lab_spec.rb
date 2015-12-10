@@ -155,7 +155,7 @@ describe "Recipe App" do
 
     it "deletes a recipe" do
       post "/recipes/#{@cookie.id}/delete"
-      expect(Recipe.find_by_name(@cookie.name)).to eq(nil)
+      expect(Recipe.find_by_id(@cookie.id)).to eq(nil)
     end
   end
   
