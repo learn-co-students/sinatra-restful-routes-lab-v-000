@@ -1,0 +1,12 @@
+<h1>Recipe</h1>
+
+<h3>Name</h3>
+<%= @recipe.name %><br><br>
+
+<h3>Ingredients</h3>
+<%= @recipe.ingredients %><br><br>
+
+<h3>Cook Time</h3>
+<%= @recipe.cook_time %><br><br>
+
+<a href="/recipes/<%=@recipe.id%>/delete">Delete This Recipe</a>
