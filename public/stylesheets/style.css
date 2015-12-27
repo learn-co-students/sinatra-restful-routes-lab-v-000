@@ -1,0 +1,13 @@
+body {
+  background-color: lightblue;
+  color: navy;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+input.submit_button {
+  margin: 10px 35px;
+}

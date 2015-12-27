@@ -1,0 +1,11 @@
+<h2><em>Recipe</em></h2>
+
+<p><strong>Name:</strong> <%= current_recipe.name  %></p>
+<p><strong>Ingrediants:</strong> <%= current_recipe.ingredients %></p>
+<p><strong>Cook Time:</strong> <%= current_recipe.cook_time %></p>
+<a href="/recipes/<%=current_recipe.id%>/edit">Edit Recipe</a><br><br>
+<a href="/recipes">All Recipes</a><br><br>
+
+<form action="/recipes/<%=current_recipe.id%>/delete" method="post">
+  <input type="submit" value="Delete Recipe">
+</form>
