@@ -1,0 +1,7 @@
+<h3><em>Edit Recipe</em></h3>
+<form action="/recipes/<%=current_recipe.id%>" method="post">
+  <input type="text" name="recipe[name]" placeholder="Name" value="<%=current_recipe.name%>"><br>
+  <input type="text" name="recipe[ingredients]" placeholder="Ingredients" value="<%=current_recipe.ingredients%>" ><br>
+  <input type="text" name="recipe[cook_time]" placeholder="Cook Time" value="<%=current_recipe.cook_time%>"><br><br>
+  <input type="submit" value="Edit">
+</form>
