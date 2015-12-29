@@ -1,0 +1,6 @@
+<%require 'pry'%>
+<p><%=@recipe.name%></p>
+<p><%=@recipe.ingredients%></p>
+<p><%=@recipe.cook_time%> minutes</p>
+
+<p><a href="/recipes/<%=@recipe.id%>/delete">Delete</a></p>
