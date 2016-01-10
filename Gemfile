@@ -9,9 +9,9 @@ gem 'tux'
 gem 'pry'
 gem 'pry-nav'
 gem 'rake'
-gem 'rspec'
-gem 'rack-test'
-gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+#gem 'rspec'
+#gem 'rack-test'
+#gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 gem 'require_all'
 
 group :test do
@@ -19,4 +19,5 @@ group :test do
   gem 'capybara'
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+  gem 'shotgun'
 end
