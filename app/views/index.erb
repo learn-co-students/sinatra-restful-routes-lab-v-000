@@ -3,3 +3,6 @@
 		<li><a href='/recipes/<%= recipe.id %>'><%= recipe.name %></a></li>
 	<% end %>
 </ol>
+<form action='/recipes/new' method='GET'>
+	<input type='submit' value='new'>
+</form>
