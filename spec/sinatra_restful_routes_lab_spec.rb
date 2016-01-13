@@ -56,6 +56,10 @@ describe "Recipe App" do
     it "contains a links to delete the recipe" do
       expect(last_response.body).to include("/recipes/#{@recipe1.id}/delete")
     end
+
+    it 'deletes via a DELETE request' do
+      expect(last_response.body).to include('<input id="hidden" type="hidden" name="_method" value="delete">')
+    end
   end
 
   describe "edit page '/recipes/:id/edit'" do
@@ -74,6 +78,10 @@ describe "Recipe App" do
 
     it "displays the recipe's ingredients before editing" do
       expect(last_response.body).to include(recipe_ingredients)
+    end
+
+    it "submits via a patch request" do
+      expect(last_response.body).to include('<input id="hidden" type="hidden" name="_method" value="patch">')
     end
 
   end
@@ -120,20 +128,18 @@ describe "Recipe App" do
         ingredients:  "chocolate chips, flour, sugar, butter", 
         cook_time:  "30 minutes", 
       )
-      params = {
-        :name   => "Double chocolate chip cookies",
-        :ingredients => "chocolate chips, flour, sugar, butter, cocoa powder",
-        :cook_time  => "30 minutes",
-      }
-      post "/recipes/#{@cookie.id}", params
-      follow_redirect!
+      visit "/recipes/#{@cookie.id}/edit"
+      fill_in "recipe_name", :with => "Double chocolate chip cookies"
+      fill_in "ingredients_names", :with => "chocolate chips, flour, sugar, butter, cocoa powder"
+      fill_in "cook_time", :with => "30 minutes"
+      click_button "submit"
     end
 
     it "redirects to the recipe show page" do
-      expect(last_request.url).to include("/recipes/#{@cookie.id}")
-      expect(last_response.body).to include("Double chocolate chip cookies")
-      expect(last_response.body).to include("chocolate chips, flour, sugar, butter, cocoa powder")
-      expect(last_response.body).to include("30 minutes")
+      expect(page.current_path).to eq("/recipes/#{@cookie.id}")
+      expect(page).to have_content("Double chocolate chip cookies")
+      expect(page).to have_content("chocolate chips, flour, sugar, butter, cocoa powder")
+      expect(page).to have_content("30 minutes")
     end
   end
 
@@ -144,17 +150,11 @@ describe "Recipe App" do
         ingredients:  "chocolate chips, flour, sugar, butter", 
         cook_time:  "30 minutes", 
       )
-      params = {
-        :name   => "Double chocolate chip cookies",
-        :ingredients => "chocolate chips, flour, sugar, butter, cocoa powder",
-        :cook_time  => "30 minutes",
-      }
-      post "/recipes/#{@cookie.id}", params
-      follow_redirect!
+      visit  "/recipes/#{@cookie.id}"
+      click_button "delete"
     end
 
     it "deletes a recipe" do
-      post "/recipes/#{@cookie.id}/delete"
       expect(Recipe.find_by_id(@cookie.id)).to eq(nil)
     end
   end
