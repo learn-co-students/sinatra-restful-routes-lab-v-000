@@ -23,4 +23,4 @@ Instead of keeping all your recipes on index cards (just like your grandma did!)
 7. Add to the recipe show page a form that allows a user to delete a recipe. This form should submit to a controller action that deletes the entry from the database and redirects to the index page.
 
 
-<a href='https://learn.co/lessons/sinatra-restful-routes-lab' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-restful-routes-lab' title='Restful Routes Basic Lab'>Restful Routes Basic Lab</a> on Learn.co and start learning to code for free.</p>
