@@ -1,0 +1,6 @@
+<% @recipes.each do |f| %>
+  <p> /recipes/<%=f.id%></p>
+  <p> <%= f.name %></p>
+  <p> <%= f.ingredients %></p>
+  <p> <%= f.cook_time %></p>
+<% end %>
