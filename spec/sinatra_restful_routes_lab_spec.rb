@@ -129,8 +129,8 @@ describe "Recipe App" do
         cook_time:  "30 minutes", 
       )
       visit "/recipes/#{@cookie.id}/edit"
-      fill_in "recipe_name", :with => "Double chocolate chip cookies"
-      fill_in "ingredients_names", :with => "chocolate chips, flour, sugar, butter, cocoa powder"
+      fill_in "name", :with => "Double chocolate chip cookies"
+      fill_in "ingredients", :with => "chocolate chips, flour, sugar, butter, cocoa powder"
       fill_in "cook_time", :with => "30 minutes"
       click_button "submit"
     end
