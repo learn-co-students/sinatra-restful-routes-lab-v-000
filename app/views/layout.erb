@@ -15,6 +15,9 @@
       <ul class="main-menu">
         <li><a href="/">All Recipes</a></li>
         <li><a href="/recipes/new">New Recipe</a></li>
+        <% if @show_links %>
+        <li><a href="/recipes/<%=params[:id]%>/edit">Edit Recipe</a></li>
+        <% end %>
       </ul>
       <%= yield %>
     </div>
