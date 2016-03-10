@@ -1,0 +1,48 @@
+d6584cc394b343e02a734f8fb5075b8ed8afdb12		branch 'after_commit_fix' of https://github.com/bmabey/database_cleaner
+c2578e63a4fed2be314201d789c0221e8303bef4		branch 'bundler' of https://github.com/bmabey/database_cleaner
+a12fbb0edb1553dfacbbf421500f4f54c0680332		branch 'fast_merge' of https://github.com/bmabey/database_cleaner
+30c2e8193da6726c963b4b3c8bed3c785748df2a		branch 'gh-pages' of https://github.com/bmabey/database_cleaner
+284019742c038ed66bc6fb9c291c64e7e639eeee		branch 'master' of https://github.com/bmabey/database_cleaner
+88abd67b87f3fe8da6dd8b22b234790df1543a21		branch 'mongo-refactor' of https://github.com/bmabey/database_cleaner
+6e554cb2d72610090505ca109280029b3be7b20f		branch 'multi_orms_connections' of https://github.com/bmabey/database_cleaner
+982d62cd4b051e83ce0da8009177c8e0b3161a73		branch 'redis' of https://github.com/bmabey/database_cleaner
+604c9cf6ad67fe304326022928a7a99b9e44bcf3		branch 'rework_ar_connections' of https://github.com/bmabey/database_cleaner
+2c3f158cfcefd32b83ed56a56dfa9455a66ac83a		branch 'stable' of https://github.com/bmabey/database_cleaner
+77f9130a81d51df305068a245387dbe3711d2ece		branch 'unspecified' of https://github.com/bmabey/database_cleaner
+d19f862fa48f4476e2e305e3b65955a1c486a5cc		branch 'vagrant' of https://github.com/bmabey/database_cleaner
+253247bd0813dc39c9c493a80119a6403f13ee2d	not-for-merge	tag 'datamapper_0.10.3' of https://github.com/bmabey/database_cleaner
+0901eb2c645b0d3860cdc12f5f0014973c94110c	not-for-merge	tag 'v0.3.0' of https://github.com/bmabey/database_cleaner
+10f75463887f5fe9dd5f8bd5706f6099157afff6	not-for-merge	tag 'v0.4.2' of https://github.com/bmabey/database_cleaner
+f2638f585670e34b66b660430fefd03479bc0bac	not-for-merge	tag 'v0.4.3' of https://github.com/bmabey/database_cleaner
+4dba2b170ab6f52b72761e5d95f589a5ba692e74	not-for-merge	tag 'v0.5.0' of https://github.com/bmabey/database_cleaner
+c42d2d45defbb90fb36ff051ad6a584f7e9dbdfe	not-for-merge	tag 'v0.5.1' of https://github.com/bmabey/database_cleaner
+968d14c17b16a55ba4d156f29aa97da8e6b7cbce	not-for-merge	tag 'v0.5.2' of https://github.com/bmabey/database_cleaner
+7ae276d327354940cc70158f4d34d5e38559f459	not-for-merge	tag 'v0.6.0' of https://github.com/bmabey/database_cleaner
+57807b032187fb245cecbd971564062528c40a70	not-for-merge	tag 'v0.6.0.rc3' of https://github.com/bmabey/database_cleaner
+809429308590a2010eed90b4dfaff2490741093a	not-for-merge	tag 'v0.6.1' of https://github.com/bmabey/database_cleaner
+2794ba9e8b04ff67c13c5ed2850be76bc3d99305	not-for-merge	tag 'v0.6.1.rc' of https://github.com/bmabey/database_cleaner
+88abd67b87f3fe8da6dd8b22b234790df1543a21	not-for-merge	tag 'v0.6.1.rc2' of https://github.com/bmabey/database_cleaner
+36b7175f54167a58c8237263cbe0e5df7b74491a	not-for-merge	tag 'v0.6.2' of https://github.com/bmabey/database_cleaner
+fc5c71dda3ebc7c84c0c352aa3cc2bbc82511e12	not-for-merge	tag 'v0.6.3' of https://github.com/bmabey/database_cleaner
+5228ec83e5b6237fe6a7959662eb58fae0a3d21f	not-for-merge	tag 'v0.6.4' of https://github.com/bmabey/database_cleaner
+6fd6fc792fdf535587504b32637cb78196fe1c4c	not-for-merge	tag 'v0.6.5' of https://github.com/bmabey/database_cleaner
+0a675a6421c4047781fb26a215fe961a921097b4	not-for-merge	tag 'v0.6.6' of https://github.com/bmabey/database_cleaner
+e8607e504eca348520260ccbfc2bdff85832e911	not-for-merge	tag 'v0.6.7' of https://github.com/bmabey/database_cleaner
+f19cdedca516f1a0f4e57e27c099e0b64ffde3a4	not-for-merge	tag 'v0.6.7.RC' of https://github.com/bmabey/database_cleaner
+7a709475c28b0ff86d4e101bdf66aa7b78f383c6	not-for-merge	tag 'v0.7.0' of https://github.com/bmabey/database_cleaner
+4da2ea308c862c93aa4c9d1c78384223ebbcf659	not-for-merge	tag 'v0.7.1' of https://github.com/bmabey/database_cleaner
+4cf003a08eb013e01531b5592e9ff555a4e28e6f	not-for-merge	tag 'v0.7.2' of https://github.com/bmabey/database_cleaner
+f99431c8a5a4ad53107a52f752d5f065bba4d76b	not-for-merge	tag 'v0.8.0' of https://github.com/bmabey/database_cleaner
+bb0e76cd3642f3db1c7f9fed43c057b9329e99a4	not-for-merge	tag 'v0.9.0' of https://github.com/bmabey/database_cleaner
+50a2639c3dc40b5e5ae29e4c9ec0eca67decd8d1	not-for-merge	tag 'v0.9.1' of https://github.com/bmabey/database_cleaner
+1bde606594e864fdb1aa0639ac654a3adbcafdbc	not-for-merge	tag 'v1.0.0' of https://github.com/bmabey/database_cleaner
+c86583862e46d5708f3c6aff6b960d78899edc36	not-for-merge	tag 'v1.0.0.RC1' of https://github.com/bmabey/database_cleaner
+75a71cb097d0fe0200769726cffa29f6d7d6cd03	not-for-merge	tag 'v1.0.1' of https://github.com/bmabey/database_cleaner
+684a7cfe49d1cd0d261310967bd3a7f75594093f	not-for-merge	tag 'v1.1.0' of https://github.com/bmabey/database_cleaner
+0c053a75527b16765dac0b64e92a1cc35b6c529c	not-for-merge	tag 'v1.1.1' of https://github.com/bmabey/database_cleaner
+2c3f158cfcefd32b83ed56a56dfa9455a66ac83a	not-for-merge	tag 'v1.2.0' of https://github.com/bmabey/database_cleaner
+8d7f72ffc99befd5ce67d333a99e0cf054c24f81	not-for-merge	tag 'v1.3.0' of https://github.com/bmabey/database_cleaner
+46ef3b2b5ec1c9556f3e7371975fe3560442d4c5	not-for-merge	tag 'v1.4.0' of https://github.com/bmabey/database_cleaner
+a8157176681af8f5a4dcc0cd57d9952bd03c7dfa	not-for-merge	tag 'v1.4.1' of https://github.com/bmabey/database_cleaner
+774e1d4dc306f2348ffe67842cbc7e46488c68d7	not-for-merge	tag 'v1.5.0' of https://github.com/bmabey/database_cleaner
+b87f00320f8aa0f7e499d183128f05ce29cedc33	not-for-merge	tag 'v1.5.1' of https://github.com/bmabey/database_cleaner
