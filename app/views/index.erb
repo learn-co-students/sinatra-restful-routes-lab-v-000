@@ -1,0 +1,12 @@
+<h1>All Recipes:</h1>
+
+<%if @recipe.size != 0%>
+  <%@recipe.each do |recipe|%>
+    <h2><a href="/recipes/<%="#{recipe.id}"%>"><%=recipe.name%></a> </h2>
+  <% end %>
+<%else%>
+  <p>Sorry! There are currently no recipes. Create one now!</p>
+  <a href="/recipes/new">
+    <input type="submit" value="Create Recipe">
+  </a>
+<%end%>
