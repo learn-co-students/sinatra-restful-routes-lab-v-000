@@ -8,9 +8,9 @@
 
 Instead of keeping all your recipes on index cards (just like your grandma did!), we're going to be building a web app to store those recipes for you!
 
-1.  Create a new table in the database to store the recipes. Recipes should have a `name`, `ingredients` (which can be written as one string containing all the ingredients), and `cook_time`.
+~1.  Create a new table in the database to store the recipes. Recipes should have a `name`, `ingredients` (which can be written as one string containing all the ingredients), and `cook_time`.~
 
-2. Make sure you have a corresponding model for your recipes.
+~2. Make sure you have a corresponding model for your recipes.~
 
 3. In the `application_controller.rb`, set up a controller action that will render a form to create a new recipe. This controller action should create and save this new recipe to the database.
 
