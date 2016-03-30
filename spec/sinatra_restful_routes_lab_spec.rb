@@ -103,7 +103,7 @@ describe "Recipe App" do
   describe "creating a new recipe" do 
     before do 
       params = {
-        "name" => "pumpkin pie",
+        "recipe_name" => "pumpkin pie",
         "ingredients" => "pumpkin, flour, butter, sugar",
         "cook_time" => "1 hour"
       }
@@ -112,6 +112,7 @@ describe "Recipe App" do
       follow_redirect!
     end
     it "creates a new recipe and saves to the database" do 
+      #binding.pry
       expect(Recipe.all.count).to eq(3)
       expect(Recipe.last.name).to eq("pumpkin pie")
     end
