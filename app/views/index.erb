@@ -1,0 +1,6 @@
+<h1>Welcome to Recipe Bank</h1>
+
+  <% @recipes.each do |recipe|%>
+    <h3><%= recipe.name %></h3>
+    <a href="/recipes/<%=recipe.id %>">Link to Recipe Page</a>
+      <% end %>
