@@ -1,0 +1,12 @@
+<% if @recipes.nil? %>
+  <p>No recipes exist.  Why not <a href="/new">Create One</a>?</p>
+<% else %>
+  <% @recipes.each do |recipe| %>
+  <p>Recipe #: <%= recipe.id %></p>
+  <p>Name: <%= recipe.name %></p>
+  <p>Ingredients: <%= recipe.ingredients %></p>
+  <p>Cook Time: <%= recipe.cook_time %> minutes</p>
+  <p>more info <a href="/recipes/<%= recipe.id %>">here</a></p>
+  <br>
+<% end %>
+<% end %>
