@@ -1,0 +1,6 @@
+
+
+<%@recipes.each do |recipe|%>
+	Name: <%=recipe.name%>
+	Link: <%="/recipes/#{recipe.id}"%>
+<%end%>
