@@ -1,0 +1,7 @@
+<h1> All Recipes HERE!</h1>
+
+<% @recipes.map do |r| %>
+  <h3><a href="/recipes/<%=r.id%>"><%=r.name %></a></h3>
+  <% end %>
+
+  <a href="/recipes/new">Create Recipe</a>

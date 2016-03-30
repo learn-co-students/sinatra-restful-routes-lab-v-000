@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recipes</title>
+</head>
+
+<body>
+
+<form action="/recipes/<%= @recipe.id %>" method="POST">
+  
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="name" id="recipe_name" placeholder="<%=@recipe.name%>">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="ingredients" class="col-sm-2 control-label">Ingredients</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="ingredients" id="ingredients" placeholder="<%=@recipe.ingredients%>">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cook_time" class="col-sm-2 control-label">Cook Time</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="cook_time" id="cook_time" placeholder="<%= @recipe.cook_time %>">
+    </div>
+  </div>
+<!--   <input id="hidden" type="hidden" name="_method" value="patch"> -->
+  <input type="submit" value= "submit">
+</form>
+    
+</body>
+</html>
