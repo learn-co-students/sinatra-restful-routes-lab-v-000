@@ -3,7 +3,46 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
-  get '/' do
-    erb :index
+  
+
+  get '/recipes' do
+    @recipe = Recipe.all 
+    erb:index
   end
-end
+
+  get '/recipes/new' do 
+    erb :new
+  end
+
+  post '/recipes' do 
+    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
+    redirect "/recipes/#{Recipe.last.id}"
+  end
+
+  get '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :show
+  end
+
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id]) 
+    erb :edit
+  end
+
+  post '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe = Recipe.update(:name => params[:recipe_name], :ingredients => params[:ingredients_names], :cook_time => params[:cook_time])
+    redirect to "/recipes/#{recipe.id}"
+  end
+
+  post '/recipes/:id/delete' do
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.delete
+    redirect to '/recipes'
+
+  end
+
+
+
+  
+end #ends Class
