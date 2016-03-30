@@ -15,8 +15,8 @@ gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 gem 'require_all'
 
 group :test do
-  gem 'rspec'
+  #gem 'rspec'
   gem 'capybara'
-  gem 'rack-test'
-  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+  #gem 'rack-test'
+  #gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end
