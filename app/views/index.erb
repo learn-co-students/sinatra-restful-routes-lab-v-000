@@ -1,0 +1,11 @@
+
+<%if !@recipes.nil? %>
+  <ol>
+  <% @recipes.each do |recipe|%>
+    <li> <a href= "/recipes/<%=recipe.id %>"> <%= recipe.name%> </a> </li>
+  <%end%>
+</ol>
+<%else%>
+  <h1>No Recipes</h1>
+<%end%>
+<h1><a href="/recipes/new">create a recipe</a></h1>
