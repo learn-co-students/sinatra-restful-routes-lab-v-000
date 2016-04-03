@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Recipes</title>
+</head>
+<body>
+  <h1>Recipes</h1>
+  <% @recipes.each_with_index do |r, i| %>
+  <a href="/recipes/<%= r.id %>">
+    <h3><%= "#{i+1}. #{r.name}" %></h3>
+  </a>
+  <% end %>
+</body>
+</html>
