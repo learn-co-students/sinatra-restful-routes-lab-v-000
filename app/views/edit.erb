@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pickled Pirates</title>
+  </head>
+  <body>
+    <h1>Make your form here</h1>
+    <form action="/recipes/<%=@recipe.id%>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="patch">
+      <p>Update name: <input type="text" name='name' placeholder='<%=@recipe.name%>'></p>
+      <p>Update ingredients: <input type='text' name='ingredients' placeholder='<%=@post.ingredients%>'></p>
+      <p>Update cook time: <input type='text' name='cook_time' placeholder='<%=@post.cook_time%>'></p>
+      <button value="submit" type="submit">Submit</button>
+    </form>
+  </body>
+</html>
