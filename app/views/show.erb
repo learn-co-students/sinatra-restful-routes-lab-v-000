@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Individual Recipe</title>
+</head>
+  <body>
+      <h1><label>Your Individual Recipe</label></h1>
+    <div>
+      <p>Recipe ID: <%= @recipe.id %></p>
+      <p>Recipe name: <%= @recipe.name %></p>
+      <p>Recipe ingredients: <%= @recipe.ingredients %></p>
+      <p>Recipe cook_time: <%= @recipe.cook_time %></p>
+    </div>
+    <div>
+      <form method="POST" action="/recipes/<%= "#{@recipe.id}" %>/delete">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input type="submit" value="delete"><br><br>
+        </form>
+        <form method="PATCH" action="/recipes/<%= "#{@recipe.id}" %>/edit">
+        <input type="submit" value="edit">
+    </div>
+  </body>
+</html>
