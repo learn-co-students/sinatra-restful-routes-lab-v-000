@@ -1,0 +1,17 @@
+<!DOCTYPE <html>
+<head>
+  <title>All Yer Recipes</title>
+</head>
+<body>
+
+  <% if !@all.empty? %>
+    <h1>Yer Recipes:</h1>
+      <% @all.each_with_index {|r, i| %>
+     <h3><a href="/recipes/<%= r.id %>"><%= "#{i + 1}. #{r.name}" %></a></h3>
+    <% } %>
+  <% else %>
+    <h1><a href="/recipes/new">Create a New Recipe!</a></h1>
+  <% end %>
+
+</body>
+</html>
