@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Recipes</title>
+</head>
+<body>
+
+<% @recipes.each do |x| %>
+<h2><%=x.name%></h2>
+<h5><a href="/recipes/<%=x.id%>">Recipe</a><h5> 
+<% end%>
+
+</body>
+</html>
