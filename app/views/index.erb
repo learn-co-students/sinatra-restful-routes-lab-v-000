@@ -1,0 +1,12 @@
+<h1>Hello, do you want create recipes? Or do you want to see available recipes?</h1>
+
+<p><a href="/recipes/new">Create a recipe</a></p>
+
+<h1>Here are all your recipes</h1>
+
+<%@recipes.each do |recipe|%>
+<%=recipe.name%>
+<%=recipe.ingredients%>
+<%=recipe.cook_time%>
+<a href="/recipes/<%=recipe.id%>">Go to recipe</a>
+<% end %>
