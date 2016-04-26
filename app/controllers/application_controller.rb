@@ -22,11 +22,11 @@ class ApplicationController < Sinatra::Base
     @recipe.save
     @recipe.id
     puts "Sandwhich"
-    redirect to '/recipes/#{@recipe.id}'
+    redirect to '/recipes/:id'
   end
 
   get '/recipes/:id' do
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
     erb :recipe
   end
 
