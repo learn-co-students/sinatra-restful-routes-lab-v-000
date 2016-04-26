@@ -19,7 +19,6 @@ class ApplicationController < Sinatra::Base
 
   post '/recipes/new' do
     @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
-    @recipe = Recipe.find_by_id(params[:id])
     puts "Sandwhich"
     redirect to '/recipes/#{@recipe.id}'
   end
@@ -35,8 +34,8 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/recipes/:id' do
-    @recipe = Recipe.update_all(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     @recipe = Recipe.find_by_id(params[:id])
+    @recipe.update(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     erb :recipe
   end
 
