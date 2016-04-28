@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipe App</title>
+  </head>
+  <body>
+
+    <% @recipes.each do |food| %>
+    <h3>Recipe Name: <%= food.name %></h3>
+    <h3>Recipe Ingredients: <%= food.ingredients %></h3>
+    <h3>Recipe Cook Time: <%= food.cook_time %></h3>
+
+    <p><a href="/recipes/<%= food.id %>"><%= food.name%></a>
+    <% end %>
+
+
+  </body>
+</html>
