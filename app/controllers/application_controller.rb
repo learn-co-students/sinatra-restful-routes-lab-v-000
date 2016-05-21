@@ -1,3 +1,5 @@
+require 'pry'
+
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
@@ -19,14 +21,25 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/:id/edit' do #edit :id recipe
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
   end
 
-  patch '/recipes/:id' do #saves edit of :id
+  post '/recipes' do  #creates :id recipe and redirects to :show
+    @recipe = Recipe.create(params)
+    redirect to "/recipes/#{@recipe.id}"
   end
 
-  post '/recipes' do #create new recipe from /recipes/new form
+  post '/recipes/:id' do  #updates :id recipe    (POST not PATCH!)
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.update = params
+    @recipe.save
+    redirect to "/recipes/#{@recipe.id}"
   end
 
-  delete '/recipes/:id/delete' do #deletes :id recipe
+  post '/recipes/:id/delete' do #delete :id recipe (post!)
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.destroy
+    redirect to '/recipes'
   end
 end
