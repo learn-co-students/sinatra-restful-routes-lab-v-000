@@ -1,0 +1,8 @@
+
+<ul>
+<% @recipes.each do |recipe| %>
+<li><a href="/recipes/<%= recipe.id %>">Name: <%= recipe.name %></a></li>
+<% end %>
+</ul>
+
+<a href="/recipes/new"><button type="button" name="button" value= href="">Create a new recipe!</button></a>
