@@ -14,4 +14,8 @@ end
 <h3>The Cooking Time: <%= @recipe.cook_time %></h3>
 
 <h1>To Delete, Just Fill Out the Following:</h1>
+
+  <input type="text" name="name">
+  <input type="text" name="ingredients">
+  <input type="text" name="cook_time">
 =end
