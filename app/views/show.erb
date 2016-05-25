@@ -11,8 +11,8 @@
 
 <h1>To Delete:</h1>
 
-<form action="/recipes/:id/delete" method="post">
-  <input id="hidden" type="hidden" name="_method" value="delete">
+<form action="/recipes/#{@recipe.id}/delete" method="post">
+<input id="hidden" type="hidden" name="_method" value="delete">
   <input type="text" name="name">
   <input type="text" name="ingredients">
   <input type="text" name="cook_time">
