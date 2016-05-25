@@ -1,7 +1,24 @@
-<h1>A Great Recipe to Try!</h1>
+<!DOCTYPE HTML>
+<html>
 
+<h1><heading>A Great Recipe to Try!</heading></h1>
+<body>
 <h2><%= @recipe.name %></h2>
 
 <h3>The Ingredients: <%= @recipe.ingredients %></h3>
 
 <h3>The Cooking Time: <%= @recipe.cook_time %></h3>
+
+<h1>To Delete:</h1>
+
+<form action="/recipes/:id/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="text" name="name">
+  <input type="text" name="ingredients">
+  <input type="text" name="cook_time">
+  <button type="submit" value="delete">delete</button>
+</form>
+
+</body>
+
+</html>
