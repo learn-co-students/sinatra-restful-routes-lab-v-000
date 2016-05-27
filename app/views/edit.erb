@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <form method='post' action='/recipes/<%=@recipe.id%>'>
+    <p>Name:<input type='text' name='name'></p>
+    <p>Ingredients:<input type='text' name='ingredients'></p>
+    <p>Cooking Time:<input type ='integer' name='cook_time'></p>
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type='submit' id='submit'>
+  </form>
+  <p><%=@recipe.ingredients%></p>
+</body>
+</html>
