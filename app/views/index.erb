@@ -1,0 +1,11 @@
+
+
+<h1>Hungry? Let us help you find something to eat.</h1>
+<h2>Click below to view the recipe you would like to make.</h2>
+
+
+  <% @recipes.each do |recipe| %>
+  <a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a>
+  <% end %>
+
+  
