@@ -5,7 +5,7 @@
 <%= @recipe.ingredients %>
 <%= @recipe.cook_time %>
 
-<form action="/recipes/:id" method="post">
+<form action="/recipes/<%= @recipe.id %>" method="post"> <!-- must be a dynamic id -->
   <input id="hidden" type="hidden" name="_method" value="patch">
 
 Name  <input type="text" name="name" value = "<%=@recipe.name %>"><br>
