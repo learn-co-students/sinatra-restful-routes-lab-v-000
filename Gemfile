@@ -8,6 +8,7 @@ gem 'sqlite3'
 gem 'tux'
 gem 'rake'
 gem 'require_all'
+gem "rack_session_access"
 
 group :test do
   gem 'rspec'
