@@ -1,3 +1,14 @@
-  <% @all_recipes.each do |t| %>
-    <h1><%= t.name %></h1>
-    <a href="/recipes/<%= t.id %>">link to recipe</a>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Index</title>
+  </head>
+  <body>
+    <% @all_recipes.each do |r| %>
+    <h1><%= r.name %></h1>
+    <a href="/recipes/<%= r.id %>">link to recipe</a>
+    <% end %>
+  
+  </body>
+  </html>
+  
