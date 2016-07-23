@@ -7,6 +7,7 @@ gem 'sinatra'
 gem 'sqlite3'
 gem 'tux'
 gem 'rake'
+gem 'shotgun'
 gem 'require_all'
 
 group :test do
