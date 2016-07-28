@@ -3,6 +3,8 @@ class Recipe < ActiveRecord::Base
 
   def initialize
     @@recipes << self
+  end
+  
   def self.all
     @@recipes
   end
