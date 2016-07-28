@@ -7,7 +7,9 @@
   </head>
   <body>
     <h1>Index</h1>
-
-    <h3><%=@recipe.name%></h3>
+    <%Recipe.all.each do |list|%>
+    <h3><%=list.name%></h3>
+     <link rel="stylesheet" href="/recipes/1" type="text/css">
   </body>
 </html>
+<%end%>

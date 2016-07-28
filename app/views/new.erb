@@ -5,17 +5,19 @@
     <title>title</title>
   </head>
   <body>
-    <h1>Index</h1>
+    <h1>New Page</h1>
     <%Recipe.all.each do |list|%>
     <h3><%=list.name%></h3>
     <h3><%=list.ingredients%></h3>
      <h3><%=list.cook_time%></h3>
 
-     <link rel="stylesheet" href= "/recipes/1/delete" type="text/css">
-     <input id="hidden" type="hidden" name="_method" value="delete">
+     <link rel="stylesheet" href= "/recipes/new" type="text/css">
 
 
+     <h3> New Recipe</h3>
+     <form>
 
+    </form>
   </body>
 </html>
 <%end%>
