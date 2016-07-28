@@ -26,6 +26,8 @@ class ApplicationController < Sinatra::Base
 
     erb :new
 
+    redirect "/recipes"
+
   end
 
   post '/show' do
