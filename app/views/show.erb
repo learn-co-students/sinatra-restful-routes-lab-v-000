@@ -10,12 +10,10 @@
     <h3><%=list.name%></h3>
     <h3><%=list.ingredients%></h3>
      <h3><%=list.cook_time%></h3>
-
-     <link rel="stylesheet" href= "/recipes/1/delete" type="text/css">
+     <form action="/recipes/<%= @recipe.id %>/delete" method="post">
      <input id="hidden" type="hidden" name="_method" value="delete">
-     <form>
        <input id="name" type="text" name="name">
-       <input type="text" name="content">
+       <input id="name" type="text" name="content">
       <input type="submit" value="submit">
 
 
