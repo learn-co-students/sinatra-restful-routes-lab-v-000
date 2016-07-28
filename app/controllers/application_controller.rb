@@ -3,19 +3,12 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
-  get '/' do
+  get '/recipes' do
+    @recipe = Recipe.find_by(params[:name], params[:ingredients], params[:cook_time])
+   # binding.pry
     erb :index
   end
-
-  get "/recipes" do
-
-  end
-
   get '/recipes/:id' do
-
-  end
-
-  post  "/recipes" do
 
   end
 
@@ -25,5 +18,6 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/show' do
+     # @recipe = Recipe.new(:nam => recipe_name, :ingredients => recipe_ingredients, :cook_time => recipe_cook_time)
   end
 end

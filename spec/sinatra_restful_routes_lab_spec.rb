@@ -24,17 +24,6 @@ describe "Recipe App" do
     it "displays a list of recipes" do
       expect(last_response.body).to include(recipe_name)
       expect(last_response.body).to include(@recipe2.name)
-
-
-
-
-
-
-
-
-
-
-
     end
 
     it "contains links to each recipe's show page" do
