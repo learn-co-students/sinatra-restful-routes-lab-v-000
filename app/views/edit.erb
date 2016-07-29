@@ -1,5 +1,8 @@
-<form>
+
 <%=@recipe.ingredients%>
+<%Recipe.all.each do |list|%>
+<h2><%=list.name%> - <%=list.ingredients%> - <%=list.cook_time%></h2>
+<form action="/recipes/3" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <input type="text" name="name">
   <input type="text" name="ingredients">
@@ -7,4 +10,4 @@
   <input type="submit" value="submit">
 
 </form>
-
+<%end%>
