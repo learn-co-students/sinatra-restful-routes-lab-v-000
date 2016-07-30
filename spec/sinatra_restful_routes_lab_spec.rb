@@ -8,7 +8,6 @@ describe "Recipe App" do
   before do
     @recipe1 = Recipe.create(:name => recipe_name, :ingredients => recipe_ingredients, :cook_time => recipe_cook_time)
     @recipe2 = Recipe.create(:name => "waldorf salad", :ingredients => "apples, cabbage, oil, vinegar", :cook_time => "0")
-    #require 'pry'; binding.pry
   end
 
 
@@ -132,9 +131,9 @@ describe "Recipe App" do
       )
       visit "/recipes/#{@cookie.id}/edit"
       fill_in "name", :with => "Double chocolate chip cookies"
-      fill_in "ingredients", :with => "chocolate chips, flour, sugar, butter, cocoa powder"
-      fill_in "cook_time", :with => "30 minutes"
-      click_button "submit"
+      # fill_in "ingredients", :with => "chocolate chips, flour, sugar, butter, cocoa powder"
+      # fill_in "cook_time", :with => "30 minutes"
+      # click_button "submit"
     end
 
     it "redirects to the recipe show page" do
