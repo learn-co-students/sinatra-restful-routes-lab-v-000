@@ -1,0 +1,7 @@
+<% @recipes.each do |recipe| %>
+<div class="recipe">
+  <a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a>
+  <%= recipe.ingredients %>
+  <%= recipe.cook_time %>
+</div>
+<% end %>
