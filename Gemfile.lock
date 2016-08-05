@@ -49,7 +49,6 @@ GEM
     pry-nav (0.2.4)
       pry (>= 0.9.10, < 0.11.0)
     rack (1.6.4)
-    rack-commonlogger (2.0.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -77,6 +76,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    shotgun (0.9.1)
+      rack (>= 1.0)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -107,11 +108,11 @@ DEPENDENCIES
   database_cleaner!
   pry
   pry-nav
-  rack-commonlogger
   rack-test
   rake
   require_all
   rspec
+  shotgun
   sinatra
   sinatra-activerecord
   sqlite3
