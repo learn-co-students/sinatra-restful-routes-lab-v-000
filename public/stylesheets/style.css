@@ -1,0 +1,22 @@
+body {
+  /*background-color: #fff5c3;*/
+  color: #393939;
+}
+
+.btn {
+  background-color: #129793;
+  color: #ffffff;
+}
+.btn:hover, .btn:focus {
+  background-color: #595959;
+  color: #ffffff;
+  border: 1px solid;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s; }
+
+.btn:active {
+  background-color: #ff5527;
+  color: #ff5527;
+  border: 1px solid;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s; }
