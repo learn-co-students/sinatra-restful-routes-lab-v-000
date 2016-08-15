@@ -1,23 +1,21 @@
 <h1>Create Your New Recipe</h1>
 
-<form class="form-horizontal" method="post" action="/recipes">
-  <div class="form-group">
-    <label for="name" class="col-sm-2 control-label">Name</label>
-    <div class="col-sm-6">
+<form class="form-horizontal row" method="post" action="/recipes">
+
+  <div class="form-group row">
+    <label for="name">Name:</label>
       <input type="text" name="name" class="form-control" id="name" placeholder="Name">
-    </div>
   </div>
-  <div class="form-group">
-    <label for="ingredients" class="col-md-2 control-label">Ingredients</label>
-    <div class="col-md-6">
+
+  <div class="form-group row">
+    <label for="ingredients">Ingredients:</label>
       <input type="text" name="ingredients" class="form-control" id="ingredients" placeholder="Ingredients">
-    </div>
   </div>
-  <div class="form-group">
-    <label for="cook_time" class="col-md-2 control-label">Cook Time</label>
-    <div class="col-md-6">
+
+  <div class="form-group row">
+    <label for="cook_time">Cook Time:</label>
       <input type="text" name="cook_time" class="form-control" id="cook_time" placeholder="Cook Time">
-    </div>
   </div>
-  <input class="col-md-4 col-md-offset-2 btn btn-default" type="submit" value="Submit">
+
+  <input class="btn btn-block btn-default" type="submit" value="submit">
 </form>

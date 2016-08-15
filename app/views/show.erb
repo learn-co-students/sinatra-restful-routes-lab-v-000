@@ -1,15 +1,12 @@
-<h1>Your New Recipe</h1>
+<h1>Your <%= @recipe.name.capitalize %> Recipe</h1>
 <p>Name: <%= @recipe.name %></p>
 <p>Ingredients: <%= @recipe.ingredients %></p>
 <p>Cook time: <%= @recipe.cook_time %></p>
 
-<form method="post" action="/recipes/<%= @recipe.id %>/delete">
+<form class="row form-horizontal" method="post" action="/recipes/<%= @recipe.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <input class="col-md-2 btn btn-default" type="submit" value="delete">
-</form>
+  <input class="btn btn-block btn-default" type="submit" value="delete">
 
-<!-- Tests pass, but this breaks when button submitted. Need to fix. -->
-<form method="post" action="/recipes/<%= @recipe.id %>/edit">
-  <input id="hidden" type="hidden" name="_method" value="patch">
-  <input class="col-md-2 btn btn-default" type="submit" value="edit">
+  <a class="btn btn-block btn-default" href="/recipes/<%= @recipe.id %>/edit" role="button">edit</a>
+  <a class="btn btn-block btn-default" href="/recipes" role="button">main listing</a>
 </form>
