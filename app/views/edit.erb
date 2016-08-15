@@ -1,0 +1,22 @@
+<h1>Edit Your <%= @recipe.name.capitalize %> Recipe</h1>
+
+<form class="row form-horizontal" method="post" action="/recipes/<%= @recipe.id %>">
+
+  <div class="form-group row">
+    <label for="name">Name:</label>
+      <input id="hidden" type="hidden" name="_method" value="patch">
+      <input id="recipe_name" type="text" class="form-control" value="<%= @recipe.name %>" name="name">
+  </div>
+
+  <div class="form-group row">
+    <label for="ingredients">Ingredients:</label>
+      <input id="ingredients" type="text" class="form-control" value="<%= @recipe.ingredients %>" name="ingredients">
+  </div>
+
+  <div class="form-group row">
+    <label for="cook_time">Cook Time:</label>
+    <input id="cook_time" type="text" class="form-control" value="<%= @recipe.cook_time %>" name="cook_time">
+  </div>
+
+  <input class="btn btn-block btn-default" type="submit" value="submit">
+</form>

@@ -1,0 +1,12 @@
+<h1>Your <%= @recipe.name.capitalize %> Recipe</h1>
+<p>Name: <%= @recipe.name %></p>
+<p>Ingredients: <%= @recipe.ingredients %></p>
+<p>Cook time: <%= @recipe.cook_time %></p>
+
+<form class="row form-horizontal" method="post" action="/recipes/<%= @recipe.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input class="btn btn-block btn-default" type="submit" value="delete">
+
+  <a class="btn btn-block btn-default" href="/recipes/<%= @recipe.id %>/edit" role="button">edit</a>
+  <a class="btn btn-block btn-default" href="/recipes" role="button">main listing</a>
+</form>
