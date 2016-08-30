@@ -1,29 +1,29 @@
-class ApplicationController < Sinatra::Base
-  configure do
-    set :public_folder, 'public'
-    set :views, 'app/views'
-  end
+require './config/environment'
 
-  get "/recipes/new" do # loads the form to create a new post
+class ApplicationController < Sinatra::Base
+  # register Sinatra::ActiveRecordExtension
+  set :views, Proc.new { File.join(root, "../views/") }
+
+  get '/recipes/new' do #loads new form
     erb :new
   end
 
-  get "/recipes" do # show list of all recipes / loads index page
+  get '/recipes' do #loads index page
     @recipes = Recipe.all
     erb :index
   end
 
-  get "/recipes/:id" do  #loads show page
-      @recipe = Recipe.find_by_id(params[:id])
-      erb :show
+  get '/recipes/:id' do  #loads show page
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :show
   end
 
-  get "/recipes/:id/edit" do # load edit
-    @recipe = Recipe.find_by_id(params[:id]) # find the user id that was just saved to the database via post '/recipes'
-    erb :edit # displays the edit page
+  get '/recipes/:id/edit' do #loads edit form
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
   end
 
-  patch "/recipes/:id" do # update action
+  post '/recipes/:id' do  #updates a recipe
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
@@ -32,17 +32,16 @@ class ApplicationController < Sinatra::Base
     redirect to "/recipes/#{@recipe.id}"
   end
 
-  post "/recipes" do # action gor creatinng new recipe
+  post '/recipes' do  #creates a recipe
     @recipe = Recipe.create(params)
-    redirect to "/recipes/#{@recipe.id}" # send to this route to display the newly created recipe
+    redirect to "/recipes/#{@recipe.id}"
   end
 
-  delete "/recipes/:id/delete" do # delete action
-    @recipe = Recipe.find_by_id(params[:id])
-    @recipe.delete
-    redirect to "/recipes"
-  end
-
+  post '/recipes/:id/delete' do #delete action
+  @recipe = Recipe.find_by_id(params[:id])
+  @recipe.delete
+  redirect to '/recipes'
+end
 
 
 end
