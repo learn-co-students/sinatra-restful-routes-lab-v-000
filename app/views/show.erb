@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>title</title>
-  </head>
-  <body>
-    <h1>Index</h1>
-   <!--  <%Recipe.all.each do |list|%>
-    <h3><%=list.name%></h3>
-    <h3><%=list.ingredients%></h3>
-     <h3><%=list.cook_time%></h3> -->
+ <%Recipe.all.each do |all_info| %>
+ <%=all_info.name%>
+ <%=all_info.ingredients%>
+<%=all_info.cook_time%>
+  <form action="/recipes/<%= @recipe.id %>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+     <input type="submit" name="delete" value="delete">
+ </form>
 
-     <link rel="stylesheet" href= "/recipes/1/delete" type="text/css">
-     <input id="hidden" type="hidden" name="_method" value="delete">
-
-
-  </body>
-</html>
-<%end%>
+  <%end%>
