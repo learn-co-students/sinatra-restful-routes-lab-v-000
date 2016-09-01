@@ -10,6 +10,7 @@ gem 'rake'
 gem 'require_all'
 
 group :test do
+  gem 'shotgun'
   gem 'rspec'
   gem 'pry'
   gem 'pry-nav'
