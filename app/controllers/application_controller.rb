@@ -16,7 +16,6 @@ class ApplicationController < Sinatra::Base
 
   get '/recipes' do 
     @recipes = Recipe.all
-    @test = 1 
     erb :recipes
   end
 
