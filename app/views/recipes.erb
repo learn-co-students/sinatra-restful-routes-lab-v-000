@@ -6,7 +6,7 @@
 <% @recipes.each do |r| %> 
 <ul>
 Recipe <%= r.id %>
-<a href="/recipes/#{r.id}">test</a>
+<a href="/recipes/<%=r.id%>">test</a>
 <li> Name: <%= r.name %> </li>
 <li> Ingredients: <%= r.ingredients %> </li>
 <li> Cooking Time: <%= r.cook_time %> </li>
