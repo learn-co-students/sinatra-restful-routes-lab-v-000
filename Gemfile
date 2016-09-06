@@ -1,13 +1,14 @@
 source 'http://rubygems.org'
 
+gem 'sinatra'
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-
-gem 'sinatra'
-gem 'sqlite3'
-gem 'tux'
 gem 'rake'
 gem 'require_all'
+gem 'sqlite3'
+gem 'tux'
+gem 'thin'
+gem 'shotgun'
 
 group :test do
   gem 'rspec'
