@@ -6,7 +6,7 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'sinatra'
 gem 'sqlite3'
 gem 'tux'
-gem 'rake'
+gem 'rake', '11.3.0'
 gem 'require_all'
 
 group :test do
