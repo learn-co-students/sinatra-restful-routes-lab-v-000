@@ -28,7 +28,6 @@ get '/recipes/:id/edit' do
 end
 
 patch '/recipes/:id' do
-  binding.pry
   @recipe = Recipe.find(params[:id])
   @recipe.name = params["name"]
   @recipe.ingredients = params["ingredients"]
