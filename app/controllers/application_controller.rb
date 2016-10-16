@@ -14,10 +14,11 @@ end
 
 post '/recipes' do
   @recipe = Recipe.create(name:params["name"], ingredients:params["ingredients"], cook_time:params["cook_time"])
-  redirect to '/recipes/:id'
+  redirect to "/recipes/#{@recipe.id}"
 end
 
 get '/recipes/:id' do
+  binding.pry
   @recipe = Recipe.find(params[:id])
   erb :show
 end
@@ -41,5 +42,11 @@ get '/recipes' do
   erb :index
 end
 
+delete '/recipes/:id/delete' do
+  binding.pry
+  @recipe = Recipe.find(params[:id])
+  @recipe.delete
+  redirect to '/recipes'
+end
 
 end
