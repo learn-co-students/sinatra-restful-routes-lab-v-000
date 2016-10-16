@@ -33,7 +33,7 @@ patch '/recipes/:id' do
   @recipe.ingredients = params["ingredients"]
   @recipe.cook_time = params["cook_time"]
   @recipe.save
-  redirect to "recipes/:id"
+  erb :show
 end
 
 get '/recipes' do
