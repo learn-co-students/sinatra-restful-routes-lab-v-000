@@ -8,6 +8,8 @@ gem 'sqlite3'
 gem 'tux'
 gem 'rake'
 gem 'require_all'
+gem 'pg'
+gem 'rack' , '1.6.4'
 
 group :test do
   gem 'rspec'
