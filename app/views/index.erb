@@ -1,7 +1,7 @@
-<form action="/recipes" method="post">
-  <h1>Your Recipe</h1>
-  Name: <input type="text" name="name" id="name">
-  Ingredients: <input type="text" name="ingredients" id="ingredients">
-  Cook Time: <input type="text" name="cook_time" id="cook_time">
-  <input type="submit" name="submit" id="submit">
-</form>
+<h1>Recipes</h1>
+  <%= @recipes.each do |recipe| %>
+  <h2>Recipe</h2>
+      <p>Name: <%= recipe.name %></p><br>
+      <p>Ingredients: <%= recipe.ingredients %></p><br>
+      <p>Cook Time: <%= recipe.cook_time %></p><br>
+  <% end %>
