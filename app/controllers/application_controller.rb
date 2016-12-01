@@ -7,12 +7,21 @@ class ApplicationController < Sinatra::Base
 
   end
   get "/recipes" do
-
-
-  @recipe22 = Recipe.create(:name => "waldorf salad1", :ingredients => "apples, cabbage, oil, vinegar", :cook_time => "0")
   @recipes = Recipe.all()
-  
-   erb :index
-   end
+  erb :index
+  end
 
+  get "/recipes/:id" do
+    @recipe = Recipe.find(params[:id])
+    erb :show
+  end
+
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find(params[:id])
+    erb :edit
+  end
+
+ get 'recipes/new' do
+   erb :new
+ end
 end
