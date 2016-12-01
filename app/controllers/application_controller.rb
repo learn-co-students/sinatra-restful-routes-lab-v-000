@@ -4,6 +4,15 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
   get '/' do
-    erb :index
+
   end
+  get "/recipes" do
+
+
+  @recipe22 = Recipe.create(:name => "waldorf salad1", :ingredients => "apples, cabbage, oil, vinegar", :cook_time => "0")
+  @recipes = Recipe.all()
+  
+   erb :index
+   end
+
 end
