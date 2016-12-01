@@ -43,7 +43,7 @@ redirect "/recipes/#{recipe.id}"
 end
 
 
-delete "/recipes/:id/delete" do
+post "/recipes/:id/delete" do
   binding.pry
   recipe = Recipe.find_by(id: params[:id])
   recipe.delete
