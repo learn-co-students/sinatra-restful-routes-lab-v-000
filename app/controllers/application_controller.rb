@@ -39,14 +39,13 @@ recipe.name = params[:name]
 recipe.ingredients = params[:ingredients]
 recipe.cook_time = params[:cook_time]
 recipe.save
-redirect "/recipes/#{@recipe.id}"
+redirect "/recipes/#{recipe.id}"
 end
 
 
 delete "/recipes/:id/delete" do
- binding.pry
+  binding.pry
   recipe = Recipe.find_by(id: params[:id])
-
   recipe.delete
   redirect  '/recipes'
 end
