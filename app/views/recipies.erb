@@ -1,6 +1,8 @@
-<% @recipes.each do |recipe| %>
-<h1><a href="/recipe/<%=@recipe.id%>">Recipe <%=@recipe.id%></a></h1>
-<h2><%= recipe.name %></h2>
-<h2><%= recipe.ingredients %></h2>
-<h2><%= recipe.cook_time %></h2>
-<% end %>
+<form method="post" action="/recipes/<%= @recipe.id %>">
+  <% @recipes.each do |recipe| %>
+  <h1><a href="/recipe/<%=@recipe.id%>">Recipe <%=@recipe.id%></a></h1>
+  <h2><%= recipe.name %></h2>
+  <h2><%= recipe.ingredients %></h2>
+  <h2><%= recipe.cook_time %></h2>
+  <% end %>
+</form>
