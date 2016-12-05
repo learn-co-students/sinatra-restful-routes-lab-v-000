@@ -1,0 +1,7 @@
+<h2><%= @recipes.map do |x|
+"#{x.name}"
+end %></h2>
+
+<h2><%= @recipes.map do |x|
+"/recipes/#{x.id}"
+end %></h2>
