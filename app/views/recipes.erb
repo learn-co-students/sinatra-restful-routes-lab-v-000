@@ -1,0 +1,9 @@
+<%= s=""
+@list_all.each do |r| 
+s+="<a href=\"/recipes/"
+s+=r.id.to_s
+s+="\">"
+s+=r.name
+s+="</a>"
+end
+s %>
