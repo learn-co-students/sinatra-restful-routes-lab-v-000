@@ -2,13 +2,14 @@
 <p>Name: <%= @recipe.name %></p><br>
 <p>Ingredients: <%= @recipe.ingredients %></p><br>
 <p>Cooking time: <%= @recipe.cook_time %></p>
-<p>Delete: <%= "/recipes/#{@recipe.id}/delete" %></p>
+<!-- <p>Delete: <%= "/recipes/#{@recipe.id}/delete" %></p> -->
 
 <form action="/recipes/<%= @recipe.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="text" name="name">
+  <!-- <input type="text" name="name">
   <input type="text" name="ingredients">
-  <input type="text" name="cook_time">
+  <input type="text" name="cook_time"> -->
   <input type="submit" value="delete">
   <!-- at the bottom of https://learn.co/tracks/full-stack-web-development/sinatra/activerecord/sinatra-restful-routes, unclear why there are title and content fields, and unclear why the value for the submit input is "submit" rather than "delete" -->
+  <!-- see https://github.com/learn-co-students/sinatra-restful-routes-lab-v-000/blob/solution/app/views/show.erb -->
 </form>

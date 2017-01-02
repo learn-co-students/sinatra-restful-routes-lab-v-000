@@ -7,6 +7,8 @@ class CreateRecipes < ActiveRecord::Migration
     end
   end
 
+# no need for the method below
+
   def down
     drop_table :recipes
   end
