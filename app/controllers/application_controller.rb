@@ -17,8 +17,8 @@ class ApplicationController < Sinatra::Base
   end 
   
   post '/recipes' do #create
-    @recipes = Recipe.create(name: params[:name], ingredients: params[:content], cook_time: params[:cook_time])
-    #redirect "/recipes/#{@recipe.id}"  #redirects to the show page, how exactly??
+    @recipe = Recipe.create(name: params[:name], ingredients: params[:content], cook_time: params[:cook_time])
+    redirect "/recipes/#{@recipe.id}"  #redirects to the show page, how exactly??
     #redirect '/show'
   end
   
