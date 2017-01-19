@@ -1,0 +1,9 @@
+
+<h1> <%=@card.name%> </h1>
+<h2> <%=@card.ingredients%> </h2>
+<h2> <%=@card.cook_time%> </h2>
+
+<form action="/recipes/<%=@card.id%>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input id="delete" type="submit" value="Delete Recipe">
+</form>
