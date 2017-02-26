@@ -2,7 +2,7 @@
 
 <div class = "Recipes">
   <%@recipes.all.each do |r|%>
-  <h2><%=r.name%></h2>
+  <h2><a href = "/recipes/<%=r.id%>"><%=r.name%></a></h2>
   <h3>Ingredients: <%=r.ingredients%></h3>
   <h3>Cook Time: <%=r.cook_time%></h3><br>
   <%end%>
