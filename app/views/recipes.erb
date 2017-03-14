@@ -1,0 +1,5 @@
+<ol>
+    <%@recipes.each do |recipe|%>
+    <li><h3><%=recipe.name%></h3>  <em><%=recipe.ingredients%>, <%=recipe.cook_time%></em>  (<a href="/recipes/<%=recipe.id%>">view</a> | <a href="/recipes/<%=recipe.id%>/edit">edit</a>)</li>
+    <%end%>
+</ol>
