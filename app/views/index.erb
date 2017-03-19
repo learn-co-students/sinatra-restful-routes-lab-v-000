@@ -7,7 +7,11 @@
  <body>
 
   <h1>Recipes List</h1>
-
+    <ol>
+      <% @recipes.each do |recipe| %>
+        <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
+        <% end %>
+    </ol>
 
   </body>
 </html>

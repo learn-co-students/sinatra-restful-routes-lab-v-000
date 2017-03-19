@@ -7,12 +7,20 @@
  <body>
 
   <h1><%= "#{@recipe.name}" %></h1>
-  <p><%= "#{@post.ingredients}" %></p>
-  <p><%= "#{@post.cook_time}" %></p>
+  <p><%= "#{@recipe.ingredients}" %></p>
+  <p><%= "#{@recipe.cook_time}" %></p>
+
+  <h3>------------------------------</h3>
+  <a href = "/recipes/<%= @recipe.id %>/edit">Edit Recipe</a>
+  <br>
+  <br>
+  <a href = "/">Return to Recipe List</a>
+  <br>
+  <h3>------------------------------</h3>
 
   <form method="post" action="/recipes/<%= @recipe.id %>/delete">
     <input id="hidden" type="hidden" name="_method" value="delete">
     <input type="submit" value="delete">
-  </form>
+  </form><br>
 
   </body>

@@ -1,4 +1,5 @@
 require_relative '../../config/environment'
+require 'pry'
 
 class ApplicationController < Sinatra::Base
 
@@ -8,12 +9,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    #@recipes = Recipe.all
-    erb :index
+    redirect to '/recipes'
   end
 
   get '/recipes' do
-    redirect to '/'
+    @recipes = Recipe.all
+    erb :index
   end
 
   get '/recipes/new' do
@@ -22,7 +23,7 @@ class ApplicationController < Sinatra::Base
 
   post '/recipes' do
     @recipe = Recipe.create(params)
-    erb :show
+    redirect to "/recipes/#{@recipe.id}"
   end
 
   get '/recipes/:id' do
@@ -30,7 +31,7 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
-  get 'recipes/:id/edit' do
+  get '/recipes/:id/edit' do
     @recipe = Recipe.find_by_id(params[:id])
     erb :edit
   end

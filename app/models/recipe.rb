@@ -1,2 +1,2 @@
-class Recipe < ActiveRecord::Migration
+class Recipe < ActiveRecord::Base
 end
