@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title><%= @recipe.name %></title>
+ </head>
+ <body>
+
+  <h1><%= "#{@recipe.name}" %></h1>
+  <p><%= "#{@post.ingredients}" %></p>
+  <p><%= "#{@post.cook_time}" %></p>
+
+  <form method="post" action="/recipes/<%= @recipe.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+  </form>
+
+  </body>
