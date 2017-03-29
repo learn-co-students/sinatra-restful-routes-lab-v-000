@@ -43,7 +43,9 @@ class ApplicationController < Sinatra::Base
     erb :edit
   end
 
-  post '/recipes/:id/delete' do
-    erb :delete
+  delete '/recipes/:id' do
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect '/'
   end
 end
