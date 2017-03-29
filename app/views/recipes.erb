@@ -1,0 +1,5 @@
+<ol>
+  <% Recipe.all.each do |yum| %>
+  <li><a href="/recipes/<%=yum.id%>"><%= yum.name %></a></li>
+  <% end %>
+</ol>
