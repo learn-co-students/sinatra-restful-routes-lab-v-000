@@ -21,9 +21,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/:id' do
-    # get recipe from db
-    # including delete button
-    erb :show
+    @recipe = Recipe.find_by(id: params[:id])
+    if !@recipe
+      redirect '/'
+    end
+      erb :show
   end
 
   get '/recipes/:id/edit' do
