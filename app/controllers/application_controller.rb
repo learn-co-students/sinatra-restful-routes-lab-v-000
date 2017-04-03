@@ -28,12 +28,16 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/:id/edit' do
-    # including delete button?
     erb :edit
   end
 
   patch '/recipes/:id' do
-    # modify instance of recipe and save then redirect to display
+    recipe = current_recipe
+    recipe.name = params[:name]
+    recipe.ingredients = params[:ingredients]
+    recipe.cook_time = params[:cook_time]
+    recipe.save
+    erb :show
   end
 
   delete '/recipes/:id' do
