@@ -17,7 +17,10 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes' do
-    # create instance of recipe and save, then redirect to display
+    recipe = Recipe.new
+    recipe.assign_attributes(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    recipe.save
+    redirect to("/recipes/#{recipe.id}")
   end
 
   get '/recipes/:id' do
@@ -33,15 +36,15 @@ class ApplicationController < Sinatra::Base
 
   patch '/recipes/:id' do
     recipe = current_recipe
-    recipe.name = params[:name]
-    recipe.ingredients = params[:ingredients]
-    recipe.cook_time = params[:cook_time]
+    recipe.assign_attributes(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     recipe.save
-    erb :show
+    redirect to("/recipes/#{recipe.id}")
   end
 
-  delete '/recipes/:id' do
-    # delete the instance of the recipe
+  delete '/recipes/:id/delete' do
+    recipe = current_recipe
+    recipe.delete
+    redirect '/'
   end
 
   helpers do
