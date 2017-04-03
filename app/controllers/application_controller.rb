@@ -41,4 +41,10 @@ class ApplicationController < Sinatra::Base
     # delete the instance of the recipe
   end
 
+  helpers do
+      def current_recipe
+        Recipe.find_by(params[:id])
+      end
+  end
+
 end
