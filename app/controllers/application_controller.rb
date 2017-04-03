@@ -21,8 +21,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/:id' do
-    @recipe = Recipe.find_by(id: params[:id])
-    if !@recipe
+    if !current_recipe
       redirect '/'
     end
       erb :show
@@ -43,7 +42,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
       def current_recipe
-        Recipe.find_by(params[:id])
+        Recipe.find_by(id: params[:id])
       end
   end
 
