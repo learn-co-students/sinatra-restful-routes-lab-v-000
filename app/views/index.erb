@@ -1,0 +1,6 @@
+<h2>List of Recipes</h2>
+<% @recipes.sort.each do |recipe| %>
+  <p>
+    <a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a>
+  </p>
+<% end %>

@@ -1,0 +1,14 @@
+<h2>Add Recipe</h2>
+<% fields = ["name", "ingredients", "cook_time"] %>
+<form action="/recipes" method="POST">
+  <% fields.each do |field| %>
+    <% field_name = field.split("_").map{|w| w.capitalize}.join(" ") + ": " %>
+    <p>
+      <label for="<%= field %>"><%= field_name %></label>
+      <input type="text" id="<%= field %>" name="<%= field %>">
+    </p>
+  <% end %>
+  <p>
+    <input type="submit">
+  </p>
+</form>
