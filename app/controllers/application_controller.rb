@@ -23,38 +23,38 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/:id' do #an individual recipe
-    find_by_id #find recipe (supplied by /:id in url), create object and pass it off to show.erb
+    create_by_id #find recipe (supplied by /:id in url), create object and pass it off to show.erb
     erb :show
   end
 
   get '/recipes/:id/edit' do  #load edit form
-    find_by_id
+    create_by_id
     erb :edit
   end
 
   post '/recipes/:id' do #POST not PATCH.
-    find_by_id
-    edit
+    create_by_id
+    submit_edit
     redirect "/recipes/#{@recipe.id}"
   end
 
   post '/recipes/:id/delete' do #POST not DELETE. receives delete (post) request from show.erb form. finds and deletes object from db.
-    find_by_id
+    create_by_id
     @recipe.delete
     redirect to '/recipes'
   end
 
   helpers do
-		def find_by_id
-			@recipe = Recipe.find(params[:id])
-		end
+    def create_by_id
+      @recipe = Recipe.find(params[:id])
+    end
 
-    def edit
+    def submit_edit
       @recipe.name = params[:name]
       @recipe.ingredients = params[:ingredients]
       @recipe.cook_time = params[:cook_time]
       @recipe.save
     end
-	end
 
+	end
 end
