@@ -1,4 +1,5 @@
-source 'http://rubygems.org'
+# frozen_string_literal: true
+source "https://rubygems.org"
 
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
@@ -15,5 +16,6 @@ group :test do
   gem 'pry-nav'
   gem 'capybara'
   gem 'rack-test'
+  gem 'shotgun'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end
