@@ -1,0 +1,4 @@
+<%@recipes.collect do |recipe| %>
+  <%=recipe.name%>
+  <a href="/recipes/<%=recipe.id%>">/recipes/<%=recipe.id%></a>
+<%end%>
