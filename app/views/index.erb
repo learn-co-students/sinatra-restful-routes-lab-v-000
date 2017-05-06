@@ -1,0 +1,12 @@
+
+<h1>Welcome to the Recipe Site</h1>
+
+<h2>Available Recipes:</h2>
+<h3>Click on a Recipe to view it:</h3>
+
+
+  <ol>
+    <%@recipe.all.each.with_index do |recipe, i|%>
+    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></li>
+    <% end %>
+  </ol>
