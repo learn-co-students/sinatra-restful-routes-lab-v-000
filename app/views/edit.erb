@@ -1,5 +1,5 @@
 <h3>Please enter contents to change</h3>
-<form method =  post action = '/recipes/<%= @recipe.id %>'>
+<form method =  post action = "/recipes/<%= @recipe.id %>">
 <input id = "hidden" type = "hidden" name = "_method" value = "patch">
 Name :<input type = text name = name  value="<%=@recipe.name%>"><br>
 Ingredients : <input type = text name = ingredients value="<%=@recipe.ingredients%>"><br>
