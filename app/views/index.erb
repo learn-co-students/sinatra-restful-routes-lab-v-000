@@ -1,0 +1,5 @@
+<h3> Here are your favorite recipes</h3>
+ <% @recipes.each{|r| %>
+
+ <a href= "/recipes/<%=r.id %>" ><%= r.name %></a><br>
+ <% } %>
