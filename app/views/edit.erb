@@ -1,0 +1,13 @@
+<%=@recipe.ingredients%>
+
+
+<!--must add use Rack::MethodOverride to config for patch to work -->
+<form action="/recipes/<%=@recipe.id%>" method="post">
+
+  <input id="hidden" type="hidden" name="_method" value="patch"><br><br>
+  Name: <input type="text" name="name" value="<%=@recipe.name%>"><br><br>
+  Ingredients: <input type="text" name="ingredients"  value="<%=@recipe.ingredients%>"><br><br>
+  Cook Time: <input type="text" name="cook_time" value="<%=@recipe.cook_time%>">
+  <input type="submit" value="submit">
+
+</form>
