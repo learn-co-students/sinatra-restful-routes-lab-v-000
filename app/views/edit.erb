@@ -11,12 +11,12 @@
     <form method = "post" action = "/recipes/<%=@recipe.id%>">
       <input id="hidden" type="hidden" name="_method" value="patch">
       <label for = "name">Name:</label>
-      <input type = "text" name = "name" id = "name" value = "<%=@recipe.name%>">
+      <input type = "text" name = "name" id = "name" >
       <label for = "ingredients">Ingredients:</label>
-      <input type = "text" name = "ingredients" id = "ingredients" value = "<%=@recipe.ingredients%>">
+      <input type = "text" name = "ingredients" id = "ingredients" >
       <label for = "cook_time">Cook Time:</label>
-      <input type ="text" name = "cook_time" id = "cook_time" value = "<%=@recipe.ingredients%>">
-      <input type = "submit" id = "submit">
+      <input type ="text" name = "cook_time" id = "cook_time">
+      <input type = "submit" value = "submit">
     </form>
   </body>
 </html>
