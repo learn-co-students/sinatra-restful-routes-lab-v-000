@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Recipes Index
+    </title>
+  </head>
+  <body>
+    <h1>
+      Welcome to the Recipes Index!
+    </h1>
+    <% @recipes.each do |recipe| %>
+      <h2><a href='/recipes/<%= recipe.id %>'><%= recipe.name %></a></h2>
+      <ul>
+        <li>Ingredients: <%= recipe.ingredients %></li>
+        <li>Cook Time: <%= recipe.cook_time %></li>
+      </ul>
+    <% end %>
+  </body>
+</html>
