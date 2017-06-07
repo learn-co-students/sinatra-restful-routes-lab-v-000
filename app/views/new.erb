@@ -1,0 +1,13 @@
+<h1 align='center'>New Recipe</h1>
+  <hr />
+  <div class='menu' align='center'>
+    <a href='/recipes'>My Recipes</a> | Create a Recipe
+  </div><br>
+  <div align='center' class='new-recipe-form' width=600px>
+    <form method='post' action='/recipes'>
+        <input type='text' name='name' id='name' placeholder='Recipe Name'/><br>
+        <input type='text' name='cook_time' id='cook_time' placeholder='Cook Time'/><br>
+        <textarea name='ingredients' id='ingredients' rows=8 placeholder='Ingredients - Please separate ingredients by comma.'></textarea><br>
+      <input type='submit' value='Create Recipe' />
+    </form>
+  </div>
