@@ -1,0 +1,6 @@
+<% @recipes.each do |r| %>
+  <form action="/recipes/<%=r.id%>" method="post">
+    <h2><%=r.name%>
+    <input type="submit" value="see recipe"></h2>
+  </form>
+<% end %>
