@@ -1,0 +1,27 @@
+<h1 align='center'>My Recipes</h1>
+  <hr />
+  <div class='menu' align='center'>
+    <a href='/recipes'>My Recipes</a> | <a href='/recipes/new'>Create a Recipe</a>
+  </div>
+  <div class='recipe' align='center'>
+    <br>
+    <a href='/recipes/<%= @recipe.id %>/edit'>Edit</a>
+    <form method='post' action='/recipes/<%= @recipe.id %>/delete'>
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type='submit' value='delete' />
+    </form>
+    <font size='0'><%= @recipe.ingredients %></font>
+    <table align='center' width='175' border=0>
+      <tr align='center'>
+        <td><strong><%= @recipe.name %></strong></td>
+      </tr>
+      <tr align='center'>
+        <td><em><%= @recipe.cook_time %></em></td>
+      </tr>
+      <tr>
+        <td><ul><% @ingredients.flatten.each do |ingredient| %>
+            <li><%= ingredient %></li>
+            <% end %>
+          </ul>
+      </tr>
+    </table>

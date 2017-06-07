@@ -1,0 +1,14 @@
+<h1 align='center'>My Recipes</h1>
+  <hr />
+  <div class='menu' align='center'>
+    <a href='/recipes'>My Recipes</a> | <a href='/recipes/new'>Create a Recipe</a>
+  </div><br>
+  <div class='edit' align='center'>
+    <form method='post' action='/recipes/<%= @recipe.id %>'>
+      <input id="hidden" type="hidden" name="_method" value="patch">
+      <input type='text' name='name' id='name' value='<%= @recipe.name %>'/><br>
+      <input type='text' name='cook_time' id='cook_time' value='<%= @recipe.cook_time %>'/><br>
+      <textarea name='ingredients' id='ingredients' rows=8><%= @recipe.ingredients %></textarea><br>
+      <input type='submit' value='submit' />
+    </form>
+  </div>
