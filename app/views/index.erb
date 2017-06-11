@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+
+    <input type="button" value="New Recipe" onclick="location='/recipes/new'">
+    <% if @recipes.empty? %>
+      <p>There's no Recipe.</p>
+      <a href="/recipes/new">Add Recipes</a>
+    <% else %>
+
+      <% @recipes.each do |recipe| %>
+        <p>Index: <%=recipe.id%></p>
+        <p>Name: <%=recipe.name%></p>
+        <p>Ingredients: <%=recipe.ingredients%></p>
+        <a href="/recipes/<%=recipe.id%>">Show Recipe</a>
+        <p>=======================</p>
+      <% end %>
+    <% end %>
+
+  </body>
+</html>
