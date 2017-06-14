@@ -1,0 +1,10 @@
+#displays a list of recipes
+#contains links to each recipe's show page
+
+<h1>Your Recipe Book:</h1>
+ <% @recipes.each do |recipe| %>
+  <div class="recipe">
+    <%= recipe.name %>
+    <a href="/recipes/<%= recipe.id %>"></a>
+  </div>
+<% end %>
