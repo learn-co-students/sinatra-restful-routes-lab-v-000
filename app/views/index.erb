@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<h2>My Recipe Box</h2>
+<%@recipes.each do |recipe| %>
+  <h2><%=recipe.id%></h2>
+  <h2>Recipe Name: <%=recipe.name%></h2>
+  <p>To Open This Recipe<a href="/recipes/<%=recipe.id%>">Select It Here</a></p>
+<%end%>
+</html>
