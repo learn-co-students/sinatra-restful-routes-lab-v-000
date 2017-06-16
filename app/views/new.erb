@@ -1,7 +1,23 @@
-<h3>New Recipe</h3>
-<form action="/recipes" method="POST">
-  Name: <input type="text" name="name"><br><br>
-  Ingredients: <input type="text" name="ingredients"><br><br>
-  Cook Time: <input type="text" name="cook_time"><br><br>
-  <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Add A New Recipe</title>
+ </head>
+  <body>
+    <h3>New Recipe</h3>
+    <form action="/recipes" method="POST">
+      Name: <input type="text" name="name"><br><br>
+      Ingredients: <input type="text" name="ingredients"><br><br>
+      Cook Time: <input type="text" name="cook_time"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <br><a href="http://138.197.214.116:30016/recipes/<%=@id%>/edit">Edit The Recipe</a><br>
+
+    <br><a href="http://138.197.214.116:30016/recipes/new">Add A Recipe</a><br>
+
+    <br><a href="http://138.197.214.116:30016/recipes">Return To The Recipes List</a><br><br>
+
+  </body>
+</html>
