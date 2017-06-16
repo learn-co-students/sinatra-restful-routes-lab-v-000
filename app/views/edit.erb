@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Edit A Recipe</title>
+ </head>
+ <body>
+    <h1>Edit A Recipe</h1>
+
+	<form action="/recipes/<%=@id%>/edit" method="post">
+	  <input id="hidden" type="hidden" name="_method" value="patch">
+    Name: <input type="text" name="name" value="<%= @name %>"><br><br>
+    Ingredients: <input type="text" name="ingredients" value="<%= @ingredients %>"><br><br>
+    Cook Time: <input type="text" name="cook_time" value="<%= @cook_time %>"><br><br>
+	  <input type="submit" value="submit">
+	</form>
+
+  <br><br><a href="http://138.197.214.116:30016/recipes">Return To The Recipes List</a>
+
+ </body>
+</html>

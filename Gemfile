@@ -9,6 +9,7 @@ gem 'tux'
 gem 'rake'
 gem 'require_all'
 gem 'shotgun'
+gem 'pry'
 gem 'json', '>=1.8.3'
 
 group :test do

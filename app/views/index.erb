@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Recipes List</title>
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+ </head>
+ <body>
+  <h1> Recipes </h1>
+  <% if @recipes.size > 0%>
+	  <% @recipes.each do |recipe| %>
+	  	<a href="http://138.197.214.116:30016/recipes/<%=recipe.id%>"><%=recipe.name%></a><br>
+	  <% end %>
+    <br><br><a href="http://138.197.214.116:30016/recipes/new">Add A Recipe</a><br>
+  <%else%>
+	<h2>There are no recipes to display!</h2>
+  <%end%>
+ </body>
+</html>

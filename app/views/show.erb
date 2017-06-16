@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Show A Recipe</title>
+ </head>
+ <body>
+    <h1>Recipe</h1>
+
+    <h3>Name: <%= @name %></h3>
+    <h3>Ingredients: <%= @ingredients %></h3>
+    <h3>Cook Time: <%= @cook_time %></h3>
+
+  <a href="http://138.197.214.116:30016/recipes/<%=@id%>/edit">Edit The Recipe</a><br>
+
+  <br><a href="http://138.197.214.116:30016/recipes">Return To The Recipes List</a><br><br>
+
+  <form action="/recipes/<%=@id%>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+  </form>
+
+ </body>
+</html>
