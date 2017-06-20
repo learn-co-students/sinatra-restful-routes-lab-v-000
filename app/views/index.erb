@@ -1,0 +1,15 @@
+<h1>Your Recipes:</h1>
+
+<table>
+<tr><th>Name</th><th><View></th></tr>
+
+<%Recipe.all.each{ |recipe|%>
+<tr><td><%=recipe.name%></td><td><a href="/recipes/<%=recipe.id%>">View</a></td></tr>
+<%}%>
+
+</table>
+
+
+<form method = "get" action = "/recipes/new">
+<input type = "submit" name = "submit" id = "submit" value="Create New Recipe!">
+</form>

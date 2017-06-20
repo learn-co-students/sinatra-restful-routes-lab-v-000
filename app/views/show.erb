@@ -1,0 +1,23 @@
+<h1><%=Recipe.find(@id).name%>
+
+<h4>Ingredients</h4>
+<p><%=Recipe.find(@id).ingredients%></p>
+
+<h4>Cook time</h4>
+<p><%=Recipe.find(@id).cook_time%></p>
+
+
+<form method="post" action="/recipes/<%=@id%>">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" id="delete" value="delete" name="delete">
+</form>
+
+<br>
+
+<a href="/recipes/<%=@id%>/delete">Delete</a>
+
+<br>
+
+<form method="get" action="/recipes/<%=@id%>/edit">
+<input type="submit" id="edit" value="edit" name="edit">
+</form>
