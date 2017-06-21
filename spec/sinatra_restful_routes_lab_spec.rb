@@ -1,5 +1,4 @@
 require 'spec_helper'
-
 describe "Recipe App" do
   let(:recipe_name) { "Bomb.com Mac and Cheese" }
   let(:recipe_ingredients) { "milk, butter, cheese, elbow pasta" }
