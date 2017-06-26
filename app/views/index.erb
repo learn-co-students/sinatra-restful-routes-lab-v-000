@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Recipe Box: All Recipes</title>
+  </head>
+  <body>
+    <h1>All Recipes</h1>
+    <a href="/recipes/new">Add Recipe</a><br><br>
+    <% Recipe.all.each do |recipe| %>
+      <h2><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></h2>
+      <h3><%= recipe.cook_time %></h3>
+      <ul>
+      <% recipe.ingredients.split(", ").each do |ingred| %>
+        <li><%= ingred %></li>
+      <% end %>
+      </ul>
+    <% end %>
+  </body>
+</html>
