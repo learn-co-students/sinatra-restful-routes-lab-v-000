@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Recipes</title>
-  </head>
-  <body>
+
     <h1>Recipes</h1>
 
     <% Recipe.all.each do |r| %>
       <h2><a href="/recipes/<%= r.id %>"</a><%= r.name %></h2>
     <% end %>
-  </body>
-</html>
