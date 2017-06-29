@@ -1,0 +1,15 @@
+<!-- <h2>Click <a href="/recipes">here</a> to see your recipes.</h2><br>
+<h2>Click <a href="/recipes/new">here</a> to create new recipes.</h2>
+ -->
+
+ <h1>Here are your recipes:</h1>
+
+ <% @recipes.each.with_index(1) do |r, i| %>
+ <h3><%= i %>. <a href="/recipes/<%= r.id %>"><%= r.name %></a></h3>
+ <% end %>
+
+
+<br><br><br>
+
+
+ <h4>Click <a href="/recipes/new">here</a> to create a new recipe.</h4>
