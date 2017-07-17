@@ -1,0 +1,12 @@
+<!-- displays list of recipes
+contains links to each recipe's show page -->
+
+<h1>Recipes</h1>
+
+<% Recipe.all.each do |recipe| %>
+  <h2><p>
+    <a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></p></h2>
+    <p><%= recipe.ingredients %></p>
+<% end %>
+
+<a href="/recipes/new">Enter a New Recipe</a>

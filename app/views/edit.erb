@@ -1,0 +1,11 @@
+  <!-- displays recipe's ingredients before editing -->
+
+  <h1>Edit YourRecipe</h1>
+
+  <form action="/recipes/<%= @recipe.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <p><label>Recipe Name: <input type="text" name="name" value="<%= @recipe.name %>"></label></p>
+    <p><label>Cook Time: <input type="text" name="cook_time" value="<%= @recipe.cook_time %>"></label></p>
+    <p><label>Ingredients: <textarea name="ingredients" cols="40" rows="5"><%= @recipe.ingredients %></textarea></label></p>
+    <p><button type="submit" value="submit">Submit</button>
+  </form>
