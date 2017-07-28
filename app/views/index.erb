@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Recipes</title>
+  </header>
+  <body>
+  <h1>Recipes</h1>
+  <% @recipes.each do |recipe| %>
+    <li>Name: <%= recipe.name %></li>
+      <li>Ingredients: <%= recipe.ingredients %></li>
+      <li>Cook Time: <%= recipe.cook_time %></li>
+  <% end %>
+
+  </body>
+</html>
