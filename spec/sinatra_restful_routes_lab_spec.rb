@@ -132,11 +132,12 @@ describe "Recipe App" do
       fill_in "name", :with => "Double chocolate chip cookies"
       fill_in "ingredients", :with => "chocolate chips, flour, sugar, butter, cocoa powder"
       fill_in "cook_time", :with => "30 minutes"
+      binding.pry
       click_button "submit"
     end
 
     it "redirects to the recipe show page" do
-      #binding.pry 
+      #binding.pry
       expect(page.current_path).to eq("/recipes/#{@cookie.id}")
       expect(page).to have_content("Double chocolate chip cookies")
       expect(page).to have_content("chocolate chips, flour, sugar, butter, cocoa powder")
