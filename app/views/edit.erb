@@ -6,15 +6,15 @@
   </head>
   <body>
     <h1>Edit form</h1>
-    <h3>Recipe name<%=@recipe.name%></h3>
-    <h3>Ingredient<%=@recipe.ingredients%></h3>
+    <h3>Recipe name:  <%=@recipe.name%></h3>
+    <h3>Ingredient:  <%=@recipe.ingredients%></h3>
     <form action="/recipes/<%= @recipe.id %>" method="post"><!--inserts variable into erb <%= @recipe.id %>-->
     <input id="hidden" type="hidden" name="_method" value="patch">
-      <label>name</label>
+      <label>name:  </label>
       <input type="text" name="name"><br>
-      <label>ingredients</label>
+      <label>ingredients:  </label>
       <input type="text" name="ingredients"><br>
-      <label>cook_time</label>
+      <label>cook_time:  </label>
       <input type="text" name="cook_time"><br>
       <input id="submit" type="submit" name="submit">
     </form>
