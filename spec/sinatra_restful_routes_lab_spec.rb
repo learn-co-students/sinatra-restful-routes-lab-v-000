@@ -132,7 +132,7 @@ describe "Recipe App" do
       fill_in "name", :with => "Double chocolate chip cookies"
       fill_in "ingredients", :with => "chocolate chips, flour, sugar, butter, cocoa powder"
       fill_in "cook_time", :with => "30 minutes"
-      binding.pry
+      #binding.pry
       click_button "submit"
     end
 
