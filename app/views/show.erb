@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <p><%= @recipe.name %></p>
+    <p><%= @recipe.ingredients%></p>
+    <p><%= @recipe.cook_time%></p>
+    <form action="/recipes/<%= @recipe.id%>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+      <!--this is a delete section, type non-existence leads to input box-->
+  <input type="submit"value="delete">
+</body>
+</html>
