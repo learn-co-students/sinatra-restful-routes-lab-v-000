@@ -10,8 +10,12 @@ class ApplicationController < Sinatra::Base
 
   get '/recipes' do
     @recipes = Recipe.all
-    #binding.pry
     erb :index
+  end
+
+  get 'recipes/:id' do
+    @recipe = Recipe.find_by(params[:id])
+    erb: index
   end
 
 
