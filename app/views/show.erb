@@ -1,0 +1,8 @@
+<%= Recipe.find(params[:id]).name + " " %>
+<%= Recipe.find(params[:id]).ingredients + " "%>
+<%= "#{Recipe.find(params[:id]).cook_time} minutes" %>
+
+<form method="POST" action=<%="/recipes/#{params[:id]}/delete"%>>
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete" id="delete">
+</form>
