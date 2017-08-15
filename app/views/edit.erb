@@ -1,0 +1,9 @@
+<h2>Current ingredients</h2>
+<p><%=Recipe.find(params[:id]).ingredients%></p>
+<form method="POST" action=<%="/recipes/#{params[:id]}/edit"%>>
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <p>Enter new name:<input type="text" name="name"></p>
+  <p>Enter new ingredients list:<input type="text" name="ingredients"></p>
+  <p>Enter new cooking time:<input type="text" name="cook_time"></p>
+  <input type="submit" value="Submit" name="submit" id="submit">
+</form>

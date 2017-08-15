@@ -108,7 +108,7 @@ describe "Recipe App" do
         "cook_time" => "1 hour"
       }
 
-      post '/recipes', params
+      post '/recipes/new', params
       follow_redirect!
     end
     it "creates a new recipe and saves to the database" do 
