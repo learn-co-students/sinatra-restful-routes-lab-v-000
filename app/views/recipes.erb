@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+  <h1>These aren't your Grandma's recipes</h1>
+
+  <p>  <% @recipes.each do |recipe| %>
+    <h3>  Name: <%=recipe.name%> </h3><br>
+      Ingredients: <%=recipe.ingredients%><br>
+      Cook Time: <%=recipe.cook_time%>
+    <%end%> </p>
+
+    <a href="/new">Add a new Recipe!!</a>
+
+</body>
+</html>
