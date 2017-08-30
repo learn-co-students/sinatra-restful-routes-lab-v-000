@@ -83,7 +83,6 @@ describe "Recipe App" do
     it "submits via a patch request" do
       expect(last_response.body).to include('<input id="hidden" type="hidden" name="_method" value="patch">')
     end
-
   end
 
   describe "new page '/recipes/new'" do
