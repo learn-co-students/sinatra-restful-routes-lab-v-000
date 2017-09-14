@@ -1,0 +1,12 @@
+<h1>Home</h1>
+
+<!-- <form action="/recipes" method="get">
+	<input type="submit" name="View Recipies">
+</form> -->
+
+<h2>All Recipes</h2>
+
+<% @recipes.each do |recipe| %>
+	<p><%= "#{recipe.name}:\n #{recipe.ingredients}" %>
+	<a href="/recipes/<%= "#{recipe.id}" %>">See More Details</a>
+<% end %>
