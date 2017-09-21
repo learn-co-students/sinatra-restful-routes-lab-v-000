@@ -1,0 +1,9 @@
+<h3>Recipe for <%= @recipe.name.split.each {|word| word.capitalize!}.join(" ") %>:</h3>
+<p><strong>Name:</strong> <%= @recipe.name %></p>
+<p><strong>Ingredients:</strong> <%= @recipe.ingredients %></p>
+<p><strong>Cook Time:</strong> <%= @recipe.cook_time %></p>
+
+<form method="post" action="/recipes/<%= @recipe.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>

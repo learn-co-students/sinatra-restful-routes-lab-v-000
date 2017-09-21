@@ -1,0 +1,19 @@
+<h3>Edit <%= @recipe.name.split.each {|word| word.capitalize!}.join(" ") %> Recipe:</h3>
+<p><strong>Original Ingredients:</strong> <%= @recipe.ingredients %></p>
+
+<form method="post" action="/recipes/<%= @recipe.id %>/edit">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <p>
+    <label for="r_name">Name:</label>
+    <input type="text" id="r_name" name="name">
+  </p>
+  <p>
+    <label for="r_ingredients">Ingredients:</label>
+    <input type="text" id="r_ingredients" name="ingredients">
+  </p>
+  <p>
+    <label for="r_cook_time">Cook Time:</label>
+    <input type="text" id="r_cook_time" name="cook_time">
+  </p>
+  <input type="submit" value="submit">
+</form>
