@@ -1,0 +1,23 @@
+<h1>Edit Recipe</h1>
+<div class="container">
+	<form action="/recipes/<%=params[:id]%>" method="post">
+		<div class="form-group">
+			<label>Recipe name:</label>
+			<br>
+			<textarea id="" name="name" cols="70"><%=@recipe.name%></textarea>
+		</div>
+		<div class="form-group">
+			<label>Recipe cook time:</label>
+			<br>
+			<textarea id="" name="cook_time" cols="70"><%=@recipe.cook_time%></textarea>
+		</div>
+		<div class="form-group">
+			<label>Recipe ingredients:</label>
+			<br>
+			<textarea id="" name="ingredients" rows="10" cols="70"><%=@recipe.ingredients%></textarea>
+		</div>
+		<button type="submit" id="submit" class="btn btn-default">Submit</button>
+
+		<input id="hidden" type="hidden" name="_method" value="patch">
+</form>
+</div>
