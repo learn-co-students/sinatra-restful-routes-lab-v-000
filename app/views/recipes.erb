@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Recipes Index Page</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style2.css">
+</head>
+
+<h1>Recipes Index Page</h1>
+
+<% @recipes.each do |recipe| %>
+  <h3 ><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></h3>
+  <p><strong>Ingredients:</strong>  <%= recipe.ingredients %></p>
+  <p><strong>Cook Time:</strong>  <%= recipe.cook_time %></p>
+<% end%>
+
+<h4><a href="/recipes/new">Create new recipe</a></h4>
+
+</html>
