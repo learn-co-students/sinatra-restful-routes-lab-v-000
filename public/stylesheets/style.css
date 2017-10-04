@@ -1,0 +1,21 @@
+body {
+  background: CornflowerBlue;
+}
+
+h1 {
+  color: Green;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 2.0em;
+}
+
+h3 {
+  color: green;
+  font-weight: normal;
+  font-style: italic;
+}
+
+p {
+  color: black;
+  text-indent: 20px;
+}
