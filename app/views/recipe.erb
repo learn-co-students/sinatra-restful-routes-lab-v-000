@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Recipe?</title>
-  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-</head>
-
-
-<body>
 <h3 ><%= @recipe.name %></h3>
 <p><strong>Ingredients:</strong> <%= @recipe.ingredients %></p>
 <p><strong>Cook Time:</strong> <%= @recipe.cook_time %></p>
@@ -18,7 +8,3 @@
   <input id="hidden" type="hidden" name="_method" value="delete">
   <button type="submit">delete</button>
 </form>
-
-</body>
-
-</html>
