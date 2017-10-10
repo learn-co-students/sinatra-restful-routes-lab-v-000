@@ -1,0 +1,12 @@
+<a href="/recipes/new">Create A New Recipe</a>
+
+<%@recipes.each do |r|%>
+
+  <h3><%=r.name%></h3>
+  <a style="font-size: 75%;" href="/recipes/<%= r.id %>/edit">Edit This Recipe</a>
+  <h5>Cook Time: <%=r.cook_time%></h5>
+  <p>Ingredients:</p>
+  <p><%=r.ingredients%></p>
+
+
+<%end%>
