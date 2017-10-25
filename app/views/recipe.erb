@@ -1,0 +1,17 @@
+<% if @recipe_query %>
+  <h3> Name: <%= @recipe_query.name %></h3>
+  <br>
+  <h3> Ingredients: <%= @recipe_query.ingredients %></h3>
+  <br>
+  <h3> Cooking Time (minutes): <%= @recipe_query.cook_time %> minutes</h3>
+  <br>
+  <a href="recipes/<%= @recipe_query.id %>/delete">Delete Recipe: -/recipes/<%= @recipe_query.id %>/delete
+  <form action="/recipes/<%= @recipe_query.id %>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+  </form>
+<% else %>
+  <h2> You need to submit a recipe name or id to use this route.</h2>
+  <a href="/allrecipes">Click here to view all recipes.</a>
+
+<% end %>
