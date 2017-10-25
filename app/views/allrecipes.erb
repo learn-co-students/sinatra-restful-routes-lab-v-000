@@ -1,0 +1,9 @@
+<h1> Here is a list of all recipes submitted by our clients </h1>
+<% Recipe.all.each do |r| %>
+  <h3> Name: <%= r.name %></h3>
+  <br>
+  <h3> Ingredients: <%= r.ingredients %></h3>
+  <br>
+  <h3> Cooking Time (minutes): <%= r.cook_time %></h3>
+  <br>
+<% end %>

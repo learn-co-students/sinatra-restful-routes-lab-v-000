@@ -1,0 +1,16 @@
+<h1> Welcome to our Recipes Home Page! </h1>
+<br>
+<h2> <a href="/allrecipes">Click here to view all recipes submitted by our clients.</a></h2>
+<br>
+<h2> <a href="/new">Click here to submit a new recipe.</a></h2>
+
+<h1> Here is a list of all recipes submitted by our clients </h1>
+<% Recipe.all.each do |r| %>
+  <h3> Name: <%= r.name %></h3>
+  <br>
+  <h3> Ingredients: <%= r.ingredients %></h3>
+  <br>
+  <h3> Cooking Time (minutes): <%= r.cook_time %></h3>
+  <br>
+  <h3>  <a href="recipes/<%= r.id %>">Recipe Link: -/recipes/<%= r.id %></a>
+<% end %>
