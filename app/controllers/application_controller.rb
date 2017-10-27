@@ -12,30 +12,46 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
-  post '/recipes/new' do
+  post '/recipes' do
 
     @recipe = Recipe.new(params)
     @recipe.save
     redirect to "/recipes/#{@recipe.id}"
+    #MUST use double quotes in your redirect!
   end
 
   get '/recipes' do
-
     @recipes = Recipe.all
     #name: params[:name], ingredients: params[:ingredients], cook_time: params[:ingredients]
     erb :recipes
   end
 
   get '/recipes/:id' do
-    @post = Post.find_by(id: params[:id])
+    @recipe = Recipe.find_by(id: params[:id])
 
     erb :show
   end
 
-  delete 'recipes/:id/delete' do
-    @post = Post.find_by(id: params[:id])
-    @post.delete
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by(id: params[:id])
+    erb :edit
+  end
 
-    redirect '/recipes'
+  patch '/recipes/:id' do
+    @recipe = Recipe.find_by(id: params[:id])
+
+    @recipe.name = params[:name]
+    @recipe.ingredients = params[:ingredients]
+    @recipe.cook_time = params[:cook_time]
+    @recipe.save
+
+    redirect "/recipes/#{@recipe.id}"
+  end
+
+  delete '/recipes/:id/delete' do
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe.delete
+
+    redirect "/recipes"
   end
 end

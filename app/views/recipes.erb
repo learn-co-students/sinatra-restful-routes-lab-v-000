@@ -5,11 +5,11 @@
 </head>
 
   <body>
-    <%@recipes.each_with_index |recipe, i|%>
-    <h3><%=i%>.<%=recipe.name%></h3>
+    <%@recipes.each_with_index do |recipe, i| %>
+    <h3><%=i+1%>.<%=recipe.name%></h3>
     <p>Ingredients: <%=recipe.ingredients%></p>
     <p>Cook Time: <%=recipe.cook_time%></p>
-    <a href="/recipes/#{recipe.id}">Click Here for More Information</a>
+    <a href='/recipes/<%=recipe.id%>'>Click Here for More Information</a>
     <%end%>
   </body>
 </html>

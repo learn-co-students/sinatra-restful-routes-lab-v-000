@@ -9,6 +9,7 @@
     <p>Ingredients: <%=@recipe.ingredients%></p>
     <p>Cook Time: <%=@recipe.cook_time%></p>
 
+    <a href='/recipes/<%= @recipe.id%>/edit'>Click Here to Edit Recipe</a>
     <form action="/recipes/<%= @recipe.id %>/delete" method="post">
 		  <input id="hidden" type="hidden" name="_method" value="delete">
 		  <button type="submit" value="delete">Delete Recipe</button>
