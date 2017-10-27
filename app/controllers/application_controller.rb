@@ -15,6 +15,16 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  post '/recipes' do
+    recipe = Recipe.new(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    if recipe
+      recipe.save
+      redirect "/recipes/#{recipe.id}"
+    else
+      redirect '/recipes/new'  
+    end
+  end
+    
   get '/recipes/new' do
      erb :new
   end
@@ -24,25 +34,26 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
-  post '/recipes/:id' do
-
+ 
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find(params[:id])
+    erb :edit
   end
 
-  patch '/recipes/:id/edit' do
+  patch '/recipes/:id' do
     recipe = Recipe.find(params[:id])
-    # recipe.name = params[:name]
-    # recipe.ingredients = params[:ingredients]
-    # recipe.cook_time = params[:cook_time]
-    binding.pry
-
-    params.each do |key,value|
-      recipe.send("{params[key]}=",value)
-    end
+    recipe.name = params[:name]
+    recipe.ingredients = params[:ingredients]
+    recipe.cook_time = params[:cook_time]
+    # params.each do |key,value|
+    #   recipe.send("#{params[key]}=",value)
+    # end
     recipe.save
-    redirect "/recipe/#{recipe.id}"
+    redirect "/recipes/#{recipe.id}"
+
   end
 
-  delete '/recipes/:id' do
+  delete '/recipes/:id/delete' do
     recipe = Recipe.find(params[:id])
     recipe.delete
     redirect '/recipes'
