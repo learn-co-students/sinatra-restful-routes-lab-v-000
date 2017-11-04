@@ -1,0 +1,6 @@
+
+
+   <% @recipes.each do |obj| %>
+    <p>  <%= obj.name %> </p>
+    <a href="/recipes/<%= obj.id %>"> View Recipe</a>
+    <% end %>
