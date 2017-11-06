@@ -1,0 +1,8 @@
+<h1>Some random text</h1>
+<ol>
+<% @recipes.each do |recipe| %>
+<li><%= recipe.name %></li>
+<a href="/recipes/<%= recipe.id %>">View Recipe</a>
+<br>
+<% end %>
+</ol>
