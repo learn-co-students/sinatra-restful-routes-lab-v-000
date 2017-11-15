@@ -1,7 +1,7 @@
 <h1>Here's The Recipe You Requested!</h1>
 
 <h2> Name: <%=@recipe.name%></h2>
-<h4> Ingredients <%=@recipe.ingredients%></h4>
+<h4> Ingredients: <%=@recipe.ingredients%></h4>
 <h4> Cook Time: <%=@recipe.cook_time%></h4>
 
 <form method="post" action="/recipes/<%=@recipe.id%>/delete">
