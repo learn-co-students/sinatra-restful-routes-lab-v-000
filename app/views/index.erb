@@ -1,0 +1,8 @@
+<h1> Recipe App </h1>
+<%@recipes.all.each do |recipe| %>
+<div>
+  <a href="/recipes/<%=recipe.id%>">Name:<%= recipe.name %></a>
+  Ingredients:<%= recipe.ingredients %>
+  Cook Time:<%= recipe.cook_time %>
+</div>
+<%end%>
