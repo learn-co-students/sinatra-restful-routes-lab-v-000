@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<h1>List of All Recipes</h1><br>
+<body>
+<%Recipe.all.each_with_index do |r, i| %>
+<h3><%= "#{i+1}. #{r.name}"%></h3>
+<a href=<%="/recipes/#{r.id}"%>>recipe show page</a>
+<%end%>
+</body>
+</html>
