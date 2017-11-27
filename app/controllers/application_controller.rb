@@ -33,8 +33,8 @@ class ApplicationController < Sinatra::Base
     erb :edit
   end
 
-  patch '/posts/:id' do  #updates a post
-    @recipe = Post.find_by_id(params[:id])
+  post '/recipes/:id' do  #updates a post
+    @recipe = Recipe.find_by_id(params[:id])
     @recipe.name = params[:name]
     @recipe.content = params[:ingredients]
     @recipe.cook_time = params[:cook_time]
