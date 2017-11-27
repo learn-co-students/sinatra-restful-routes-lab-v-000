@@ -5,7 +5,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    erb :
+    # with button to make a new recipe action recipes/new
   end
   
   get '/recipes/new' do
@@ -18,8 +19,9 @@ class ApplicationController < Sinatra::Base
    end 
 
    post '/recipes' do
-   	@recipe = Recipe.create(params)
+   	# @recipe = Recipe.create(params) add :title => params[:title], etc 
    	redirect to "/recipes/@recipe.id"
+   	# or redirect to "/recipes/#{@recipe.id}"
    end 
 
    get '/recipes/:id' do

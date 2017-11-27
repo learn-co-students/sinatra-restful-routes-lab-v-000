@@ -1,9 +1,20 @@
 
-edit page '/recipes/:id/edit'
-get /recipes/#{@recipe1.id}/edit"
+<!-- edit page '/recipes/:id/edit'
+get /recipes/#{@recipe1.id}/edit" -->
 
-<form action="" method="patch" >
-	<input   
+Edit 
+
+<form action="/recipes/<%= @recipe.id %>" method="POST">
+	<input id="hidden" type="hidden" name="_method" value="patch">
+	<label for="Name">Name</label>
+	<input  type="text" name="name" id="recipe_name">
+
+	<label for="ingredients">Ingredients</label>
+	<input type="text" name="ingredients" id="recipe_ingredients" >
+
+	<label for="cook_time">Cook Time</label>
+	<input type="text" name="cook_time" id="recipe_cook_time">
+
 
 	<input type="submit" value="submit">
 
