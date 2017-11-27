@@ -1,15 +1,13 @@
-<!-- 
-get "/recipes/#{@recipe1.id}"
 
-link to delete "/recipes/#{@recipe1.id}/delete"
- -->
-
+<p>
 
 Name: <%= @recipe.name %>
 Ingredients: <%= @recipe.ingredients %>
-Cook Time: <% @recipe.cook_time %>
+Cook Time: <% @recipe_cook_time %>
  
  <form action="/posts/<%= @recipe.id %>/delete" method="post">
  	<input id="hidden" type="hidden" name="_method" value="patch">
  	<input type="submit" value="delete">
  </form> 
+
+</p>

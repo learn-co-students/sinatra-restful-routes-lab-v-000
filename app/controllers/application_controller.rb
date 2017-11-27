@@ -5,7 +5,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :
+    hello world
+    erb :new
     # with button to make a new recipe action recipes/new
   end
   
