@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
    	erb :edit
    end 
 
-   patch '/recipes/:id/' do
+   patch '/recipes/:id' do
    	@recipe = Recipe.find_by_id(params[:id])
    	@recipe.name = params[:name]
    	@recipe.ingredients = params[:ingredients]
@@ -40,7 +40,7 @@ class ApplicationController < Sinatra::Base
 
     post '/recipes' do	
      @recipe = Recipe.create(params)
- 
+
   	 redirect to "/recipes/#{@recipe.id}"
 
 
