@@ -9,7 +9,7 @@
 
     <% @recipes.each do |r_obj|%>
       <div class="recipe">
-        <p><a href="/recipes/<%= r.id %>"><%= r.name %></a></p><br>
+        <p><a href="/recipes/<%= r_obj.id %>"><%= r_obj.name %></a></p><br>
       </div><br>
     <% end %>
 
