@@ -1,8 +1,8 @@
 <h1>RECIPES!!!</h1>
 <%Recipe.all.each do |recipe|%>
   <p>
-    <a ref="/recipes/<%= recipe.id %>">link</a>
-    NAME:<%= recipe.name %><br>
+    <a href="/recipes/<%= recipe.id %>">NAME:</a>
+    <%= recipe.name %><br>
     INGREDIENTS:<%= recipe.ingredients %><br>
     COOK TIME:<%= recipe.cook_time %><br>
   </p>

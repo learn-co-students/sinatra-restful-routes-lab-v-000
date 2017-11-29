@@ -1,7 +1,7 @@
 <h1>NEW</h1>
-<form action="/recipes/<%= @recipe.id %>" method="post">
-  <input type="text" name="name">
-  <input type="text" name="ingredients">
-  <input type="text" name="cook_time">
+<form action="/recipes" method="post">
+  NAME: <input type="text" name="name"><br>
+  INGRDIENTS: <input type="text" name="ingredients"><br>
+  COOK TIME: <input type="text" name="cook_time"><br>
   <input type="submit" value="submit">
 </form>
