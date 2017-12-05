@@ -1,0 +1,13 @@
+<h2>Recipes</h2>
+<% if @recipes.size > 0 %>
+<% @recipes.each do |recipe|%>
+<h3><%= recipe.name %></h3>
+<p>Ingredients: <%= recipe.ingredients %> </p>
+<p>Cook Time: <%= recipe.cook_time %> </p>
+<br/>
+<a href="/recipes/<%= recipe.id %>">View</a>
+<% end %>
+<% else %>
+<p>There are no recipes </p>
+<% end  %>
+<a href ='/recipes/new'>New Recipe</a>
