@@ -7,7 +7,8 @@ class ApplicationController < Sinatra::Base
   # Recipe App Index page '/recipes' responds with a 200 status code
   # Recipe App Index page '/recipes' displays a list of recipes
   # Recipe App Index page '/recipes' contains links to each recipe's show page
-  get '/' do
+  get '/recipes' do
+    @recipes = Recipe.all
     erb :index
   end
 
@@ -42,7 +43,6 @@ class ApplicationController < Sinatra::Base
   post '/recipes/new' do
 
   end
-
 
   # Recipe App updating a recipe redirects to the recipe show page
 end
