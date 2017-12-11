@@ -1,8 +1,7 @@
-<h1>Index Page</h1>
+  <h3>Your Recipes</h3>
 
-Welcome. <a href="/signup">Sign Up</a> or <a href="/login">Log In</a> to continue.
+  <% @recipes.each do |rec|%>
+      <p><a href="/recipes/<%= @rec.id %>"><%= @rec.name %></a></p><br>
+  <% end %>
 
-<!-- # GET	'/posts'	index action	index page to display all posts
-# Recipe App Index page '/recipes' responds with a 200 status code
-# Recipe App Index page '/recipes' displays a list of recipes
-# Recipe App Index page '/recipes' contains links to each recipe's show page -->
+  <a href="/recipes/new">Add A Recipe</a>

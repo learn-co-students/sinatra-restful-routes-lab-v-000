@@ -1,5 +1,9 @@
-<!-- # POST	'/posts'	create action	creates one blog post
-# Recipe App new page '/recipes/new' responds with a 200 status code
-# Recipe App new page '/recipes/new' contains a form to create the recipe
-# Recipe App creating a new recipe creates a new recipe and saves to the database
-# Recipe App creating a new recipe redirects to the recipe show page -->
+<h1>Make a new recipe:</h1>
+
+<form action="/recipes" method="post">
+  <h3>Name: </h3><input id="name" type="text" name="name"><br>
+  <h4>Ingredients: <input id="ingredients" type="text" name="ingredients"></h4><br>
+  <h4>Cook Time: <input id="cook_time" type="text" name="cook_time"></h4><br>
+
+  <button type="submit" value="submit">Save Recipe</button>
+</form>

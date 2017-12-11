@@ -3,3 +3,9 @@
 # Recipe App edit page '/recipes/:id/edit' contains a form to edit the recipe
 # Recipe App edit page '/recipes/:id/edit' displays the recipe's ingredients before editing
 # Recipe App edit page '/recipes/:id/edit' submits via a patch request -->
+<form action="/recipes/<%= @recipe.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <input type="text" name="name">
+  <input type="text" name="ingredients">
+  <input type="submit" value="cook_time">
+</form>
