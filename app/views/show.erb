@@ -1,0 +1,11 @@
+<!-- # Recipe App show page '/recipes/:id' contains a links to delete the recipe
+# Recipe App show page '/recipes/:id' deletes via a DELETE request -->
+    <h1>Your Special Recipe</h1>
+    <p> <%= @recipe.name %> </p>
+    <p> <%= @recipe.ingredients %> </p>
+    <p> <%= @recipe.cook_time %> </p>
+    
+    <form action="/recipes/<%= @recipe.id %>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+    </form>
