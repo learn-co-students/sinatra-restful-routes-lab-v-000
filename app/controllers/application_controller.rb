@@ -37,20 +37,20 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/' do
-    redirect to "/recipes"
-  end
+  # get '/' do
+  #   redirect to "/recipes/new"
+  # end
   # PATCH (Sinatra POST)	'/posts/:id/edit'	edit action	edits one blog post based on ID in the url
   # Recipe App edit page '/recipes/:id/edit' responds with a 200 status code
   # Recipe App edit page '/recipes/:id/edit' contains a form to edit the recipe
   # Recipe App edit page '/recipes/:id/edit' displays the recipe's ingredients before editing
   # Recipe App edit page '/recipes/:id/edit' submits via a patch request
   get '/recipes/:id/edit' do  #load edit form
-    @recipe = Post.find_by_id(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
     erb :edit
   end
-
-  patch '/recipes/:id/edit' do #edit action
+  # Recipe App updating a recipe redirects to the recipe show page
+  patch '/recipes/:id' do #edit action
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
@@ -60,9 +60,10 @@ class ApplicationController < Sinatra::Base
   end
   # DELETE (Sinatra POST)	'/posts/:id/delete'	delete action	deletes one blog post based on ID in the url
   # Recipe App deleting a recipe deletes a recipe
-  delete  'recipes/:id/delete' do
-
+  delete  '/recipes/:id/delete' do
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.delete
+    redirect to '/recipes'
   end
 
-  # Recipe App updating a recipe redirects to the recipe show page
 end

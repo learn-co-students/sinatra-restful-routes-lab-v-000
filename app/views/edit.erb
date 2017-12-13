@@ -5,7 +5,8 @@
 # Recipe App edit page '/recipes/:id/edit' submits via a patch request -->
 <form action="/recipes/<%= @recipe.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <input type="text" name="name">
-  <input type="text" name="ingredients">
-  <input type="submit" value="cook_time">
+  <label>Name: <input type="text" name="name" value="<%=@recipe.name%>"></label>
+  <label>Ingredients: <input type="text" name="ingredients" value="<%=@recipe.ingredients%>"></label>
+  <label>Cook Time: <input type="text" name="cook_time" value="<%=@recipe.cook_time%>"></label>
+  <input type="submit" value="submit">
 </form>
