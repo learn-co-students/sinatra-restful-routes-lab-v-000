@@ -1,0 +1,5 @@
+<%@recipes.each do |r|%>
+<h4>Recipe</h4>
+<%=r[:name]%><br>
+<%= "/recipes/#{r[:id]}" %><br>
+<%end%>
