@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Recipes</title>
+  </head>
+  <body>
+    <h1>My Recipes</h1>
+
+    <% if @recipes %>
+      <% @recipes.each do |recipe| %>
+      <ul>
+        <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
+        <li><strong>Ingredients:</strong> <%= recipe.ingredients %></li>
+        <li><strong>Cook Time:</strong> <%= recipe.cook_time %></li>
+      </ul>
+      <% end %>
+
+    <% else %>
+
+      <p><a href="/recipes/new">Create a Recipe</a></p>
+
+    <% end %>
+  </body>
+</html>
