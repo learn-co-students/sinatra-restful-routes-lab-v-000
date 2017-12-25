@@ -9,3 +9,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 require_all 'app'
+
+configure :development do
+  set :database, 'sqlite3:db/recipes.db'
+end
