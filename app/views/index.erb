@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Check Out All Recipes Below:</h1>
+    <% @recipes.each_with_index do |recipe, val| %>
+    <ul>
+      <strong><%= "Recipe #{val + 1}"%></strong>
+      <li>Name: <%= "#{recipe.name}" %></li>
+      <li>Ingredients: <%= "#{recipe.ingredients}" %></li>
+      <li>Cook Time: <%= "#{recipe.cook_time}" %></li>
+      <li><a href="/recipes/<%=recipe.id%>">View Recipe</a></li>
+    </ul>
+    <% end %>
+
+    <a href="/recipes/new">Make a new recipe here.</a>
+  </body>
+</html>
