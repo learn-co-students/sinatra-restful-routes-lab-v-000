@@ -1,0 +1,7 @@
+<h1>INDEX - All RECIPES</h1>
+
+<h3>Here is a list of the recipes.</h3>
+<% @recipes.each do |r|%>
+<p><%= r.name %> <a href="/recipes/<%= r.id %>">Link to recipe page. ***STILL NEED TO PROPERLY SETUPDYNAMIC LINK ROUTE</a> </p>
+
+<%end%>
