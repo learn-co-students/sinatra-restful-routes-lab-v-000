@@ -1,4 +1,5 @@
 class ApplicationController < Sinatra::Base
+  use Rack::MethodOverride
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
