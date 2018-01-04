@@ -1,0 +1,9 @@
+<h1>Welcome to the Recipe Station!</h1>
+<a href="/recipes/new"><h2>Click here to post a recipe.</h2></a><br>
+<h2>All Recipes</h2>
+<% @recipes.each do |recipe| %>
+<a href="/recipes/<%= recipe.id %>"><h3>Recipe Name: <%= recipe.name %></h3></a>
+<h4>Ingredients: <%= recipe.ingredients %></h4>
+<h4>Start to Finish: <%= recipe.cook_time %></h4>
+<br>
+<% end %>
