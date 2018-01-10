@@ -1,0 +1,14 @@
+<h1>Recipe Book</h1>
+<% @recipes.each.with_index(1) do |recipe, index| %>
+<h3>Recipe <%=index%>:</h3>
+<p><%= recipe.name %></p>
+<p><%= recipe.ingredients %></p>
+<p><%= recipe.cook_time %></p>
+<form method="get" action="/recipes/<%= recipe.id %>/edit">
+    <input type="submit" value="edit">
+</form>
+<form action="/recipes/<%= recipe.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
+<% end %>
