@@ -1,0 +1,9 @@
+<h2> Recipe File <%= @recipes %> </h2>
+
+   <% @recipes.each_with_index do |recipe, index| %><br>
+     <h2> Name: <%= @recipe_name[index] %></h2>
+     Ingredients: <%= @recipe_ingredients[index] %><br>
+     Cook Time: <%= @recipe_cooktime[index] %><br>
+
+
+  <% end %>
