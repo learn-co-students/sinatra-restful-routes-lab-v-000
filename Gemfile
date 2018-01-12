@@ -5,11 +5,15 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 
 gem 'sinatra'
 gem 'sqlite3'
+gem 'pry'
+gem 'pry-nav'
 gem 'tux'
 gem 'rake'
+gem 'rspec'
 gem 'require_all'
 gem 'shotgun'
 gem 'json', '>=1.8.3'
+gem 'rack-test'
 
 group :test do
   gem 'rspec'
