@@ -103,9 +103,11 @@ describe "Recipe App" do
   describe "creating a new recipe" do 
     before do 
       params = {
-        "name" => "pumpkin pie",
-        "ingredients" => "pumpkin, flour, butter, sugar",
-        "cook_time" => "1 hour"
+        "recipe" => {
+          "name" => "pumpkin pie",
+          "ingredients" => "pumpkin, flour, butter, sugar",
+          "cook_time" => "1 hour"
+        }
       }
 
       post '/recipes', params
