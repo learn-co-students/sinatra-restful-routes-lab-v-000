@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Recipe</title>
+  <style>
+    input {
+      margin: 5px
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Here is the particular recipe.</h1>
+  <form action="<%= @recipe.new_record? ? "/recipes" : "/recipes/#{@recipe.id}" %>" method="post">
+    <!-- Persisted is the opposite of new_record? -->
+    <% if @recipe.persisted? %>
+      <!-- Patch is an update -->
+      <input id="hidden" type="hidden" name="_method" value="patch">
+    <% end %>
+    <label for="name">Recipe Name: </label>
+    <input type="text" name="recipe[name]" id="name" value="<%= @recipe.name %>" /><br>
+    
+    <label for="ingredients">Ingredients: </label>
+    <input type="text" name="recipe[ingredients]" id="ingredients" value="<%= @recipe.ingredients %>" /><br>
+
+    <label for="cook_time">Cook time: </label>
+    <input type="text" name="recipe[cook_time]" id="cook_time" value="<%= @recipe.cook_time %>" /><br>
+    
+    <br>
+    <input type="submit" id="submit" value="submit"/> 
+  </form>
+</body>
+</html>
