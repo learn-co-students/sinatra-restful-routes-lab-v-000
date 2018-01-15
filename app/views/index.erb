@@ -1,0 +1,4 @@
+<h1> See below for all of my recipes!</h1>
+<%@recipes.each do |recipe|%>
+  <h3><%=recipe.id%>. <a href= "/recipes/<%=recipe.id%>"><%=recipe.name%></a></h3>
+<%end%>
