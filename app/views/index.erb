@@ -1,0 +1,10 @@
+<h1>Your Recipes</h1>
+
+<% if @recipe_to_delete %>
+  <%= "Your #{@recipe_to_delete.name} was successfully deleted." %>
+<% end %>
+
+<% @recipes.each do |recipe| %>
+  <div>
+    <h2><%= recipe.id %>. <a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a> </h2>
+<% end %>
