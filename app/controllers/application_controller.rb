@@ -4,37 +4,48 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get '/recipes/new' do
+  get '/' do
     erb :new
   end
 
-  get '/recipes' do
-    @recipe = Recipe.all
-    erb :index
-  end
-
   get '/recipes/:id' do
-    @recipe = Recipe.find_by_id(params[:id])
-    erb :show
+    # @recipe = Recipe.all
+    redirect to "/show"
   end
 
+  post '/show' do
+    "hi"
+  end
+  
   post '/recipes' do
     @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     redirect to "/recipes/#{@recipe.id}"  
   end
 
-#   get '/posts/:id/edit' do  #load edit form
-#     @post = Post.find_by_id(params[:id])
-#     erb :edit
-#   end
+  # get '/recipes' do
+  #   # @recipe = Recipe.all
+  #   erb :index
+  # end
+
+  # get '/recipes/:id' do
+  #   @recipe = Recipe.find_by_id(params[:id])
+  #   erb :show
+  # end
+
+
+  # get '/posts/:id/edit' do  #load edit form
+  #   @recipe = Recipe.find_by_id(params[:id])
+  #   erb :edit
+  # end
  
-#   patch '/posts/:id' do #edit action
-#     @post = Post.find_by_id(params[:id])
-#     @post.title = params[:title]
-#     @post.content = params[:content]
-#     @post.save
-#     redirect to "/posts/#{@post.id}"
-#   end
+  # patch '/recipes/:id' do #edit action
+  #   @receipe = Recipe.find_by_id(params[:id])
+  #   @recipe.name = params[:name]
+  #   @recipe.ingredients = params[:ingredients]
+  #   @recipe.cook_time = params[:cook_time]
+  #   @recipe.save
+  #   redirect to "/recipes/#{@recipe.id}"
+  # end
 
 #   <form action="/posts/<%= @post.id %>" method="post">
 #   <input id="hidden" type="hidden" name="_method" value="patch">
