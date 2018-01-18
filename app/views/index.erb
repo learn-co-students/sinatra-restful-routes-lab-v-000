@@ -1,0 +1,7 @@
+<form action="post", value="/recipes">
+<% @recipes.each do |r|%>
+<%= r.name %>
+<%= r.ingredients %>
+<%= r.cook_time %>
+<% end %>
+</form>
