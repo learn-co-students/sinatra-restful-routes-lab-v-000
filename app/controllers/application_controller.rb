@@ -18,10 +18,10 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
-#   post '/recipes' do
-#     @recipe = Recipe.create(name: params[:title], ingredients: params[:ingredients], cook_time: params[:cook_time])
-#     redirect to "/recipes/#{@recipe.id}"  
-#   end
+  post '/recipes' do
+    @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    redirect to "/recipes/#{@recipe.id}"  
+  end
 
 #   get '/posts/:id/edit' do  #load edit form
 #     @post = Post.find_by_id(params[:id])
@@ -55,3 +55,9 @@ class ApplicationController < Sinatra::Base
 # </form>
 
 end
+
+# <% @recipe.each do |r|%>
+#   <a href="/recipes/<%= r.id %>">Name: <%= r.name %></a>
+#   <a href="/recipes/<%= r.id %>">Ingredients: <%= r.ingredients %></a>
+#   <a href="/recipes/<%= r.id %>">Cooking Time: <%= r.cook_time %></a>
+#   <% end %>
