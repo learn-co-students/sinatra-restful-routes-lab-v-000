@@ -1,53 +1,63 @@
+require 'pry'
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
   end
 
-  get '/' do
+  get '/recipes/new' do
     erb :new
   end
 
-  get '/recipes/:id' do
-    # @recipe = Recipe.all
-    redirect to "/show"
+  get '/recipes' do
+    @recipe = Recipe.all
+    erb :index
   end
 
-  post '/show' do
-    "hi"
+  get '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :show
   end
-  
+
   post '/recipes' do
-    @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    @recipe = Recipe.create(params)
     redirect to "/recipes/#{@recipe.id}"  
   end
 
-  # get '/recipes' do
-  #   # @recipe = Recipe.all
-  #   erb :index
-  # end
 
-  # get '/recipes/:id' do
-  #   @recipe = Recipe.find_by_id(params[:id])
-  #   erb :show
-  # end
+  get '/recipes/:id/edit' do 
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
+  end
 
+  patch '/recipes/:id' do 
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.name = params[:name]
+    @recipe.ingredients = params[:ingredients]
+    @recipe.cook_time = params[:cook_time]
+    @recipe.save
+    redirect to "/recipes/#{@recipe.id}"
+  end
 
-  # get '/posts/:id/edit' do  #load edit form
-  #   @recipe = Recipe.find_by_id(params[:id])
-  #   erb :edit
-  # end
- 
-  # patch '/recipes/:id' do #edit action
-  #   @receipe = Recipe.find_by_id(params[:id])
-  #   @recipe.name = params[:name]
-  #   @recipe.ingredients = params[:ingredients]
-  #   @recipe.cook_time = params[:cook_time]
-  #   @recipe.save
-  #   redirect to "/recipes/#{@recipe.id}"
-  # end
+  delete '/recipes/:id/delete' do
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.delete
+    redirect to '/recipes'
+  end
+end
 
-#   <form action="/posts/<%= @post.id %>" method="post">
+# <% @recipe.each do |r|%>
+#   <a href="/recipes/<%= r.id %>">Name: <%= r.name %></a>
+#   <a href="/recipes/<%= r.id %>">Ingredients: <%= r.ingredients %></a>
+#   <a href="/recipes/<%= r.id %>">Cooking Time: <%= r.cook_time %></a>
+#   <% end %>
+    #get '/recipes/:id/:test/:whatever' do whatever is like an arguymebnt
+    #/recipes/183/cheese/italian
+    #params[:id] => 183
+    #params[:test] => cheese
+    #params[:whatever] => italian
+
+    #   <form action="/posts/<%= @post.id %>" method="post">
 #   <input id="hidden" type="hidden" name="_method" value="patch">
 #   <input type="text" name="title">
 #   <input type="text" name="content">
@@ -65,10 +75,5 @@ class ApplicationController < Sinatra::Base
 #   <input type="submit" value="delete">
 # </form>
 
-end
 
-# <% @recipe.each do |r|%>
-#   <a href="/recipes/<%= r.id %>">Name: <%= r.name %></a>
-#   <a href="/recipes/<%= r.id %>">Ingredients: <%= r.ingredients %></a>
-#   <a href="/recipes/<%= r.id %>">Cooking Time: <%= r.cook_time %></a>
-#   <% end %>
+
