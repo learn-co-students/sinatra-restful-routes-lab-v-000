@@ -1,29 +1,29 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-  # register Sinatra::ActiveRecordExtension
+
   set :views, Proc.new { File.join(root, "../views/") }
 
-  get '/recipes/new' do #loads new form
+  get '/recipes/new' do 
     erb :new
   end
 
-  get '/recipes' do #loads index page
+  get '/recipes' do
     @recipes = Recipe.all
     erb :index
   end
 
-  get '/recipes/:id' do  #loads show page
+  get '/recipes/:id' do  
     @recipe = Recipe.find_by_id(params[:id])
     erb :show
   end
 
-  get '/recipes/:id/edit' do #loads edit form
+  get '/recipes/:id/edit' do 
     @recipe = Recipe.find_by_id(params[:id])
     erb :edit
   end
 
-  patch '/recipes/:id' do  #updates a recipe
+  patch '/recipes/:id' do  
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
@@ -32,12 +32,12 @@ class ApplicationController < Sinatra::Base
     redirect to "/recipes/#{@recipe.id}"
   end
 
-  post '/recipes' do  #creates a recipe
+  post '/recipes' do  
     @recipe = Recipe.create(params)
     redirect to "/recipes/#{@recipe.id}"
   end
 
-  delete '/recipes/:id/delete' do #delete action
+  delete '/recipes/:id/delete' do 
   @recipe = Recipe.find_by_id(params[:id])
   @recipe.delete
   redirect to '/recipes'
