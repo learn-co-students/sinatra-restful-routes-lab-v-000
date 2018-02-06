@@ -1,0 +1,20 @@
+<h1><%= @recipe.name %></h1>
+
+<h3>To make this, you'll need the following ingredients:</h3>
+  <p><%= @recipe.ingredients %></p>
+
+<h3>With a cook time of approximately: </h3>
+  <p><%= @recipe.cook_time %> minutes</p>
+
+<h3>If you no longer wish to keep this recipe, delete it here: </h3>
+
+  <form method="POST" action="/recipes/<%= @recipe.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+  </form>
+
+<h3>If you wish to edit this recipe, click here: </h3>
+<button><a href="/recipes/<%= @recipe.id %>/edit">edit</a></button>
+
+<h3>If you would like to return back to the list of recipes, click here: </h3>
+<a href='/'>Home</a>

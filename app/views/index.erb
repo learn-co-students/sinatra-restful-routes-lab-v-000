@@ -1,0 +1,10 @@
+<h1>Welcome To RecipeMaster!</h1>
+<p>The following are available recipes. Simply click one to see a list of the ingredients. Enjoy!</p>
+
+<ol>
+  <% @recipes.collect do |recipe| %>
+    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
+  <% end %>
+</ol>
+
+<p>To create a new recipe, click <a href='/recipes/new'>here</a>.</p>
