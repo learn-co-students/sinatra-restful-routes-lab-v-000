@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <title>Recipes Lab</title>
+  </head>
+  <body>
+
+<h1>Your Recipe Box</h1>
+<% @recipes.each do |recipe| %>
+<a href="/recipes/<%= recipe.id%>"><h3><%= recipe.name %></h3></a><br>
+<% end %>
+<script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>
