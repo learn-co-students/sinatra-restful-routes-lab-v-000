@@ -30,7 +30,7 @@ describe "Recipe App" do
     end
   end
 
-    
+
   describe "show page '/recipes/:id'" do
     before do
       get "/recipes/#{@recipe1.id}"
@@ -100,8 +100,8 @@ describe "Recipe App" do
     end
   end
 
-  describe "creating a new recipe" do 
-    before do 
+  describe "creating a new recipe" do
+    before do
       params = {
         "name" => "pumpkin pie",
         "ingredients" => "pumpkin, flour, butter, sugar",
@@ -111,24 +111,24 @@ describe "Recipe App" do
       post '/recipes', params
       follow_redirect!
     end
-    it "creates a new recipe and saves to the database" do 
+    it "creates a new recipe and saves to the database" do
       expect(Recipe.all.count).to eq(3)
       expect(Recipe.last.name).to eq("pumpkin pie")
     end
 
-    it "redirects to the recipe show page" do 
+    it "redirects to the recipe show page" do
       expect(last_request.url).to include("/recipes/#{Recipe.last.id}")
     end
   end
 
   describe "updating a recipe" do
     before do
-      @cookie = Recipe.create(
-        name:   "Chocolate Chip Cookies", 
-        ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
+      @recipe = Recipe.create(
+        name:   "Chocolate Chip Cookies",
+        ingredients:  "chocolate chips, flour, sugar, butter",
+        cook_time:  "30 minutes",
       )
-      visit "/recipes/#{@cookie.id}/edit"
+      visit "/recipes/#{@recipe.id}/edit"
       fill_in "name", :with => "Double chocolate chip cookies"
       fill_in "ingredients", :with => "chocolate chips, flour, sugar, butter, cocoa powder"
       fill_in "cook_time", :with => "30 minutes"
@@ -136,7 +136,7 @@ describe "Recipe App" do
     end
 
     it "redirects to the recipe show page" do
-      expect(page.current_path).to eq("/recipes/#{@cookie.id}")
+      expect(page.current_path).to eq("/recipes/#{@recipe.id}")
       expect(page).to have_content("Double chocolate chip cookies")
       expect(page).to have_content("chocolate chips, flour, sugar, butter, cocoa powder")
       expect(page).to have_content("30 minutes")
@@ -146,9 +146,9 @@ describe "Recipe App" do
   describe "deleting a recipe" do
     before do
       @cookie = Recipe.create(
-        name:   "Chocolate Chip Cookies", 
-        ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
+        name:   "Chocolate Chip Cookies",
+        ingredients:  "chocolate chips, flour, sugar, butter",
+        cook_time:  "30 minutes",
       )
       visit  "/recipes/#{@cookie.id}"
       click_button "delete"
@@ -158,5 +158,5 @@ describe "Recipe App" do
       expect(Recipe.find_by_id(@cookie.id)).to eq(nil)
     end
   end
-  
+
 end
