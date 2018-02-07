@@ -13,6 +13,7 @@ gem 'json', '>=1.8.3'
 
 group :test do
   gem 'rspec'
+  gem 'shotgun'
   gem 'pry'
   gem 'pry-nav'
   gem 'capybara'
