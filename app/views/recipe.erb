@@ -1,0 +1,7 @@
+<%= @cur.name+@cur.ingredients+@cur.cook_time %>
+<a href="/recipes/<%= @cur.id.to_s %>/delete">Delete</a>
+<form action="/recipes/<%= @cur.id %>/delete" method="post">
+<input type="submit" value="delete">
+</form>
+
+<input id="hidden" type="hidden" name="_method" value="delete">
