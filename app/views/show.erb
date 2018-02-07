@@ -1,0 +1,10 @@
+ <%Recipe.all.each do |all_info| %>
+ <%=all_info.name%>
+ <%=all_info.ingredients%>
+<%=all_info.cook_time%>
+  <form action="/recipes/<%= @recipe.id %>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+     <input type="submit" name="delete" value="delete">
+ </form>
+
+  <%end%>

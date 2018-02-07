@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit You Recipe</title>
+</head>
+<body>
+<%Recipe.all.each do |recipe|%>
+<h2><%=recipe.ingredients%></h2>
+<input id="hidden" type="hidden" name="_method" value="patch">
+<form action="/recipes/<%=@recipe.id%>" method="post">
+
+</form>
+
+
+</body>
+</html>
+<%end%>
