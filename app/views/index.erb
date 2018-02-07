@@ -1,0 +1,11 @@
+<h1>Your Recipes</h1>
+
+<div class = "Recipes">
+  <%@recipes.all.each do |r|%>
+  <h2><a href = "/recipes/<%=r.id%>"><%=r.name%></a></h2>
+  <h3>Ingredients: <%=r.ingredients%></h3>
+  <h3>Cook Time: <%=r.cook_time%></h3><br>
+  <%end%>
+</div>
+
+<h3>Click <a href = "recipes/new">here </a>to create a new recipe. </h3>
