@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Recipe Card</title>
+  </head>
+  <body>
+    <h2>Name: <%= @recipe.name %></h2>
+    <h2>Ingredients: <%= @recipe.ingredients %></h2>
+    <h2>Cook Time: <%= @recipe.cook_time %> minutes</h2>
+
+    <form action="/recipes/<%= @recipe.id %>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input id="submit" type="submit" name="submit" value="delete">
+    </form>
+  </body>
+</html>
