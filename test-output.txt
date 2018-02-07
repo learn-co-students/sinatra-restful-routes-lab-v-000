@@ -1,0 +1,537 @@
+D, [2017-01-09T05:12:10.094118 #18916] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Run options: include {:focus=>true}
+
+All examples were filtered out; ignoring {:focus=>true}
+
+Recipe App
+  Index page '/recipes'
+    responds with a 200 status code
+    displays a list of recipes
+    contains links to each recipe's show page (FAILED - 1)
+  show page '/recipes/:id'
+    responds with a 200 status code (FAILED - 2)
+    displays the recipe's name (FAILED - 3)
+    displays the recipe's ingredients (FAILED - 4)
+    displays the recipe's cook time (FAILED - 5)
+    contains a links to delete the recipe (FAILED - 6)
+    deletes via a DELETE request (FAILED - 7)
+  edit page '/recipes/:id/edit'
+    responds with a 200 status code (FAILED - 8)
+    contains a form to edit the recipe (FAILED - 9)
+    displays the recipe's ingredients before editing (FAILED - 10)
+    submits via a patch request (FAILED - 11)
+  new page '/recipes/new'
+    responds with a 200 status code (FAILED - 12)
+    contains a form to create the recipe (FAILED - 13)
+  creating a new recipe
+    creates a new recipe and saves to the database (FAILED - 14)
+    redirects to the recipe show page (FAILED - 15)
+  updating a recipe
+    redirects to the recipe show page (FAILED - 16)
+  deleting a recipe
+    deletes a recipe (FAILED - 17)
+
+Failures:
+
+  1) Recipe App Index page '/recipes' contains links to each recipe's show page
+     Failure/Error: expect(last_response.body).to include("/recipes/#{@recipe1.id}")
+
+       expected "<li><a href=\"/recipes/:id\">Bomb.com Mac and Cheese</a></li>\n<li><a href=\"/recipes/:id\">waldorf salad</a></li>\n" to include "/recipes/1"
+       Diff:
+       @@ -1,2 +1,3 @@
+       -/recipes/1
+       +<li><a href="/recipes/:id">Bomb.com Mac and Cheese</a></li>
+       +<li><a href="/recipes/:id">waldorf salad</a></li>
+     # ./spec/sinatra_restful_routes_lab_spec.rb:29:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  2) Recipe App show page '/recipes/:id' responds with a 200 status code
+     Failure/Error: expect(last_response.status).to eq(200)
+
+       expected: 200
+            got: 404
+
+       (compared using ==)
+     # ./spec/sinatra_restful_routes_lab_spec.rb:40:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  3) Recipe App show page '/recipes/:id' displays the recipe's name
+     Failure/Error: expect(last_response.body).to include(recipe_name)
+
+       expected "<!DOCTYPE html>\n<html>\n<head>\n  <style type=\"text/css\">\n  body { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n  #c {margin:0 auto;width:500px;text-align:left}\n  </style>\n</head>\n<body>\n  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>\n  <img src='http://example.org/__sinatra__/404.png'>\n  <div id=\"c\">\n    Try this:\n    <pre># in application_controller.rb\nclass ApplicationController\n  get &#x27;&#x2F;recipes&#x2F;1&#x27; do\n    &quot;Hello World&quot;\n  end\nend\n</pre>\n  </div>\n</body>\n</html>\n" to include "Bomb.com Mac and Cheese"
+       Diff:
+       @@ -1,2 +1,25 @@
+       -Bomb.com Mac and Cheese
+       +<!DOCTYPE html>
+       +<html>
+       +<head>
+       +  <style type="text/css">
+       +  body { text-align:center;font-family:helvetica,arial;font-size:22px;
+       +    color:#888;margin:20px}
+       +  #c {margin:0 auto;width:500px;text-align:left}
+       +  </style>
+       +</head>
+       +<body>
+       +  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+       +  <img src='http://example.org/__sinatra__/404.png'>
+       +  <div id="c">
+       +    Try this:
+       +    <pre># in application_controller.rb
+       +class ApplicationController
+       +  get &#x27;&#x2F;recipes&#x2F;1&#x27; do
+       +    &quot;Hello World&quot;
+       +  end
+       +end
+       +</pre>
+       +  </div>
+       +</body>
+       +</html>
+     # ./spec/sinatra_restful_routes_lab_spec.rb:44:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  4) Recipe App show page '/recipes/:id' displays the recipe's ingredients
+     Failure/Error: expect(last_response.body).to include(recipe_ingredients)
+
+       expected "<!DOCTYPE html>\n<html>\n<head>\n  <style type=\"text/css\">\n  body { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n  #c {margin:0 auto;width:500px;text-align:left}\n  </style>\n</head>\n<body>\n  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>\n  <img src='http://example.org/__sinatra__/404.png'>\n  <div id=\"c\">\n    Try this:\n    <pre># in application_controller.rb\nclass ApplicationController\n  get &#x27;&#x2F;recipes&#x2F;1&#x27; do\n    &quot;Hello World&quot;\n  end\nend\n</pre>\n  </div>\n</body>\n</html>\n" to include "milk, butter, cheese, elbow pasta"
+       Diff:
+       @@ -1,2 +1,25 @@
+       -milk, butter, cheese, elbow pasta
+       +<!DOCTYPE html>
+       +<html>
+       +<head>
+       +  <style type="text/css">
+       +  body { text-align:center;font-family:helvetica,arial;font-size:22px;
+       +    color:#888;margin:20px}
+       +  #c {margin:0 auto;width:500px;text-align:left}
+       +  </style>
+       +</head>
+       +<body>
+       +  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+       +  <img src='http://example.org/__sinatra__/404.png'>
+       +  <div id="c">
+       +    Try this:
+       +    <pre># in application_controller.rb
+       +class ApplicationController
+       +  get &#x27;&#x2F;recipes&#x2F;1&#x27; do
+       +    &quot;Hello World&quot;
+       +  end
+       +end
+       +</pre>
+       +  </div>
+       +</body>
+       +</html>
+     # ./spec/sinatra_restful_routes_lab_spec.rb:49:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  5) Recipe App show page '/recipes/:id' displays the recipe's cook time
+     Failure/Error: expect(last_response.body).to include(recipe_cook_time)
+
+       expected "<!DOCTYPE html>\n<html>\n<head>\n  <style type=\"text/css\">\n  body { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n  #c {margin:0 auto;width:500px;text-align:left}\n  </style>\n</head>\n<body>\n  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>\n  <img src='http://example.org/__sinatra__/404.png'>\n  <div id=\"c\">\n    Try this:\n    <pre># in application_controller.rb\nclass ApplicationController\n  get &#x27;&#x2F;recipes&#x2F;1&#x27; do\n    &quot;Hello World&quot;\n  end\nend\n</pre>\n  </div>\n</body>\n</html>\n" to include "20 minutes"
+       Diff:
+       @@ -1,2 +1,25 @@
+       -20 minutes
+       +<!DOCTYPE html>
+       +<html>
+       +<head>
+       +  <style type="text/css">
+       +  body { text-align:center;font-family:helvetica,arial;font-size:22px;
+       +    color:#888;margin:20px}
+       +  #c {margin:0 auto;width:500px;text-align:left}
+       +  </style>
+       +</head>
+       +<body>
+       +  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+       +  <img src='http://example.org/__sinatra__/404.png'>
+       +  <div id="c">
+       +    Try this:
+       +    <pre># in application_controller.rb
+       +class ApplicationController
+       +  get &#x27;&#x2F;recipes&#x2F;1&#x27; do
+       +    &quot;Hello World&quot;
+       +  end
+       +end
+       +</pre>
+       +  </div>
+       +</body>
+       +</html>
+     # ./spec/sinatra_restful_routes_lab_spec.rb:53:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  6) Recipe App show page '/recipes/:id' contains a links to delete the recipe
+     Failure/Error: expect(last_response.body).to include("/recipes/#{@recipe1.id}/delete")
+
+       expected "<!DOCTYPE html>\n<html>\n<head>\n  <style type=\"text/css\">\n  body { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n  #c {margin:0 auto;width:500px;text-align:left}\n  </style>\n</head>\n<body>\n  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>\n  <img src='http://example.org/__sinatra__/404.png'>\n  <div id=\"c\">\n    Try this:\n    <pre># in application_controller.rb\nclass ApplicationController\n  get &#x27;&#x2F;recipes&#x2F;1&#x27; do\n    &quot;Hello World&quot;\n  end\nend\n</pre>\n  </div>\n</body>\n</html>\n" to include "/recipes/1/delete"
+       Diff:
+       @@ -1,2 +1,25 @@
+       -/recipes/1/delete
+       +<!DOCTYPE html>
+       +<html>
+       +<head>
+       +  <style type="text/css">
+       +  body { text-align:center;font-family:helvetica,arial;font-size:22px;
+       +    color:#888;margin:20px}
+       +  #c {margin:0 auto;width:500px;text-align:left}
+       +  </style>
+       +</head>
+       +<body>
+       +  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+       +  <img src='http://example.org/__sinatra__/404.png'>
+       +  <div id="c">
+       +    Try this:
+       +    <pre># in application_controller.rb
+       +class ApplicationController
+       +  get &#x27;&#x2F;recipes&#x2F;1&#x27; do
+       +    &quot;Hello World&quot;
+       +  end
+       +end
+       +</pre>
+       +  </div>
+       +</body>
+       +</html>
+     # ./spec/sinatra_restful_routes_lab_spec.rb:57:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  7) Recipe App show page '/recipes/:id' deletes via a DELETE request
+     Failure/Error: expect(last_response.body).to include('<input id="hidden" type="hidden" name="_method" value="delete">')
+
+       expected "<!DOCTYPE html>\n<html>\n<head>\n  <style type=\"text/css\">\n  body { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n  #c {margin:0 auto;width:500px;text-align:left}\n  </style>\n</head>\n<body>\n  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>\n  <img src='http://example.org/__sinatra__/404.png'>\n  <div id=\"c\">\n    Try this:\n    <pre># in application_controller.rb\nclass ApplicationController\n  get &#x27;&#x2F;recipes&#x2F;1&#x27; do\n    &quot;Hello World&quot;\n  end\nend\n</pre>\n  </div>\n</body>\n</html>\n" to include "<input id=\"hidden\" type=\"hidden\" name=\"_method\" value=\"delete\">"
+       Diff:
+       @@ -1,2 +1,25 @@
+       -<input id="hidden" type="hidden" name="_method" value="delete">
+       +<!DOCTYPE html>
+       +<html>
+       +<head>
+       +  <style type="text/css">
+       +  body { text-align:center;font-family:helvetica,arial;font-size:22px;
+       +    color:#888;margin:20px}
+       +  #c {margin:0 auto;width:500px;text-align:left}
+       +  </style>
+       +</head>
+       +<body>
+       +  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+       +  <img src='http://example.org/__sinatra__/404.png'>
+       +  <div id="c">
+       +    Try this:
+       +    <pre># in application_controller.rb
+       +class ApplicationController
+       +  get &#x27;&#x2F;recipes&#x2F;1&#x27; do
+       +    &quot;Hello World&quot;
+       +  end
+       +end
+       +</pre>
+       +  </div>
+       +</body>
+       +</html>
+     # ./spec/sinatra_restful_routes_lab_spec.rb:61:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  8) Recipe App edit page '/recipes/:id/edit' responds with a 200 status code
+     Failure/Error: expect(last_response.status).to eq(200)
+
+       expected: 200
+            got: 404
+
+       (compared using ==)
+     # ./spec/sinatra_restful_routes_lab_spec.rb:71:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  9) Recipe App edit page '/recipes/:id/edit' contains a form to edit the recipe
+     Failure/Error: expect(last_response.body).to include("</form>")
+
+       expected "<!DOCTYPE html>\n<html>\n<head>\n  <style type=\"text/css\">\n  body { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n  #c {margin:0 auto;width:500px;text-align:left}\n  </style>\n</head>\n<body>\n  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>\n  <img src='http://example.org/__sinatra__/404.png'>\n  <div id=\"c\">\n    Try this:\n    <pre># in application_controller.rb\nclass ApplicationController\n  get &#x27;&#x2F;recipes&#x2F;1&#x2F;edit&#x27; do\n    &quot;Hello World&quot;\n  end\nend\n</pre>\n  </div>\n</body>\n</html>\n" to include "</form>"
+       Diff:
+       @@ -1,2 +1,25 @@
+       -</form>
+       +<!DOCTYPE html>
+       +<html>
+       +<head>
+       +  <style type="text/css">
+       +  body { text-align:center;font-family:helvetica,arial;font-size:22px;
+       +    color:#888;margin:20px}
+       +  #c {margin:0 auto;width:500px;text-align:left}
+       +  </style>
+       +</head>
+       +<body>
+       +  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+       +  <img src='http://example.org/__sinatra__/404.png'>
+       +  <div id="c">
+       +    Try this:
+       +    <pre># in application_controller.rb
+       +class ApplicationController
+       +  get &#x27;&#x2F;recipes&#x2F;1&#x2F;edit&#x27; do
+       +    &quot;Hello World&quot;
+       +  end
+       +end
+       +</pre>
+       +  </div>
+       +</body>
+       +</html>
+     # ./spec/sinatra_restful_routes_lab_spec.rb:75:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+     # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  10) Recipe App edit page '/recipes/:id/edit' displays the recipe's ingredients before editing
+      Failure/Error: expect(last_response.body).to include(recipe_ingredients)
+
+        expected "<!DOCTYPE html>\n<html>\n<head>\n  <style type=\"text/css\">\n  body { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n  #c {margin:0 auto;width:500px;text-align:left}\n  </style>\n</head>\n<body>\n  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>\n  <img src='http://example.org/__sinatra__/404.png'>\n  <div id=\"c\">\n    Try this:\n    <pre># in application_controller.rb\nclass ApplicationController\n  get &#x27;&#x2F;recipes&#x2F;1&#x2F;edit&#x27; do\n    &quot;Hello World&quot;\n  end\nend\n</pre>\n  </div>\n</body>\n</html>\n" to include "milk, butter, cheese, elbow pasta"
+        Diff:
+        @@ -1,2 +1,25 @@
+        -milk, butter, cheese, elbow pasta
+        +<!DOCTYPE html>
+        +<html>
+        +<head>
+        +  <style type="text/css">
+        +  body { text-align:center;font-family:helvetica,arial;font-size:22px;
+        +    color:#888;margin:20px}
+        +  #c {margin:0 auto;width:500px;text-align:left}
+        +  </style>
+        +</head>
+        +<body>
+        +  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+        +  <img src='http://example.org/__sinatra__/404.png'>
+        +  <div id="c">
+        +    Try this:
+        +    <pre># in application_controller.rb
+        +class ApplicationController
+        +  get &#x27;&#x2F;recipes&#x2F;1&#x2F;edit&#x27; do
+        +    &quot;Hello World&quot;
+        +  end
+        +end
+        +</pre>
+        +  </div>
+        +</body>
+        +</html>
+      # ./spec/sinatra_restful_routes_lab_spec.rb:80:in `block (3 levels) in <top (required)>'
+      # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+      # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  11) Recipe App edit page '/recipes/:id/edit' submits via a patch request
+      Failure/Error: expect(last_response.body).to include('<input id="hidden" type="hidden" name="_method" value="patch">')
+
+        expected "<!DOCTYPE html>\n<html>\n<head>\n  <style type=\"text/css\">\n  body { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n  #c {margin:0 auto;width:500px;text-align:left}\n  </style>\n</head>\n<body>\n  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>\n  <img src='http://example.org/__sinatra__/404.png'>\n  <div id=\"c\">\n    Try this:\n    <pre># in application_controller.rb\nclass ApplicationController\n  get &#x27;&#x2F;recipes&#x2F;1&#x2F;edit&#x27; do\n    &quot;Hello World&quot;\n  end\nend\n</pre>\n  </div>\n</body>\n</html>\n" to include "<input id=\"hidden\" type=\"hidden\" name=\"_method\" value=\"patch\">"
+        Diff:
+        @@ -1,2 +1,25 @@
+        -<input id="hidden" type="hidden" name="_method" value="patch">
+        +<!DOCTYPE html>
+        +<html>
+        +<head>
+        +  <style type="text/css">
+        +  body { text-align:center;font-family:helvetica,arial;font-size:22px;
+        +    color:#888;margin:20px}
+        +  #c {margin:0 auto;width:500px;text-align:left}
+        +  </style>
+        +</head>
+        +<body>
+        +  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+        +  <img src='http://example.org/__sinatra__/404.png'>
+        +  <div id="c">
+        +    Try this:
+        +    <pre># in application_controller.rb
+        +class ApplicationController
+        +  get &#x27;&#x2F;recipes&#x2F;1&#x2F;edit&#x27; do
+        +    &quot;Hello World&quot;
+        +  end
+        +end
+        +</pre>
+        +  </div>
+        +</body>
+        +</html>
+      # ./spec/sinatra_restful_routes_lab_spec.rb:84:in `block (3 levels) in <top (required)>'
+      # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+      # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  12) Recipe App new page '/recipes/new' responds with a 200 status code
+      Failure/Error: expect(last_response.status).to eq(200)
+
+        expected: 200
+             got: 404
+
+        (compared using ==)
+      # ./spec/sinatra_restful_routes_lab_spec.rb:95:in `block (3 levels) in <top (required)>'
+      # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+      # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  13) Recipe App new page '/recipes/new' contains a form to create the recipe
+      Failure/Error: expect(last_response.body).to include("</form>")
+
+        expected "<!DOCTYPE html>\n<html>\n<head>\n  <style type=\"text/css\">\n  body { text-align:center;font-family:helvetica,arial;font-size:22px;\n    color:#888;margin:20px}\n  #c {margin:0 auto;width:500px;text-align:left}\n  </style>\n</head>\n<body>\n  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>\n  <img src='http://example.org/__sinatra__/404.png'>\n  <div id=\"c\">\n    Try this:\n    <pre># in application_controller.rb\nclass ApplicationController\n  get &#x27;&#x2F;recipes&#x2F;new&#x27; do\n    &quot;Hello World&quot;\n  end\nend\n</pre>\n  </div>\n</body>\n</html>\n" to include "</form>"
+        Diff:
+        @@ -1,2 +1,25 @@
+        -</form>
+        +<!DOCTYPE html>
+        +<html>
+        +<head>
+        +  <style type="text/css">
+        +  body { text-align:center;font-family:helvetica,arial;font-size:22px;
+        +    color:#888;margin:20px}
+        +  #c {margin:0 auto;width:500px;text-align:left}
+        +  </style>
+        +</head>
+        +<body>
+        +  <h2>Sinatra doesn&rsquo;t know this ditty.</h2>
+        +  <img src='http://example.org/__sinatra__/404.png'>
+        +  <div id="c">
+        +    Try this:
+        +    <pre># in application_controller.rb
+        +class ApplicationController
+        +  get &#x27;&#x2F;recipes&#x2F;new&#x27; do
+        +    &quot;Hello World&quot;
+        +  end
+        +end
+        +</pre>
+        +  </div>
+        +</body>
+        +</html>
+      # ./spec/sinatra_restful_routes_lab_spec.rb:99:in `block (3 levels) in <top (required)>'
+      # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+      # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  14) Recipe App creating a new recipe creates a new recipe and saves to the database
+      Failure/Error: follow_redirect!
+
+      Rack::Test::Error:
+        Last response was not a redirect. Cannot follow_redirect!
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/rack-test-0.6.3/lib/rack/test.rb:184:in `follow_redirect!'
+      # ./spec/sinatra_restful_routes_lab_spec.rb:112:in `block (3 levels) in <top (required)>'
+      # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+      # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  15) Recipe App creating a new recipe redirects to the recipe show page
+      Failure/Error: follow_redirect!
+
+      Rack::Test::Error:
+        Last response was not a redirect. Cannot follow_redirect!
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/rack-test-0.6.3/lib/rack/test.rb:184:in `follow_redirect!'
+      # ./spec/sinatra_restful_routes_lab_spec.rb:112:in `block (3 levels) in <top (required)>'
+      # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+      # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  16) Recipe App updating a recipe redirects to the recipe show page
+      Failure/Error: fill_in "name", :with => "Double chocolate chip cookies"
+
+      Capybara::ElementNotFound:
+        Unable to find field "name"
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/node/finders.rb:43:in `block in find'
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/node/base.rb:84:in `synchronize'
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/node/finders.rb:32:in `find'
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/node/actions.rb:58:in `fill_in'
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/session.rb:698:in `block (2 levels) in <class:Session>'
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+      # ./spec/sinatra_restful_routes_lab_spec.rb:132:in `block (3 levels) in <top (required)>'
+      # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+      # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  17) Recipe App deleting a recipe deletes a recipe
+      Failure/Error: click_button "delete"
+
+      Capybara::ElementNotFound:
+        Unable to find button "delete"
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/node/finders.rb:43:in `block in find'
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/node/base.rb:84:in `synchronize'
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/node/finders.rb:32:in `find'
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/node/actions.rb:39:in `click_button'
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/session.rb:698:in `block (2 levels) in <class:Session>'
+      # /usr/local/rvm/gems/ruby-2.3.1/gems/capybara-2.5.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+      # ./spec/sinatra_restful_routes_lab_spec.rb:154:in `block (3 levels) in <top (required)>'
+      # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/base.rb:92:in `cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+      # /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/database_cleaner-b87f00320f8a/lib/database_cleaner/configuration.rb:87:in `cleaning'
+      # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+Finished in 0.62322 seconds (files took 5.11 seconds to load)
+19 examples, 17 failures
+
+Failed examples:
+
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:28 # Recipe App Index page '/recipes' contains links to each recipe's show page
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:39 # Recipe App show page '/recipes/:id' responds with a 200 status code
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:43 # Recipe App show page '/recipes/:id' displays the recipe's name
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:48 # Recipe App show page '/recipes/:id' displays the recipe's ingredients
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:52 # Recipe App show page '/recipes/:id' displays the recipe's cook time
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:56 # Recipe App show page '/recipes/:id' contains a links to delete the recipe
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:60 # Recipe App show page '/recipes/:id' deletes via a DELETE request
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:70 # Recipe App edit page '/recipes/:id/edit' responds with a 200 status code
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:74 # Recipe App edit page '/recipes/:id/edit' contains a form to edit the recipe
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:79 # Recipe App edit page '/recipes/:id/edit' displays the recipe's ingredients before editing
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:83 # Recipe App edit page '/recipes/:id/edit' submits via a patch request
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:94 # Recipe App new page '/recipes/new' responds with a 200 status code
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:98 # Recipe App new page '/recipes/new' contains a form to create the recipe
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:114 # Recipe App creating a new recipe creates a new recipe and saves to the database
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:119 # Recipe App creating a new recipe redirects to the recipe show page
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:138 # Recipe App updating a recipe redirects to the recipe show page
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:157 # Recipe App deleting a recipe deletes a recipe
+
