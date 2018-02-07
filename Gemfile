@@ -12,6 +12,7 @@ gem 'shotgun'
 gem 'json', '>=1.8.3'
 
 group :test do
+  gem 'shotgun'
   gem 'rspec'
   gem 'pry'
   gem 'pry-nav'
