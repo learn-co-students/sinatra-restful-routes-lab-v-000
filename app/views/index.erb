@@ -1,0 +1,9 @@
+<% if @recipe_name %>
+<p> post <%= @recipe_name %> was deleted </p>
+<% end %>
+
+<% @recipes.each do |t| %>
+  <p><%= t.name %> <%= t.ingredients %><%= t.cook_time %></p>
+  <a href='/recipes/<%= t.id %>'>show</a>
+   <% end %>
+
