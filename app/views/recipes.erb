@@ -1,0 +1,16 @@
+<h1> Welcome to the Recipe Page!</h1>
+
+
+<h2> Your Recipes below </h2>
+
+<% @recipes.each do |r| %> 
+<ul>
+Recipe <%= r.id %>
+<a href="/recipes/<%=r.id%>">test</a>
+<li> Name: <%= r.name %> </li>
+<li> Ingredients: <%= r.ingredients %> </li>
+<li> Cooking Time: <%= r.cook_time %> </li>
+
+</ul>
+
+<% end %>
