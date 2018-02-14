@@ -36,8 +36,7 @@ class ApplicationController < Sinatra::Base
     erb :edit
   end
 
-  patch 'recipes/:id' do
-    binding.pry
+  patch '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.update(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
 
