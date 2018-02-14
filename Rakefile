@@ -1,3 +1,4 @@
+require 'pry'
 ENV["SINATRA_ENV"] ||= "development"
 
 require_relative './config/environment'
