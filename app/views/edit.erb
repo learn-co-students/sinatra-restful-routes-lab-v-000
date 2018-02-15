@@ -1,0 +1,13 @@
+Current Information: <br>
+<h1><%=@recipe.name%></h1>
+Ingredients: <%=@recipe.ingredients%><br>
+Cook Time: <%=@recipe.cook_time%> minutes<br><br><br><br>
+
+Enter New Information: <br><br>
+<form method="post" action="/recipes/<%=@recipe.id%>/edit">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    Recipe Name: <input type="text" name="name"><br>
+    Ingredients: <input type="text" name="ingredients"><br>
+    Cook Time: <input type="text" name="cook_time"><br><br>
+    <input type="submit" value="submit">
+</form>
