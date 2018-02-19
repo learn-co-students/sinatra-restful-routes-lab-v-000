@@ -1,7 +1,7 @@
 <h2>Recipe to be edited:</h2>
-<h3>Name: <%= recipe.name %></h3><br>
-<p>Ingredients: <%= recipe.ingredients %></p><br>
-<p>Cook Time: <%= recipe.cook_time %></p><br>
+<h3>Name: <%= @recipe.name %></h3><br>
+<p>Ingredients: <%= @recipe.ingredients %></p><br>
+<p>Cook Time: <%= @recipe.cook_time %></p><br>
 <br>
 <h2>Edit a recipe below:</h2><br>
 <form method="POST" action="/recipes/<%= @recipe.id %>">
