@@ -1,0 +1,6 @@
+<% @recipes.each do |recipe| %>
+ <% recipe.attributes.each do |attribute| %>
+  <%=  attribute[0] %>: <%= attribute[1] %>
+  <% end %>
+  <a href="/recipes/<%= recipe.id %>">
+<% end %>

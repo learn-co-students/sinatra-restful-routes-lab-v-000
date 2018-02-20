@@ -1,0 +1,9 @@
+<p><%@recipe.attributes.values.each do |value|%></p>
+<p><%=value%></p>
+<% end %>
+
+<form method="post" action="/recipes/<%=@recipe.id%>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+
+  <input type="submit" value="delete">
+</form>
