@@ -1,6 +1,5 @@
-Recipes:
-<br>
-<br>
+<h4>Recipes:</h4>
+
 <% @recipes.each do |recipe| %>
   <a href="/recipes/<%= recipe.id %>">
   Name: <%= recipe.name %></a><br>
@@ -8,3 +7,8 @@ Recipes:
   Cook Time: <%= recipe.cook_time %><br>
   <br>
 <% end %>
+
+<br>
+<form method="get" action="/recipes/new">
+  <input type="submit" value="new">
+</form>
