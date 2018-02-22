@@ -1,8 +1,10 @@
 <h2> Here is My List of Recipes </h2>
 
 <%@recipes.each do |recipe|%>
-  <li> <%= recipe.name%> </li>
-
+  <li> <a href="/recipes/<%=recipe.id%>"> Recipe Name: <%= recipe.name %> </a></li>
+  <p>Ingredients: <%= recipe.ingredients %></p>
+  <p> Cook Time <%= recipe.cook_time %> minutes <p>
    <%end%>
 
-   <p> To add a recipe choose <a href="/recipes/new"> New Recipe </a> </p>
+
+<a href= "/recipes/new" > Select To Add A New Recipe </a>
