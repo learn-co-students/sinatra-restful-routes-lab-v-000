@@ -1,0 +1,11 @@
+<h1>Recipe Index</h1>
+
+<% @recipes.each do |r|%>
+<h3>Name:</h3>
+  <%=r.name%>
+<h3>Ingredients:</h3>
+  <%=r.ingredients%>
+<h3>Cook Time:</h3>
+  <%=r.cook_time%>
+<p><a href="/recipes/<%=r.id%>">Link</a> </p>
+<%end%>
