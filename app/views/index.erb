@@ -1,0 +1,11 @@
+<h1>showing all recipes? </h1>
+
+
+<% @recipes.each do |recipe| %>
+    
+
+
+    <%= "#{recipe[:name]}" %>
+    <%= "#{recipe[:ingredients]}" %>
+    <%= "#{recipe[:cook_time]}" %>
+      <% end %>
