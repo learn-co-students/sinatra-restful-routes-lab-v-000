@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
 
 
   get '/recipes/new' do
-    bindng.pry
+    # binding.pry
     erb :new
   end
 
