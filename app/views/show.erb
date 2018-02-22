@@ -1,6 +1,11 @@
-<h2> Your Chosen Recipe </h2>
+<h2> Your Chosen Recipe is:   <%=@recipe.name%> </h2>
 
 
-<h3> Name:   <%=@recipe.name%></br></h3>
-<p> Ingredients: <%=@recipe.ingredients%></br></p>
-<p> Cooking Time: <%=@recipe.cook_time%> minutes </br>
+<!-- <h2> Name:   <%=@recipe.name%></br></h2> -->
+<label> Ingredients: <%=@recipe.ingredients%></br></label></br>
+<label> Cooking Time: <%=@recipe.cook_time%> minutes </label>
+
+<form action= "/recipes/<%= @recipe.id%>/delete" method = "post">
+  <input id="hidden" type="hidden" name="_method" value="delete"></br>
+  <label> Select to Delete This Recipe: <input type="submit" value= "delete"></label>
+</form>
