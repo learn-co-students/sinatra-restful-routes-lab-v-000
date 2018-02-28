@@ -1,0 +1,2 @@
+edit.erb = need to make a form that resets the name, ingredients, and cook time (should it automatically overwrite, or only if they enter data into that field?)
+will probably use the hidden form with the PATCH method override
