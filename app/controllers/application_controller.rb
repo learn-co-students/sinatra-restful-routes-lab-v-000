@@ -1,3 +1,4 @@
+require 'uri'
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -6,7 +7,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    # erb :index
     redirect '/recipes'
   end
 
@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
 
   post '/recipes' do
     @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
-    redirect '/recipes/#{@recipe.id}'
+    redirect "/recipes/#{@recipe.id}"
   end
 
   get '/recipes/new' do
@@ -27,6 +27,17 @@ class ApplicationController < Sinatra::Base
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
     erb :show_recipe
+  end
+
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
+  end
+
+  patch '/recipes/:id' do
+    @recipe = Recipe.find_by_id(id: params[:id])
+    @recipe.update(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    redirect "/recipes/#{@recipe.id}"
   end
 
   delete '/recipes/:id/delete' do
