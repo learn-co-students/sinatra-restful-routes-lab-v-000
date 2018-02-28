@@ -1,31 +1,3 @@
-<!-- <h1>Welcome to Your Recipe Collection</h1>
-<br>
-<p>Enter a new recipe below</p>
-<br>
-<form method="POST" action="/recipes">
-  <p>Recipe name: <input type="text" name="name"></p>
-  <p>Ingredients: <input type="text" name="ingredients"></p>
-  <p>Cook time: <input type="text" name="cook_time"></p>
-  <input type="submit" value="Submit">
-</form> -->
-
-<!-- <h1>testing</h1>
-<% @recipes.each do |r| %>
-<ol>
-  <li><% r.name %></li>
-</ol>
-<ul>
-  <li><% r.ingredients %></li>
-  <li><% r.cook_time %></li>
-</ul>
-<% end %> -->
-
-<!-- <% @recipes.each do |r| %>
-  <% r.name %>
-  <% r.ingredients %>
-  <% r.cook_time %>
-<% end %> -->
-
 <h1>Your Recipes!</h1>
 <% @recipes.each do |r| %>
 <p><%= r.name %></p>

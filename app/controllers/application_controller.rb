@@ -16,13 +16,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes' do
-    # create a new Recipe, save to database
-    # redirect to show page /recipes/Recipe.id
+    @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    redirect '/recipes/#{@recipe.id}'
   end
 
   get '/recipes/new' do
     erb :new_recipe
-    # need to make this file, see stub of form in index
   end
 
   get '/recipes/:id' do

@@ -40,26 +40,26 @@ describe "Recipe App" do
       expect(last_response.status).to eq(200)
     end
 
-    # it "displays the recipe's name" do
-    #   expect(last_response.body).to include(recipe_name)
-    #
-    # end
-    #
-    # it "displays the recipe's ingredients" do
-    #   expect(last_response.body).to include(recipe_ingredients)
-    # end
-    #
-    # it "displays the recipe's cook time" do
-    #   expect(last_response.body).to include(recipe_cook_time)
-    # end
-    #
-    # it "contains a links to delete the recipe" do
-    #   expect(last_response.body).to include("/recipes/#{@recipe1.id}/delete")
-    # end
-    #
-    # it 'deletes via a DELETE request' do
-    #   expect(last_response.body).to include('<input id="hidden" type="hidden" name="_method" value="delete">')
-    # end
+    it "displays the recipe's name" do
+      expect(last_response.body).to include(recipe_name)
+
+    end
+
+    it "displays the recipe's ingredients" do
+      expect(last_response.body).to include(recipe_ingredients)
+    end
+
+    it "displays the recipe's cook time" do
+      expect(last_response.body).to include(recipe_cook_time)
+    end
+
+    it "contains a links to delete the recipe" do
+      expect(last_response.body).to include("/recipes/#{@recipe1.id}/delete")
+    end
+
+    it 'deletes via a DELETE request' do
+      expect(last_response.body).to include('<input id="hidden" type="hidden" name="_method" value="delete">')
+    end
   end
 
   # describe "edit page '/recipes/:id/edit'" do
@@ -85,42 +85,42 @@ describe "Recipe App" do
   #   end
   #
   # end
-  #
-  # describe "new page '/recipes/new'" do
-  #   before do
-  #     get "/recipes/new"
-  #   end
-  #
-  #   it 'responds with a 200 status code' do
-  #     expect(last_response.status).to eq(200)
-  #   end
-  #
-  #   it "contains a form to create the recipe" do
-  #     expect(last_response.body).to include("</form>")
-  #   end
-  # end
-  #
-  # describe "creating a new recipe" do
-  #   before do
-  #     params = {
-  #       "name" => "pumpkin pie",
-  #       "ingredients" => "pumpkin, flour, butter, sugar",
-  #       "cook_time" => "1 hour"
-  #     }
-  #
-  #     post '/recipes', params
-  #     follow_redirect!
-  #   end
-  #   it "creates a new recipe and saves to the database" do
-  #     expect(Recipe.all.count).to eq(3)
-  #     expect(Recipe.last.name).to eq("pumpkin pie")
-  #   end
-  #
-  #   it "redirects to the recipe show page" do
-  #     expect(last_request.url).to include("/recipes/#{Recipe.last.id}")
-  #   end
-  # end
-  #
+
+  describe "new page '/recipes/new'" do
+    before do
+      get "/recipes/new"
+    end
+
+    it 'responds with a 200 status code' do
+      expect(last_response.status).to eq(200)
+    end
+
+    it "contains a form to create the recipe" do
+      expect(last_response.body).to include("</form>")
+    end
+  end
+
+  describe "creating a new recipe" do
+    before do
+      params = {
+        "name" => "pumpkin pie",
+        "ingredients" => "pumpkin, flour, butter, sugar",
+        "cook_time" => "1 hour"
+      }
+
+      post '/recipes', params
+      follow_redirect!
+    end
+    it "creates a new recipe and saves to the database" do
+      expect(Recipe.all.count).to eq(3)
+      expect(Recipe.last.name).to eq("pumpkin pie")
+    end
+
+    it "redirects to the recipe show page" do
+      expect(last_request.url).to include("/recipes/#{Recipe.last.id}")
+    end
+  end
+
   # describe "updating a recipe" do
   #   before do
   #     @cookie = Recipe.create(
