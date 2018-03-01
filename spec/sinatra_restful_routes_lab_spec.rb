@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Recipe App" do
   let(:recipe_name) { "Bomb.com Mac and Cheese" }
@@ -26,6 +27,7 @@ describe "Recipe App" do
     end
 
     it "contains links to each recipe's show page" do
+      
       expect(last_response.body).to include("/recipes/#{@recipe1.id}")
     end
   end
