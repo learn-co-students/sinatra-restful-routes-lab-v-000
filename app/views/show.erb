@@ -18,7 +18,7 @@
 
 <% base = "#{recipe.id}" %>
 <% edit = "'#{base}/edit'" %>
-<% delete = "#{base}/delete" %>
+<% delete = "/recipes/#{base}/delete" %>
 
 <p>
 <a href=<%= edit %>>Edit</a>
@@ -26,5 +26,5 @@
 
 <form class="" action="<%= delete %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
+  <input type="submit" value="Delete" id="delete">
 </form>
