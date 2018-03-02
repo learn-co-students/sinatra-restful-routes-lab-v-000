@@ -1,0 +1,22 @@
+<h1>the cook book</h1>
+
+<% if @all.size > 0 %>
+
+<% @all.each do |recipe| %>
+<% url = "/recipes/#{recipe.id}" %>
+
+<h2>
+<a href="<%= url %>">
+<%= recipe.name %>
+</a>
+</h2>
+
+<% end %>
+
+<% else %>
+
+<h2>
+There are no recipes to display.
+</h2>
+
+<% end %>
