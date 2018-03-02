@@ -3,18 +3,13 @@
 <% if @all.size > 0 %>
 
 <% @all.each do |recipe| %>
+<% url = "'recipes/#{recipe.id}'" %>
 
 <h2>
+<a href=<%= url %>>
 <%= recipe.name %>
+</a>
 </h2>
-
-<h3>
-<%= recipe.ingredients %>
-</h3>
-
-<h4>
-<%= recipe.cook_time %>
-</h4>
 
 <% end %>
 
