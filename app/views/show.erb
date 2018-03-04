@@ -1,0 +1,10 @@
+<h2>RECIPE</h2>
+<p><%=current_recipe(params).name%></p>
+<p><%=current_recipe(params).ingredients%></p>
+<p><%=current_recipe(params).cook_time%></p>
+<form action="/recipes/<%=current_recipe(params).id%>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" name="" value="delete">
+</form>
+<a href="/recipes/<%=current_recipe(params).id%>/edit">Edit This Recipe</a>
+<a href="/recipes">See All Recipes</a>

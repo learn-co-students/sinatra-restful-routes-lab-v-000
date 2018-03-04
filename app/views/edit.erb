@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Recipe</title>
+  </head>
+  <body>
+    <form class="" action="/recipes/<%=current_recipe(params).id%>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+      <input type="text" name="name" value="<%=current_recipe(params).name%>">
+      <input type="text" name="ingredients" value="<%=current_recipe(params).ingredients%>">
+      <input type="text" name="cook_time" value="<%=current_recipe(params).cook_time%>">
+      <input type="submit" name="" value="submit">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<ul>
+
+<%Recipe.all.each do |each_recipe|%>
+<li> <a href="/recipes/<%=each_recipe.id%>"><%=each_recipe.name%></a> </li>
+<%end%>
+
+</ul>
+
+<a href="/recipes/new">Add a Recipe</a>
