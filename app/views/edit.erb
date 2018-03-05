@@ -1,0 +1,20 @@
+<style media="screen">
+  label {
+    margin-top: 1em;
+    display: block;
+  }
+</style>
+
+<h2>Edit Recipe: <%= @recipe.name %></h2>
+
+<form action="/recipes/<%=@recipe.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label for="name">Name: </label><input type="text" name="name" placeholder="<%=@recipe.name%>" id="name">
+
+  <p><label for="ingredients">Ingredients: </label><textarea name="ingredients" placeholder="<%=@recipe.ingredients%>" id="ingredients" ></textarea>
+
+  <p><label for="cook_time">Cook Time: </label><input type="number" name="cook_time" placeholder="<%=@recipe.cook_time%>" id="cook_time">
+
+  <p><input type="submit" value="submit">
+</form>
