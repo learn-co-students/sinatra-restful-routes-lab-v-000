@@ -7,12 +7,12 @@
   <p><%=@recipe.cook_time%></p>
   <hr>
   <h1>Edit Content</h1>
-  <form action="/recipes/<%= @recipe.id %>" method="post">
+  <form action="/recipes/<%=@recipe.id%>" method="post">
     <input id="hidden" type="hidden" name="_method" value="patch">
     <h3>Name: <input type="text" name="name"></input></h3>
     <p>Ingredients: <input type="text" name="ingredients"></input></p>
     <h3>Cook Time: <input type="text" name="cook_time"></input></h3>
-    <input type="submit" value="submit">Update</input>
+    <input type="submit" value="submit" id="submit">Update</input>
   </form>
 </body>
 </html>
