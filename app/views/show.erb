@@ -1,6 +1,11 @@
 <h1>Recipe for: <%= @recipe.name %></h1>
 
 <p>
-  Ingredients: <%= @recipe.ingredients %><br><br>
+  Ingredients: <%= @recipe.ingredients %><br><br>+
+  
   Cook_Time: <%= @recipe.cook_time %><br>
 </p>
+
+<form action="/recipes/<%= @recipe.id %>/edit" method="get">
+  <input type="submit" value="edit">
+</form>
