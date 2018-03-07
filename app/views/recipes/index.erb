@@ -1,0 +1,17 @@
+<br>
+<br>
+
+<% if @recipes.empty? %>
+  <p style="color: red;">There are no recipes... <a class="error" href="/recipes/new">add some now</a>.</p>
+<% else %>
+  <% @recipes.each do |recipe| %>
+  <%= recipe.name %>
+  <a href=<%= "/recipes/#{recipe.id}" %>>Show Recipe</a>
+  <% end %> 
+<% end %>
+
+
+
+
+
+  
