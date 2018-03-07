@@ -34,11 +34,6 @@ class ApplicationController < Sinatra::Base
 
   # UPDATE =========================
 
-  # post 'recipes/:id/edit' do
-  #   @recipe = Recipe.find(params[:id])
-  #   redirect "recipes/#{recipe.id}/edit"
-  # end
-
   get '/recipes/:id/edit' do
     @recipe = Recipe.find(params[:id])
     erb :edit
