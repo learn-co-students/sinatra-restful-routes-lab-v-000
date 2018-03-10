@@ -5,6 +5,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
   get '/' do
+    redirect '/recipes'
   end
 
   get '/recipes' do
@@ -38,8 +39,8 @@ class ApplicationController < Sinatra::Base
   end
 
   delete '/recipes/:id/delete' do
-    recipe = Recipe.find(params[:id])
-    recipe.delete
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
     redirect '/recipes'
   end
 end
