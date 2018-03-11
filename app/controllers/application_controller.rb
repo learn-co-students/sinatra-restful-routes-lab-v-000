@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
     @recipe.save
     redirect to "/recipes/#{@recipe.id}"
   end
-  post '/recipes' do
+  post '/recipes' do #these don't accept patch or delete
     @recipe=Recipe.create(params)
     redirect to "/recipes/#{@recipe.id}"
 
