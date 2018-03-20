@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
   post '/recipes' do
     @recipe=Recipe.create(params)
-    binding.pry
+
     redirect to "/recipes/#{@recipe.id}"
   end
   get '/recipes/:id'do
@@ -37,7 +37,8 @@ patch '/recipes/:id' do #edit action
 end
 
 delete '/recipes/:id/delete' do #delete action
-  @recipe = Recipe.find_by_id(params[:id]) #returns nil.
+
+  @recipe = Recipe.find_by_id(params[:id])
 
   @recipe.delete
   redirect to '/recipes '
