@@ -30,17 +30,15 @@ end
 patch '/recipes/:id' do #edit action
   @recipe = Recipe.find_by_id(params[:id])
   @recipe.name = params[:name]
-  @recipe.ingredients = params[:content]
+  @recipe.ingredients = params[:ingredients]
   @recipe.cook_time= params[:cook_time]
   @recipe.save
   redirect to "/recipes/#{@recipe.id}"
 end
 
 delete '/recipes/:id/delete' do #delete action
-
   @recipe = Recipe.find_by_id(params[:id])
-
   @recipe.delete
-  redirect to '/recipes '
+  redirect to '/recipes'
 end
 end
