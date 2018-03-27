@@ -1,0 +1,6 @@
+
+<h1>"Welcome"</h1>
+
+<% @recipes.each do |r| %>
+  <p><a href="/recipes/<%= r.id %>"> <%= r.name %> </a></p>
+<% end %>
