@@ -1,0 +1,1 @@
+recipe1 = Recipe.create(:name => "pie", :ingredients => "love crust and fruit", :cook_time => 100)
