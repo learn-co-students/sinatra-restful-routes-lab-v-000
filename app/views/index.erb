@@ -1,0 +1,13 @@
+<a href='/recipes/new'>Create a new Recipe</a>
+
+<h1>Your Recipes</h1>
+
+  <% if !@recipes.empty? %>
+  <ul>
+    <% @recipes.each do |recipe|%>
+    <li><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  You don't have any recipes yet.
+  <%end%>
