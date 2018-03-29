@@ -1,5 +1,6 @@
 require 'pry'
 class ApplicationController < Sinatra::Base
+
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -20,6 +21,13 @@ class ApplicationController < Sinatra::Base
     #binding.pry
 
     redirect to "/recipes/#{@recipe.id}"
+  end
+
+  delete '/recipes/:id/delete' do
+    #7 delete the entry and redirect to the index page
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.delete
+    redirect to "/recipes"
   end
 
   get '/recipes/:id' do
@@ -53,12 +61,7 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  delete '/recipes/:id/delete' do
-    #7 delete the entry and redirect to the index page
-    @recipe = Recipe.find_by_id(params[:id])
-    @recipe.delete
-    redirect to "/recipes"
-  end
+
 
 
 

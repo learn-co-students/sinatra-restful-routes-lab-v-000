@@ -2,5 +2,5 @@
 <h1> All recipes </h1>
 <% @recipes.each do |x| %>
   <%#binding.pry%>
-  <p><a href="recipes/<%= x.id %>"> <%=x.name%> </a></p>
+  <p><a href="/recipes/<%= x.id %>"> <%=x.name%> </a></p>
 <%end%>
