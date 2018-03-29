@@ -19,8 +19,7 @@ class ApplicationController < Sinatra::Base
     @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     #binding.pry
 
-    redirect to "/recipes"
-    #links aren't working in :index yet...but show page works fine if manually going to link
+    redirect to "/recipes/#{@recipe.id}"
   end
 
   get '/recipes/:id' do
@@ -32,13 +31,18 @@ class ApplicationController < Sinatra::Base
 
   get '/recipes/:id/edit' do
     #5 renders a form to edit a single recipe
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
   end
 
   patch '/recipes/:id' do
     #5 edits an existing recipe based on url
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.update(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    @recipe.save
     #reroutes to the show page (recipes/:id)
-    #redirect "/recipes/:#{@recipe.id}"
-    #reroute to recipes/:id?
+    redirect "/recipes/#{@recipe.id}"
+
   end
 
   get '/recipes' do
