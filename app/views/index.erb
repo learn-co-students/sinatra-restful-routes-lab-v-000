@@ -1,4 +1,6 @@
+<%require 'pry' %>
 <h1> All recipes </h1>
 <% @recipes.each do |x| %>
-  <p><a href="<%"recipe/#{x.id}"%>"><%=x.name%> </a></p>
+  <%#binding.pry%>
+  <p><a href="recipes/<%= x.id %>"> <%=x.name%> </a></p>
 <%end%>
