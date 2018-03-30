@@ -1,8 +1,0 @@
-<h1> Here are all of the recipes </h1>
-
-<%@recipes.each do |recipe|%>
-  <h3>Recipe Name:<%=recipe.name%></h3>
-  <h3>Recipe Ingredients:<%=recipe.ingredients%></h3>
-  <h3>Recipe Cook Time:<%=recipe.cook_time%></h3>
-  <h3>Recipe Link:/recipes/<%=recipe.id%></h3>
-<%end%>
