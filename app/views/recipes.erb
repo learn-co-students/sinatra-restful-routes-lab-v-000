@@ -1,5 +1,6 @@
 <h1> List of recipes</h1>
-<%binding.pry%>
+
 <% @recipes.each do |recipe| %>
-    <p><%= recipe.name %></p>
+    <p><%=recipe.id%></p>
+    <a href="./recipes/<%=recipe.id%>"><%= recipe.name %></a>
 <% end %>
