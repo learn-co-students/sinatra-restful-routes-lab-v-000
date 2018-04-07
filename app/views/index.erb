@@ -1,0 +1,9 @@
+<DOCTYPE! html>
+<body>
+  <%Recipe.all.each do |r|%>
+    <h2><a href='/recipes/<%=r.id%>'><%=r.name%></a></h2> <br>
+    <%=r.ingredients%> <br>
+    <%=r.cook_time%> <br>
+  <%end%>
+</body>
+</html>
