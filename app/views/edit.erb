@@ -8,9 +8,9 @@
 
 <form action="/recipes/<%=@recipe.id%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <input type='text' id="recipe_name" name='name' placeholder='Name:' value='<%@recipe.name%>'><br>
-  <input type='text' value='<%=@recipe.ingredients%>' id="ingredients_names" name='ingredients' placeholder='Ingredients:'><br>
-  <input type='text' id='cook_time' value='<%=@recipe.cook_time%>' name='cook_time' placeholder='Cook Time:'><br>
+  <input type='text' id="recipe_name" name='name' placeholder='Name:'><br>
+  <input type='text'  id="ingredients_names" name='ingredients' placeholder='Ingredients:'><br>
+  <input type='text' id='cook_time' name='cook_time' placeholder='Cook Time:'><br>
   <input type='submit' value="submit">
 </form>
 
