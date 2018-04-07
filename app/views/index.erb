@@ -1,7 +1,10 @@
 <DOCTYPE! html>
 <body>
   <%Recipe.all.each do |r|%>
-    <a href='/recipes/<%r.id%>'><%=r.name%></a> <br>
+    <%binding.pry%>
+    <a href='/recipes/<%=r.id%>'><%=r.name%></a> <br>
+    <%=r.Instructions%>
+    <%=r.cook_time%>
   <%end%>
 </body>
 </html>
