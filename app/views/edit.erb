@@ -1,7 +1,10 @@
 <DOCTYPE! html>
 <body>
 
-<%=@receipt.ingredients%>
+<h2>Update Recipe</h2>
+<h3><%=@recipe.name%></h3> <br>
+<h3><%=@recipe.ingredients%></h3> <br>
+<h3><%=@recipe.cook_time%></h3> <br>
 
 <form action='/recipes/<%=@recipe.id%>' method=POST>
   <input id='hidden' type='hidden' name='_method' value='patch'>
