@@ -1,3 +1,8 @@
+<DOCTYPE! html>
+<body>
+
+<%=@receipt.ingredients%>
+
 <form action='/recipes/<%=@recipe.id%>' method=POST>
   <input id='hidden' type='hidden' name='_method' value='patch'>
   <input type='text' name='name' placeholder='Name:'><br>
@@ -5,3 +10,6 @@
   <input type='text' name='cook_time' placeholder='Cook Time:'><br>
   <input type='submit' value="Submit">
 </form>
+
+</body>
+</html>
