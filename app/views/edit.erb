@@ -2,15 +2,15 @@
 <body>
 
 <h2>Update Recipe</h2>
-<h3><%=@recipe.name%></h3> <br>
-<h3><%=@recipe.ingredients%></h3> <br>
-<h3><%=@recipe.cook_time%></h3> <br>
+<h2><%=@recipe.name%></h2> <br>
+<h2><%=@recipe.ingredients%></h2> <br>
+<h2><%=@recipe.cook_time%></h2> <br>
 
-<form action='/recipes/<%=@recipe.id%>' method=POST>
+<form action="/recipes/<%=@recipe.id%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <input type='text' name='name' placeholder='Name:'><br>
-  <input type='text'name='ingredients' placeholder='Ingredients:'><br>
-  <input type='text' name='cook_time' placeholder='Cook Time:'><br>
+  <input type='text' id="recipe_name" name='name' placeholder='Name:' value='<%@recipe.name%>'><br>
+  <input type='text' value='<%=@recipe.ingredients%>' id="ingredients_names" name='ingredients' placeholder='Ingredients:'><br>
+  <input type='text' id='cook_time' value='<%=@recipe.cook_time%>' name='cook_time' placeholder='Cook Time:'><br>
   <input type='submit' value="submit">
 </form>
 
