@@ -1,0 +1,16 @@
+<h2>Edit Recipe: <%= @recipe.name %></h2>
+
+Back to <a href="/recipes">Recipes</a>
+
+<form action="/recipes/<%=@recipe.id%>" method="POST" >
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <p>Name: <input id="recipe_name" type="text"  name="name" value="<%=@recipe.name%>"></p>
+  <p>Ingredients: <input id="ingredients_names" type="text"  name="ingredients" value="<%=@recipe.ingredients%>"></p>
+  <p>Cook Time: <input id="cook_time" type="text" name="cook_time" value="<%=@recipe.cook_time%>"></p>
+  <input type="submit" value="submit">
+</form>
+
+<form action="/recipes/<%= @recipe.id %>/delete" method="POST" >
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
