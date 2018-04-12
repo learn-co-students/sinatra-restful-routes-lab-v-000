@@ -2,9 +2,15 @@
   <body>
       <p><%=@recipe.name%></p>
       <p><%=@recipe.ingredients%></p>
-      <p><%=@recipe.cook_time%> minutes</p>
-<% binding.pry %>
-      <form method=POST action='/recipes/<%=@recipe.id%>/delete'>
+      <p><%= @recipe.cook_time.to_i %> minutes</p>
+
+      <form action="/recipes/<%=@recipe.id%>/edit" method="post">
+        <input id="hidden" type="hidden" name="_method" value="edit">
+        <input type="submit" value="edit">
+      </form>
+
+
+      <form action="/recipes/<%=@recipe.id%>/delete" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <input type="submit" value="delete">
       </form>
