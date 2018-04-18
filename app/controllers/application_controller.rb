@@ -1,10 +1,12 @@
 class ApplicationController < Sinatra::Base
+
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
   end
 
   get '/' do
+    @recipes = Recipe.all
     erb :index
   end
 
@@ -14,23 +16,28 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
- get '/recipes/new' do
+  get '/recipes/new' do
+    @recipes = Recipe.all
+    erb :index
+  end
 
-  erb :new
- end
+  post '/recipes' do
+    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients],
+    :cook_time => params[:cook_time])
 
-   post '/recipes' do
-     @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients],
-     :cook_time => params[:cook_time])
+    redirect to "/recipes/#{@recipe.id}"
+  end
 
-     redirect to "/recipes/#{@recipe.id}"
+  get '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :show
+  end
 
-   end
 
-   get '/recipes/:id' do
-     @recipe = Recipe.find_by_id(params[:id])
-     erb :show
-   end
-
+  # delete '/posts/:id/delete' do
+  #   @recipe = Recipe.find_by_id(params[:id])
+  #   @recipe.delete
+  #   redirect to '/recipes'
+  # end
 
 end
