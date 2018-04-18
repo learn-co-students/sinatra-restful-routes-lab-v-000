@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'activerecord', :require => 'active_record'
+gem 'activerecord','<= 5.1', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 
 gem 'sinatra'
@@ -9,6 +9,7 @@ gem 'tux'
 gem 'rake'
 gem 'require_all'
 gem 'shotgun'
+gem 'bcrypt'
 gem 'json', '>=1.8.3'
 
 group :test do
