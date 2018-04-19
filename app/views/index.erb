@@ -5,9 +5,11 @@
 <% @recipes.each do |recipe|%>
 <!-- <a href="<%=recipe.id%>">id</a> -->
 
-<a href="/recipes/<%=recipe.id%>"><%=recipe.name%></a>
-<%=recipe.ingredients%>
-<%=recipe.cook_time%>
+name: <a href="/recipes/<%=recipe.id%>"><%=recipe.name%></a>
+<br>
+ingredients: <%=recipe.ingredients%>
+<br>
+cook_time: <%=recipe.cook_time%>
 
 <%end%>
 
