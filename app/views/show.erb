@@ -2,8 +2,8 @@
 <%=@recipe.ingredients%>
 <%=@recipe.cook_time%>
 
-<form class="" action="index.html" method="post">
-
-<a href="<%=/posts/:id/delete%>">DeleteRecipe</a>
+<<form action="/recipes/<%= @recipe.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
 </form>
-#  redirect to '/recipes'
+<!-- #  redirect to '/recipes -->
