@@ -1,6 +1,11 @@
-<!DOCTYPE html>
-<h2>Enter your new recipe here:</h2>
-<form action="/recipes" method="post">
+  <h3>Name: <%= @recipe.name %></h3>
+  <p>Ingredients: <%= @recipe.ingredients %></p>
+  <p>Cook Time: <%= @recipe.cook_time %></p>
+  
+  <h2>To edit, please use the form below:</h2>
+
+<form action="/recipes/<%= @recipe.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
   <label for="name">Name:</label>
   <input type="text" name="name" id="name">
   <label for="ingredients">Ingredients:</label>
@@ -8,4 +13,5 @@
   <label for="cook_time">Cook Time:</label>
   <input type="text" name="cook_time" id="cook_time">
   <input type="submit" name="submit" id="submit">
+  
 </form>
