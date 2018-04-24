@@ -43,18 +43,27 @@ patch '/recipes/:id' do #edit action
   redirect to "/recipes/#{@recipe.id}"
 end
 
+get '/recipes/new' do
+  erb :new
+end
+
+post '/recipes' do
+  binding.pry
+  @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], cook_time: params[:cook_time])
+  redirect to "/recipes/#{@recipe.id}"
+end
 
 
-  get '/create' do
-    erb :create
-  end
-
-  post '/recipes' do
-    puts params
-    recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
-    recipe.save
-    redirect to '/recipes'
-  end
+  # get '/create' do
+  #   erb :create
+  # end
+  #
+  # post '/recipes' do
+  #   puts params
+  #   recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+  #   recipe.save
+  #   redirect to '/recipes'
+  # end
 
 
 end
