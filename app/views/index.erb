@@ -1,8 +1,14 @@
 <h1>*~* My Delicious Recipes Page *~*</h1>
 <h2>A list of my recipes:</h2>
 
+<% if @recipes != nil %>
 <ul>
 <% @recipes.each do |r| %>
-  <li><%= r.name %></li>
+  <li><a href="/recipes/<%= r.id %>"><%= r.name %></a></li>
   <% end %>
 </ul>
+<% else %>
+No recipes yet!
+<% end %>
+
+<p><a href="/recipes/new">Click here</a> to enter a new recipe</p>
