@@ -1,4 +1,7 @@
 require 'pry'
+require './config/environment'
+use Rack::MethodOverride
+
 
 class ApplicationController < Sinatra::Base
   configure do
@@ -20,7 +23,7 @@ class ApplicationController < Sinatra::Base
 #{@recipe.id}
   post '/recipes' do
     @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
-    @recipe.
+    @recipe.save
     redirect '/recipes'
   end
 
