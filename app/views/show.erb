@@ -1,8 +1,9 @@
-<h1>Recipe for <%=@recipe.name.upcase%>!</h1>
+<h1><%=@recipe.name%></h1>
 
 
 <h2><%= @recipe.ingredients%></h2>
 <p><%= @recipe.cook_time %></p>
+<a href="/recipes/<%=@recipe.id%>">/recipes/<%=@recipe.id%></a>
 
 <form action="/recipes/<%=@recipe.id%>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
