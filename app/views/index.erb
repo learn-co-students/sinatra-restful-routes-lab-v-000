@@ -1,0 +1,6 @@
+<h1>Recipe Collection!</h1>
+<%@recipes.each do |r|%>
+<h2><%= r.name%></h2>
+<p><%= r.ingredients%></p>
+<p><%= r.cook_time%></p>
+<% end %>
