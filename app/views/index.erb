@@ -1,0 +1,16 @@
+<!--<form action="/recipes" method="post">
+  <input id="recipe_name" type="text" name="name" placeholder="Name:"></input>
+  <input id="recipe_ingredients" type="text" name="ingredients" placeholder="Ingredients:"></input>
+  <input id="recipe_cook_time" type="text" name="cook_time" placeholder="Cook Time:"></input>
+</form>-->
+<% @recipes.each do |recipe| %>
+  <p>
+    <%= recipe.name %>
+    <br />
+    <%= recipe.ingredients %>
+    <br />
+    <%= recipe.cook_time %>
+    <br />
+    <a href="/recipes/<%= recipe.id %>">Recipe's Show Page</a>
+  </p>
+<% end %>
