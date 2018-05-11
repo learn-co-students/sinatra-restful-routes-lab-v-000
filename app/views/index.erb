@@ -1,0 +1,16 @@
+<header> List of Recipes </header>
+ <html>
+  
+  
+  <body>
+    <h1> List of Recipes:</h1>
+    <% @recipes.each do |recipe| %>
+      <h3><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></h3>
+    <% end %>
+    <br>
+    
+  
+  </body>
+  
+  
+  </html>
