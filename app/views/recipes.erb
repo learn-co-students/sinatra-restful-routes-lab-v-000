@@ -1,0 +1,6 @@
+<h1>List of Recipes</h1>
+
+<% @recipes.each_with_index do |r, i| %>
+  <% index = i + 1 %>
+  <a href= "/recipes/<%= index %>"> <%= "#{index}. #{r.name}" %> </a>
+<% end %>
