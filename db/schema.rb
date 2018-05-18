@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_18_012007) do
+ActiveRecord::Schema.define(version: 20180518012007) do
+
+  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ar_internal_metadata", ["key"], name: "sqlite_autoindex_ar_internal_metadata_1", unique: true
 
   create_table "recipes", force: :cascade do |t|
-    t.string "name"
-    t.string "ingredients"
+    t.string  "name"
+    t.string  "ingredients"
     t.integer "cook_time"
   end
 

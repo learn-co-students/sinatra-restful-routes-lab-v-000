@@ -10,22 +10,22 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  # # Create Page
-  # get '/recipes/new' do
-  #   erb :new
-  # end
-  #
-  # # Create Object Action
-  # post '/recipes' do
-  #   recipe = Recipe.create(params)
-  #   redirect to "/recipes/#{recipe.id}"
-  # end
-  #
-  # # Show Page
-  # get '/recipes/:id' do
-  #   @recipe = Recipe.find(params[:id])
-  #   erb :show
-  # end
+  # Create Page
+  get '/recipes/new' do
+    erb :new
+  end
+  
+  # Create Object Action
+  post '/recipes' do
+    recipe = Recipe.create(params)
+    redirect to "/recipes/#{recipe.id}"
+  end
+  
+  # Show Page
+  get '/recipes/:id' do
+    @recipe = Recipe.find(params[:id])
+    erb :show
+  end
 
 
 
