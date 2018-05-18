@@ -40,4 +40,11 @@ class ApplicationController < Sinatra::Base
     redirect to "/recipes/#{@recipe.id}"
   end
 
+  # Delete Recipe Action
+  delete '/recipes/:id/delete' do
+    @recipe = Recipe.find(params[:id])
+    @recipe.delete  # Delete vs Destroy = https://stackoverflow.com/questions/22757450/difference-between-destroy-and-delete
+    redirect to '/recipes'
+  end
+
 end
