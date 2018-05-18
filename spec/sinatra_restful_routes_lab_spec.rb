@@ -6,7 +6,7 @@ describe "Recipe App" do
   let(:recipe_cook_time) { "20 minutes" }
 
   before do
-    @recipe1 = Recipe.create(:name => recipe_name, :ingredients => recipe_ingredients, :cook_time => recipe_cook_time)
+    @recipe1 = Recipe.create(:name => recipe_name, :ingredients => recipe_ingredients, :cook_time => "20 minutes")
     @recipe2 = Recipe.create(:name => "waldorf salad", :ingredients => "apples, cabbage, oil, vinegar", :cook_time => "0")
   end
 
@@ -30,7 +30,7 @@ describe "Recipe App" do
     end
   end
 
-    
+
   describe "show page '/recipes/:id'" do
     before do
       get "/recipes/#{@recipe1.id}"
@@ -50,6 +50,7 @@ describe "Recipe App" do
     end
 
     it "displays the recipe's cook time" do
+
       expect(last_response.body).to include(recipe_cook_time)
     end
 
@@ -100,8 +101,8 @@ describe "Recipe App" do
     end
   end
 
-  describe "creating a new recipe" do 
-    before do 
+  describe "creating a new recipe" do
+    before do
       params = {
         "name" => "pumpkin pie",
         "ingredients" => "pumpkin, flour, butter, sugar",
@@ -111,12 +112,12 @@ describe "Recipe App" do
       post '/recipes', params
       follow_redirect!
     end
-    it "creates a new recipe and saves to the database" do 
+    it "creates a new recipe and saves to the database" do
       expect(Recipe.all.count).to eq(3)
       expect(Recipe.last.name).to eq("pumpkin pie")
     end
 
-    it "redirects to the recipe show page" do 
+    it "redirects to the recipe show page" do
       expect(last_request.url).to include("/recipes/#{Recipe.last.id}")
     end
   end
@@ -124,9 +125,9 @@ describe "Recipe App" do
   describe "updating a recipe" do
     before do
       @cookie = Recipe.create(
-        name:   "Chocolate Chip Cookies", 
-        ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
+        name:   "Chocolate Chip Cookies",
+        ingredients:  "chocolate chips, flour, sugar, butter",
+        cook_time:  "30 minutes",
       )
       visit "/recipes/#{@cookie.id}/edit"
       fill_in "name", :with => "Double chocolate chip cookies"
@@ -146,9 +147,9 @@ describe "Recipe App" do
   describe "deleting a recipe" do
     before do
       @cookie = Recipe.create(
-        name:   "Chocolate Chip Cookies", 
-        ingredients:  "chocolate chips, flour, sugar, butter", 
-        cook_time:  "30 minutes", 
+        name:   "Chocolate Chip Cookies",
+        ingredients:  "chocolate chips, flour, sugar, butter",
+        cook_time:  "30 minutes",
       )
       visit  "/recipes/#{@cookie.id}"
       click_button "delete"
@@ -158,5 +159,5 @@ describe "Recipe App" do
       expect(Recipe.find_by_id(@cookie.id)).to eq(nil)
     end
   end
-  
+
 end
