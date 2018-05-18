@@ -14,20 +14,30 @@ class ApplicationController < Sinatra::Base
   get '/recipes/new' do
     erb :new
   end
-  
-  # Create Object Action
+
+  # Create Recipe Action
   post '/recipes' do
     recipe = Recipe.create(params)
     redirect to "/recipes/#{recipe.id}"
   end
-  
+
   # Show Page
   get '/recipes/:id' do
     @recipe = Recipe.find(params[:id])
     erb :show
   end
 
+  # Edit Page
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find(params[:id])
+    erb :edit
+  end
 
-
+  # Edit Recipe Action
+  patch '/recipes/:id' do
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    redirect to "/recipes/#{@recipe.id}"
+  end
 
 end
