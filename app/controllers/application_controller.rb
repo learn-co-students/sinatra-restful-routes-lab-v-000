@@ -4,6 +4,13 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
+  # Create
+  get '/recipes/new' do
+    erb :recipe_new
+  end
+  post '/recipes' do
+    recipe.create()
+  end
   # Retrieve
   get '/' do
     @all = Recipe.all
@@ -13,21 +20,16 @@ class ApplicationController < Sinatra::Base
     @all = Recipe.all
     erb :index
   end
+  get '/recipes' do     # more restful
+    @all = Recipe.all
+    erb :index
+  end
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
     erb :recipe_show
   end
 
-  # create
-  get '/recipes/new' do
-    erb :recipe_new
-  end
 
-  post '/recipes' do
-    recipe = Recipe.new(name => params[:name], ingredients => params[:ingredients], cook_time => params[:cook_time])
-    recipe.save
-    redirect '/'
-  end
 
   # update
   get '/recipes/:id/edit' do
