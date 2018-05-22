@@ -9,8 +9,11 @@ class ApplicationController < Sinatra::Base
     erb :recipe_new
   end
   post '/recipes' do
-    recipe.create()
+    recipe = Recipe.create(params)
+    # todo: check for error?
+    redirect '/recipes'
   end
+
   # Retrieve
   get '/' do
     @all = Recipe.all
