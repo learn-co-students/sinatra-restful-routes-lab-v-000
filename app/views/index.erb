@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+  </head>
+  <body>
+    <form action="/recipes" method="GET">
+      <% @recipes.each do |recipe| %>
+        <p><%= recipe.name %></p>
+        <a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a>
+      <% end %>
+    </form>
+
+  </body>
+</html>
