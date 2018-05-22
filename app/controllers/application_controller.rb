@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   post '/recipes' do
     recipe = Recipe.create(params)
     # todo: check for error?
-    redirect '/recipes'
+    redirect "/recipes/#{recipe.id}"
   end
 
   # Retrieve
