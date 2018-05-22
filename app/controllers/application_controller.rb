@@ -19,10 +19,6 @@ class ApplicationController < Sinatra::Base
     @all = Recipe.all
     erb :index
   end
-  get '/index' do
-    @all = Recipe.all
-    erb :index
-  end
   get '/recipes' do     # more restful
     @all = Recipe.all
     erb :index
@@ -31,8 +27,6 @@ class ApplicationController < Sinatra::Base
     @recipe = Recipe.find_by_id(params[:id])
     erb :recipe_show
   end
-
-
 
   # update
   get '/recipes/:id/edit' do
@@ -46,13 +40,13 @@ class ApplicationController < Sinatra::Base
      @recipe.ingredients=params[:ingredients]
      @recipe.cook_time=params[:cook_time]
      @recipe.save
-     erb :recipe_show   # alternatively, re-direct to /recipes/:id
+     redirect to "/recipes/#{@recipe.id}"
    end
 
    # delete
-   # Delete (from Show id page)
+   # Delete (from Show page)
   delete '/recipes/:id/delete' do
     Recipe.delete(params[:id])
-    redirect '/index'
+    redirect '/recipes'
   end
 end
