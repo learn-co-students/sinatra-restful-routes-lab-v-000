@@ -5,10 +5,6 @@ class ApplicationController < Sinatra::Base
   end
   
   #INDEX ACTION
-  # get '/' do
-  #   erb :index
-  # end
-
   get '/recipes' do
     @recipes = Recipe.all
     erb :index
@@ -26,7 +22,7 @@ class ApplicationController < Sinatra::Base
 
   #SHOW ACTION
   get '/recipes/:id' do
-    @recipe = Post.find_by_id(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
     erb :show
   end
 
@@ -42,7 +38,6 @@ class ApplicationController < Sinatra::Base
     @recipe.ingredients = params[:ingredients]
     @recipe.save
     redirect to "/recipes/#{@recipe.id}"
-    #**DON'T FORGET TO ADD LINE TO FORM **
   end
 
   #DELETE ACTION
