@@ -1,0 +1,21 @@
+<h1><%= @recipe.name %></h1>
+
+<h3>Cook Time: <%= @recipe.cook_time %></h3>
+
+<h3>Ingredients: <%= @recipe.ingredients %></h3>
+
+<br>
+<br>
+
+<h5>Recipe Options</h3>
+<ul>
+  <li><a href="/recipes/<%= @recipe.id %>/edit">Edit this Recipe</a></li>
+  <li>
+    <form action="/recipes/<%= @recipe.id %>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete" />
+    </form>
+  </li>
+</ul>
+
+<p>Your can also <a href="/recipes">return to the Recipe Masterlist</a>.</p>

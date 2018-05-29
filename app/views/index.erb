@@ -1,0 +1,20 @@
+<h1>Recipe Masterlist</h1>
+
+<% if @recipes.empty? %>
+  <h3>Uh oh!</h3>
+  <p>You don't have any recipes saved yet.</p>
+  <p>Let's get started by <a href="/recipes/new">creating a new recipe</a>.</p>
+<% else %>
+  <ul>
+  
+  <% @recipes.each do |recipe| %>
+    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
+  <% end %>
+  
+  </ul>
+  
+  <br>
+  <br>
+  <p>Not seeing anything you like? <a href="/recipes/new">Create a new recipe</a>.</p>
+  
+<% end %>
