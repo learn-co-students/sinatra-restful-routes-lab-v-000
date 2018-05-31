@@ -10,6 +10,7 @@ gem 'rake'
 gem 'require_all'
 gem 'shotgun'
 gem 'json', '>=1.8.3'
+gem 'bcrypt', '>=3.1'
 
 group :test do
   gem 'rspec'
