@@ -8,14 +8,14 @@ class ApplicationController < Sinatra::Base
 
 
   get '/' do
-    "Welcome to the recipe app!"
-    redirect to '/recipes'
+    "Welcome to the recipe app! link shorcuts: /recipes, /recipes/new, recipes/(the id number of recipe)/edit"
   end
 
   get '/recipes' do
     # displays a list of recipes
     # contains links to each recipe's show page
     @recipes = Recipe.all
+    # binding.pry
     erb :index
   end
 
@@ -42,7 +42,13 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
-  patch '/recipes/:id' do #edit action
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+    # binding.pry
+    erb :edit
+  end
+
+  patch '/recipes/:id/edit' do #edit action
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
@@ -51,7 +57,7 @@ class ApplicationController < Sinatra::Base
     redirect to "/recipes/#{@recipe.id}"
   end
 
-  delete 'recipes/:id/delete' do #delete action
+  delete '/recipes/:id/delete' do #delete action
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.delete
     # session[:id].clear
