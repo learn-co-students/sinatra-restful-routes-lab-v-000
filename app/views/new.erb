@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+  <body>
+  <h1>Create a Recipe Below:</h1>
+
+  <form method="post" action="/recipes">
+    <label for="name">Name:</label><br>
+    <input name="name" type="text"><br>
+    <label for="ingredients">Ingredients:</label><br>
+    <input name="ingredients" type="text"><br>
+    <label for="cook_time">Cook Time:</label><br>
+    <input name="cook_time" type="text"><br>
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type="submit" value="submit">
+  </form>
+  </body>
+</html>
