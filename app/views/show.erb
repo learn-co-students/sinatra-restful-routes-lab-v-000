@@ -1,0 +1,7 @@
+<%= current_recipe.name %>
+<%= current_recipe.ingredients %>
+<%= current_recipe.cook_time %>
+<form method="POST" action="/recipes/<%= current_recipe.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
