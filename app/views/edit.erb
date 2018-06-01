@@ -2,7 +2,7 @@
 <%= current_recipe.ingredients %>
 <%= current_recipe.cook_time %>
 
-<form method="POST" action="/recipes/:id/edit">
+<form method="POST" action="/recipes/<%=current_recipe.id%>">
   <input id="hidden" type="hidden" name="_method" value="patch">
   Name: <input type="text" name="name">
   Ingredients: <input type="text" name="ingredients">
