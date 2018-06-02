@@ -35,7 +35,7 @@ end
 
   patch '/recipes/:id' do  #updates a recipe
     @recipe = Recipe.find_by_id(params[:id])
-    binding.pry
+    # binding.pry
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
     @recipe.cook_time = params[:cook_time]
@@ -48,7 +48,7 @@ end
     redirect "/recipes/#{@recipe.id}"
   end
 
-get '/recipes/:id/delete' do
+delete '/recipes/:id/delete' do
   @recipe = Recipe.find_by_id(params[:id])
   @recipe.delete
   redirect to '/'
