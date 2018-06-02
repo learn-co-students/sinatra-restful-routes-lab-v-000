@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Recipes Galore</title>
+  </head>
+  <body>
+    <h1>Welcome to Recipes Galore!</h1>
+    <h3>To create a new recipe, please <a href="/recipes/new">click here!</a></h3>
+    <%@recipe.each do |r|%>
+    <%=r.name%>
+    <a href="/recipes/<%=r.id%>">Link</a> 
+    <%end%>
+  </body>
+</html>
