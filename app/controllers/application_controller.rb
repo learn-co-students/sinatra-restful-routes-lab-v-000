@@ -24,15 +24,28 @@ class ApplicationController < Sinatra::Base
   end
 
   # SHOW action
+  get '/recipes' do
+    "ALL THE RECIPES!"
+  end
+
   get '/recipes/:id' do
     # Recipe.find throws an exception on failure,
     # whereas find_by just returns nil
-    recipe = Recipe.find_by(id: params[:id])
+    @recipe = Recipe.find_by(id: params[:id])
 
-    if recipe
-      "#{recipe.name + "<br>" + recipe.ingredients + "<br>" + recipe.cook_time}"
+    if @recipe
+      erb:show
     else
       "RECIPE NOT FOUND"
     end
+  end
+
+  # DELETE action
+  delete '/recipes/:id/delete' do
+    recipe = Recipe.find_by(id: params[:id])
+
+    recipe.destroy if recipe
+
+    redirect '/recipes'
   end
 end
