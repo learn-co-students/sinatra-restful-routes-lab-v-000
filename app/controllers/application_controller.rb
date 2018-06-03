@@ -23,11 +23,14 @@ class ApplicationController < Sinatra::Base
     redirect "/recipes/#{recipe.id}"
   end
 
-  # SHOW action
+  # INDEX action
   get '/recipes' do
-    "ALL THE RECIPES!"
+    @recipes = Recipe.all
+
+    erb :index
   end
 
+  # SHOW action
   get '/recipes/:id' do
     # Recipe.find throws an exception on failure,
     # whereas find_by just returns nil
