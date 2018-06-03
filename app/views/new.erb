@@ -1,0 +1,11 @@
+<form action='/recipes' method='POST'>
+    <% fieldNames = ['name', 'ingredients', 'cook_time'] %>
+    <% fieldNames.each do |fn| %>
+        <p>
+            <label for="<%= fn %>"><%= fn.capitalize %>: </label>
+            <input type="text" name="<%= fn %>">
+        </p>
+    <% end %>
+
+    <button type='submit' id='submit'>Add Recipe</button>
+</form>
