@@ -1,0 +1,17 @@
+<h4><%= @recipe.name %></h4>
+<p><%= @recipe.ingredients %></p>
+<h6><%= @recipe.cook_time %></h6>
+
+<form action='/recipes/<%= @recipe.id %>' method='POST'>
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+    <% fieldNames = ['name', 'ingredients', 'cook_time'] %>
+    <% fieldNames.each do |fn| %>
+        <p>
+            <label for="<%= fn %>"><%= fn.capitalize %>: </label>
+            <input type="text" name="<%= fn %>">
+        </p>
+    <% end %>
+
+    <button type='submit' id='submit'>Update Recipe</button>
+</form>

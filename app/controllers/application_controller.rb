@@ -37,10 +37,31 @@ class ApplicationController < Sinatra::Base
     @recipe = Recipe.find_by(id: params[:id])
 
     if @recipe
-      erb:show
+      erb :show
     else
       "RECIPE NOT FOUND"
     end
+  end
+
+  # EDIT action 
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+
+    if @recipe
+      erb :edit
+    else
+      "RECIPE NOT FOUND WOULD BE HARD TO EDIT IT"
+    end
+  end
+
+  patch '/recipes/:id' do
+    recipe = Recipe.find_by_id(params[:id])
+    recipe.name = params[:name]
+    recipe.ingredients = params[:ingredients]
+    recipe.cook_time = params[:cook_time]
+    recipe.save
+
+    redirect "/recipes/#{recipe.id}"
   end
 
   # DELETE action
