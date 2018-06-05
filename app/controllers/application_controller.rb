@@ -4,15 +4,11 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get '/' do
-
-    erb :index
-  end
 
   get '/recipes' do
     # binding.pry
     @recipes = Recipe.all
-    binding.pry
+    # binding.pry
     erb :index
   end
 
