@@ -1,6 +1,6 @@
 <h1>My Recipes</h1>
 <ul>
   <% @recipes.each do |recipe| %>
-  <li><%= recipe %></li>
+  <li><a href = "/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
   <% end %>
 </ul>
