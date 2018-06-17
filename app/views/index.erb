@@ -1,7 +1,7 @@
-<h1>Recipes </h1>
+<h1> Index Recipes </h1>
 <body>
-	<p><% @recipes.each do |recipe| %><p>
-	<a href="/recipes/<%= recipe.id %><%= recipe.name %>"><%= recipe.name %></a>
+	<p><% @recipe.each do |r| %><p>
+	<a href="/recipes/<%= r.id %><%= r.name %>"><%= r.name %></a>
 	<%end%>
 
 
