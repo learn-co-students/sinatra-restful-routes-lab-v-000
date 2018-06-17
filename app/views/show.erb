@@ -1,4 +1,4 @@
 <h1>Recipes </h1>
-<p><%= @recipes.id %><%= @recipes.name %><%= @recipes.ingredients %><%= @recipes.cook_time %></p>
+<p><%= @recipe.id %><%= @recipe.name %><%= @recipe.ingredients %><%= @recipe.cook_time %></p>
    <input id="hidden" type="hidden" name="_method" value="delete">
 	<a href="/recipes/<%= @recipes.id %>/delete">Delete</a>
