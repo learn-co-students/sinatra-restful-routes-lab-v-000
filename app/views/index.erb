@@ -1,0 +1,11 @@
+<h1>Index Page for Recipies </h1>
+
+<a href="/recipes/new">Create New Recipe</a>
+
+<% if @recipes != nil
+      @recipes.all.each_with_index(1) do |recipe_name, index|
+        %>
+        Recipe Name : <h3><%= recipe_name %></h3>
+        <a href="/recipes/<%= recipe_name.id %>">Show Page</a>
+      <% end %>
+<% end %>
