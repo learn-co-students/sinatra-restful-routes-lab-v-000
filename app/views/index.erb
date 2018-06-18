@@ -1,0 +1,13 @@
+<h1>Index Page for Recipies </h1>
+<a href="/recipes/new">Create New Recipe</a></br>
+
+
+<%
+# raise @recipes.inspect
+if @recipes != nil
+      @recipes.all.each do |recipe|
+        %>
+        Recipe Name : <h3><%= recipe.name %></h3></br>
+        <a href="/recipes/<%=recipe.id %>">Show Page</a></br>
+      <% end %>
+<% end %>
