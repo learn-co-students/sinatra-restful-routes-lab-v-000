@@ -3,5 +3,7 @@
 <h4>Name: <%=@recipe.name%></h4>
 Ingredients: <%=@recipe.ingredients%><br>
 Cook Time: <%=@recipe.cook_time%><br>
-<a href="/recipes/<%=@recipe.id%>/delete">Delete here</a><br>
+<form method="post" action="/recipes/<%= @recipe.id %>/delete">
+<input type="submit" value="delete">
 <input id="hidden" type="hidden" name="_method" value="delete">
+<form>
