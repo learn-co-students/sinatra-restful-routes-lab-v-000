@@ -1,0 +1,7 @@
+<h1>Selected Recipe</h1>
+
+<h4>Name: <%=@recipe.name%></h4>
+Ingredients: <%=@recipe.ingredients%><br>
+Cook Time: <%=@recipe.cook_time%><br>
+<a href="/recipes/<%=@recipe.id%>/delete">Delete here</a><br>
+<input id="hidden" type="hidden" name="_method" value="delete">
