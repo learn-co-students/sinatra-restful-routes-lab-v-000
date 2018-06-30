@@ -17,13 +17,16 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
-  delete '/posts/:id/delete' do #delete action
+  delete '/recipes/:id/delete' do #delete action
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.delete
     redirect to '/recipes'
   end
 
-
+  get '/recipes/:id/delete/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
+  end
 
   # helpers do
   #   def all
