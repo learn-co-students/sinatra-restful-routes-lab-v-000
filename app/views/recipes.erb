@@ -1,0 +1,4 @@
+<h2>Chiggity Check My Recipes...</h2>
+<%@recipes.each do |rec|%>
+  <a href="/recipes/<%=rec.id%>"><%=rec.name%></a><br />
+<%end%>
