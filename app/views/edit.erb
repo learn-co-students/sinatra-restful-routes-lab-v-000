@@ -1,0 +1,17 @@
+<h3>Editing:</h3>
+<h6><%=@rec.name%></h6>
+<p>
+  <%=@rec.ingredients%>
+</p>
+<p>
+  <%=@rec.cook_time%>
+</p>
+
+
+<form method="POST" action="/recipes/<%=@rec.id%>">
+  <input id="hidden" type="hidden" name="_method" value="patch"></input>
+  <input type="text" name="name" id="name" />
+  <input type="text" name="ingredients" id="ingredients" />
+  <input type="text" name="cook_time" id="cook_time" />
+  <input type='submit' value="Submit" id="submit" />
+</form>
