@@ -1,0 +1,11 @@
+<h1>Welcome to your recipes!</h1>
+
+<% @recipes.each.with_index(1) do |details, i| %>
+
+  <h2><a href="/recipes/<%= details.id %>">Recipe Name <%= i %>: <%= details.name %></a></h2>
+  <p>Ingredient(s): <%= details.ingredients %></p>
+  <p>Cook Time: <%= details.cook_time %></p>
+
+<% end %>
+
+<a href="/recipes/new">Add a recipe</a>
