@@ -1,0 +1,5 @@
+<h1>Here is your recipe list</h1>
+<p>  <%=@recipes.all.each_with_index(1) do |recipe, i|%>
+  <%= "#{i}." "#{recipe.name}" "#{recipe.ingredients}" "#{recipe.cook_time}"%>
+  <%end%>
+</p>
