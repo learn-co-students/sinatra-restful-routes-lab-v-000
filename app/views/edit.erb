@@ -4,9 +4,9 @@
 <p>Current Cook Time: <%=@recipe.cook_time%></p>
 <form method="post" action="/recipes/:id<%=@recipe.id%>">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <p>Name: <input type="text" name="name" value="Name">
-    Ingredients: <input type="text" name="ingredients" value="Ingredients">
-    Cook Time: <input type="text" name="cook_time" value="Cook Time">
+  <p>Name: <input type="text" name="name" >
+    Ingredients: <input type="text" name="ingredients">
+    Cook Time: <input type="text" name="cook_time" >
     <input type="submit" name="submit" value="Edit Recipe">
     </p>
   </form>

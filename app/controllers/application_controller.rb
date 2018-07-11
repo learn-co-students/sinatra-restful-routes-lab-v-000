@@ -7,7 +7,6 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "secret"
   end
   get '/' do
-    #binding.pry
     erb :index
   end
 
@@ -48,9 +47,9 @@ class ApplicationController < Sinatra::Base
 
   end
 
-  delete '/recipes/:id/delete' do #delete action
+  delete '/recipes/:id/delete' do
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.delete
-    redirect to '/recipes'
+    redirect to '/'
   end
 end
