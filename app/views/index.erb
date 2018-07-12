@@ -1,5 +1,5 @@
 <h1>Here is your recipe list</h1>
-  <%= @recipes.each do |recipe|%>
+  <% @recipes.each do |recipe|%>
   <p>Recipe Name: <%= recipe.name%></p>
     <p>Recipe Ingredients: <%=recipe.ingredients%></p>
     <p>Recipe Cook Time: <%=recipe.cook_time%></p>

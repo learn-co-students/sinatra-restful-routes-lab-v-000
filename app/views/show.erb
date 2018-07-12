@@ -6,7 +6,7 @@
 <h2>Click <a href="/recipes"here</a> to see all the recipes</h2>
 <a href="/recipes/<%= @recipe.id %>/edit">Edit Recipe</a><br><br>
 
-<form action="/recipes/<%= @recipe.id %>/delete" method="POST">
+<form action="/recipes/<%= @recipe.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="delete">
 </form>
