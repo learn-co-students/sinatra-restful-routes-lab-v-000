@@ -1,0 +1,7 @@
+<h1>Recipes</h1>
+<% if @recipes %>
+  <% @recipes.each_with_index do |rec, i| %>
+    <h2><%=i+1%>. <%=rec.name%></h2>
+    <p><a href=<%="/recipes/#{rec.id}"%>>Find out more</a></p>
+  <%end%>
+<%end%>
