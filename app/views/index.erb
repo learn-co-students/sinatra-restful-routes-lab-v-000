@@ -1,0 +1,7 @@
+<h1>Recipes</h1>
+<% @recipes.each do |recipe| %>
+<h3>
+  <a href=<%="/recipes/#{recipe.id}"%>> <%= recipe.name %> </a>
+</h3>
+<% end %>
+<a href="/recipes/new"><input type="submit" name="new" value="New Recipe"></a>
