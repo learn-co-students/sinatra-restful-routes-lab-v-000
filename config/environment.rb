@@ -1,6 +1,8 @@
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
+#require 'webrick/server'
+
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 ActiveRecord::Base.establish_connection(
@@ -9,3 +11,4 @@ ActiveRecord::Base.establish_connection(
 )
 
 require_all 'app'
+
