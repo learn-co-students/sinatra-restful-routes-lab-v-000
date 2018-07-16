@@ -1,7 +1,11 @@
+<p>Current Name: <%=@recipe.name%></p><br>
+<p>Current Ingredients: <%=@recipe.ingredients%></p><br>
+<p>Current Cook Time: <%=@recipe.cook_time%></p><br>
+
+
 <form action="recipes/<%=@recipe.id%>" method="post">
   <label for="name">Name: </label>
   <input type="text" name="name" id="name">
-  <p>Current Ingredients: <%=@recipe.ingredients%><br>
   <label for="ingredients">Ingredients: </label>
   <input type="text" name="ingredients" id="ingredients">
   <label for="cook_time">Cook Time: </label>
