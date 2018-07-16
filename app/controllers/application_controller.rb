@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get '/recipes/new' do # get the new recipies page
+  get '/recipes/new' do
     erb :new
   end
 
@@ -20,7 +20,9 @@ class ApplicationController < Sinatra::Base
 
   get '/recipes/:id/edit' do
     @recipe = Recipe.find_by_id(params[:id])
+    
     erb :edit
+    
   end
 
   patch '/recipes/:id' do
