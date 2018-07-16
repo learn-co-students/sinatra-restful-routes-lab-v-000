@@ -1,0 +1,6 @@
+index page! That shows all recipes!
+
+<%@recipes.each do |recipe|%>
+<%=recipe.name%><db>
+<a href="/recipes/<%=recipe.id%>">link to <%=recipe.name%></a>
+<%end%>
