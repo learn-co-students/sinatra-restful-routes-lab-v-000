@@ -1,9 +1,9 @@
 show single recipe by id
 
 
-<%=@recipe.name%><br>
+<p><%=@recipe.name%><br>
 <%=@recipe.ingredients%><br>
-<%=@recipe.cook_time%><br>
+<%=@recipe.cook_time%><br></p>
 
 <a href="/recipes/<%=@recipe.id%>/delete">Delete: <%=@recipe.name%></a>
 
