@@ -3,7 +3,10 @@
 displays all recipe attributes, along with link to delete
 
 link to delete
-/recipes/#{@recipe1.id}/delete 
+/recipes/#{@recipe1.id}/delete
+
+hidden element for deletion
+<input id="hidden" type="hidden" name="_method" value="delete">
 =end
 %>
 
