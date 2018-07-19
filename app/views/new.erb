@@ -10,15 +10,17 @@
 </head>
 <body>
 
-    <h1>Welcome to the Babette's Kitchen!</h1>
+    <h1>Make your magic here:</h1>
 
-    <% @recipes.each do |recipe| %>
-        <h2> <a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a> </h2>
-        <h3> Ingredients: <%= recipe.ingredients %> </h3>
-        <h3> Cook time: <%= recipe.cook_time %> </h3>
-    <% end %>
+    <form method="POST" action="/recipes">
     
-    Click <a href="/recipes/new">here</a> to start creating magic!
+        <p>Name: <input type-"text" name="name"></p>
+        <p>Ingredients: <input type-"text" name="ingredients"></p>
+        <p>Cook Time: <input type-"integer" name="cook_time"></p>
 
+        <input type="submit" value="submit">
+
+    </form>
+    
 </body>
 </html>
