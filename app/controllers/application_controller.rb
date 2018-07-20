@@ -7,6 +7,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes' do
+    @all = Recipe.all
+    
     erb :index
   end
   
@@ -20,6 +22,12 @@ class ApplicationController < Sinatra::Base
     redirect '/recipes/#{Recipe.last.id}'
   end
   
+  get '/recipes/:id' do
+    # find by id
+    
+    erb :show
+  end
+  
   get '/recipes/:id/edit' do 
     # find by id
     
@@ -29,13 +37,13 @@ class ApplicationController < Sinatra::Base
   patch '/recipes/:id' do 
     # find and update recipe 
     
-    redirect '/recipes/#{@cookie.id}'
+    redirect '/recipes/#{@recipe.id}'
   end
 
-  get '/recipes/:id' do
-    # find by id
+  put '/recipes/:id' do
+    # find and replace recipe, may not need this one
     
-    erb :show
+    redirect '/recipes/#{@recipe.id}'
   end
   
   delete '/recipes/:id/delete' do

@@ -1,2 +1,16 @@
 
-<% # form to create recipes with /recipes for post link%>
+<h1>Create Recipe</h1>
+
+<form method="post" action="/recipes">
+  <label for="name"> Recipe Name: </label>
+  <input type="text" name="name" id="name">
+
+  <label for="ingredients"> Recipe Ingredients: </label>
+  <input type="text" name="ingredients" id="ingredients">
+  
+  <label for="cook_time"> Recipe Cook Time: </label>
+  <input type="text" name="cook_time" id="cook_time">
+
+  <input type="submit" value="submit">
+</form>
+
