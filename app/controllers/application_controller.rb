@@ -26,19 +26,19 @@ class ApplicationController < Sinatra::Base
     erb :edit
   end
   
-  patch '/recipes' do 
+  patch '/recipes/:id' do 
     # find and update recipe 
     
     redirect '/recipes/#{@cookie.id}'
   end
-  
+
   get '/recipes/:id' do
     # find by id
     
     erb :show
   end
   
-  delete '/recipes/:id/delete'
+  delete '/recipes/:id/delete' do
     # delete recipe
     
     redirect '/recipes'
