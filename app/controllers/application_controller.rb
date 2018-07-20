@@ -45,14 +45,6 @@ class ApplicationController < Sinatra::Base
     redirect "/recipes/#{@recipe.id}"
   end
 
-=begin
-  put '/recipes/:id' do
-    # find and replace recipe, may not need this one
-    
-    redirect '/recipes/#{@recipe.id}'
-  end
-=end 
-
   delete '/recipes/:id/delete' do
     @recipe = Recipe.find_by(id: params[:id])
     @recipe.delete
