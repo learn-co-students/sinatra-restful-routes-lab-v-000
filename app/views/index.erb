@@ -8,6 +8,6 @@
     <p> <%= recipe.name %> </p>
     <p> <%= recipe.ingredients %> </p>
     <p> <%= recipe.cook_time %> </p>
-    <a href="/recipe/"
+    <a href="/recipes/<%= recipe.id %>">Direct link for this recipe</a>
   </div>
 <% end %>
