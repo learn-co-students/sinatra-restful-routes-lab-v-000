@@ -17,19 +17,19 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/recipes' do
-    # creates and saves a new recipe in the DB 
+    @recipe = Recipe.create(params)
     
     redirect '/recipes/#{Recipe.last.id}'
   end
   
   get '/recipes/:id' do
-    # find by id
+    @recipe = Recipe.find_by(id: params[:id])
     
     erb :show
   end
   
   get '/recipes/:id/edit' do 
-    # find by id
+    @recipe = Recipe.find_by(id: params[:id])
     
     erb :edit
   end

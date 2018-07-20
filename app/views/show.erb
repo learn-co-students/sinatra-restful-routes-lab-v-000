@@ -1,13 +1,12 @@
+<h1> <%= @recipe.name %> </h1>
 
-<% 
-=begin
-displays all recipe attributes, along with link to delete
+<p> <%= @recipe.ingredients %> </p>
+<p> <%= @recipe.cook_time %> </p>
 
-link to delete
-/recipes/#{@recipe1.id}/delete
+<form action="/recipes/<%= @recipe.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
 
-hidden element for deletion
-<input id="hidden" type="hidden" name="_method" value="delete">
-=end
-%>
+  <input type="submit" value="delete">
+</form>
+
 
