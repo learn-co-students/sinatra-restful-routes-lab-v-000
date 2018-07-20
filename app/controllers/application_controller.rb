@@ -6,20 +6,24 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
+  get '/' do
+    redirect '/recipes'
+  end
+
+  get '/recipes/new' do
+    erb :new
+  end
+
+  post '/recipes' do
+    @recipe = Recipe.create(params)
+    
+    redirect '/recipes'
+  end
+
   get '/recipes' do
     @all = Recipe.all
     
     erb :index
-  end
-  
-  get '/recipes/new' do
-    erb :new
-  end
-  
-  post '/recipes' do
-    @recipe = Recipe.create(params)
-    
-    redirect '/recipes/#{@recipe.id}'
   end
   
   get '/recipes/:id' do
