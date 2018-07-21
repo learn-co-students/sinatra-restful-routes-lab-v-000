@@ -1,0 +1,13 @@
+
+<% # shows all recipes, with links to their individual page %>
+
+<h1>All Recipes</h1>
+
+<% @all.each do |recipe| %>
+  <div class="recipe">
+    <p> <%= recipe.name %> </p>
+    <p> <%= recipe.ingredients %> </p>
+    <p> <%= recipe.cook_time %> minutes</p>
+    <a href="/recipes/<%=recipe.id%>">Direct link for this recipe</a>
+  </div>
+<% end %>
