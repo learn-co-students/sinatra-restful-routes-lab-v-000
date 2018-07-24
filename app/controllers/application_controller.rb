@@ -13,10 +13,17 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes' do
-    binding.pry
     @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
     @recipe.save
+  end
 
+  get '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :show
+  end
+
+  get '/recipes' do
+    @recipe = Recipe.all
   end
 
 end
