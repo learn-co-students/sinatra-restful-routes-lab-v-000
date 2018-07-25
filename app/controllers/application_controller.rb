@@ -3,6 +3,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
+  
   get '/' do
     erb :index
   end
@@ -37,7 +38,7 @@ class ApplicationController < Sinatra::Base
     redirect to '/recipes'
   end
 
-  patch '/recipes/:id/' do
+  patch '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
