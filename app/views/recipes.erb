@@ -2,8 +2,9 @@
 <html>
   <body>
     <body>
-      <p><%binding.pry%></p>
+
       <%@recipes.each do |recipe|%>
-      <p><%= puts recipe[:name]%></p>
+      <p><%= recipe[:name]%></p>
+      <%end%>
     </body>
 </html>
