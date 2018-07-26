@@ -4,8 +4,8 @@
     <body>
       <p>Name: <%=@recipe.name%></p>
       <p>Ingredients: <%=@recipe.ingredients%></p>
-
       <p>Cook Time: <%=@recipe.cook_time%></p>
-    
+      <input id="hidden" type="hidden" name="_method" value="patch">
+       <input type="submit" value="Edit">
     </body>
 </html>
