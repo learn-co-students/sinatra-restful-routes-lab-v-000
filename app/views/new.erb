@@ -1,12 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
   <body>
-    <body>
-      <form action="/recipes" method="post">
-      <p>Name: <input type="text" name="name"><%=@recipe.name%></p>
-      <p>Ingredients:<input type="text" name="ingredients"><%=@recipe.ingredients%></p>
-      <p>Cook Time: <input type="text" name="cook_time"><%=@recipe.cook_time%></p>
-       <input type="submit" id="sumibt" value="Submit">
+      <form method="post" action="/recipes">
+        <p>Name: <input type="text" name="name"></p>
+        <p>Ingredients:<input type="text" name="ingredients"></p>
+        <p>Cook Time: <input type="text" name="cook_time"></p>
+        <input type="submit" id="submit">
      </form>
     </body>
 </html>

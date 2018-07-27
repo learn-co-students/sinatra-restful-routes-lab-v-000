@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
   <body>
     <body>
 
       <%@recipes.each do |recipe|%>
-      
+
         <a href="/recipes/<%= recipe.id %>">Name: <%= recipe.name %></a>
       <%end%>
     </body>
