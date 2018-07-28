@@ -1,13 +1,17 @@
 <!DOCTYPE>
 <html>
 <head>
-<title> <h1> My Recipes <h1> </title>
+<title> <h1> My Recipes  App. <h1> </title>
 </head>
 
 <body>
-  <form action="/recipes/"<%= @recipe.id %>/delete "method="POST">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <button type="submit" name="delete" id="delete" value="delete">Delete></button>
+  <label for="delete">Delete Recipe:<%=recipe.name%>
+  <form action="/recipes/<%=@recipe.id %>/delete" method="POST">
+  <%@recipes.find_by_id|recipe|%>
+  <%recipe.id=@recipe.id%>
+  <%recipe.name=@recipe.name%>
+  <button type="submit" name="delete" id="delete" value="delete">Delete</button>
+  <%end%>
   </form>
 
 </body>

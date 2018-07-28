@@ -1,15 +1,9 @@
-<!DOCTYPE>
-<html>
-<head>
-<title> <h1> My Recipes App<h1> </title>
-</head>
-
-<body>
+<form>
+  <h1> My Recipes App<h1>
     <ol>
     <% @recipes.each do|recipe|%>
-    <li> Recipe Name:<%= recipe.name %><a href="/recipes<%= recipe.id %>"</a></li>
+    <li> Recipe Name:<%=recipe.name%><a href="/recipes/<%=recipe.id%>"</a></li>
     <% end %>
     <ol>
-</body>
-
+</form>
 </html>

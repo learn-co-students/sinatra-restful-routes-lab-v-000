@@ -3,13 +3,20 @@
 <head>
 <title> <h1> My Recipes App<h1> </title>
 </head>
-
 <body>
- <form action="/post" method="POST">
-  <label for ="recipe.name"> Name:</label><input type="string" name="recipe.name" id="recipe.name"/>
-  <label for ="ingredients"> ingredients:</label><input type="string" name="ingredients" id="ingredients"/>
-  <label for ="cook_time"> Cook Time:</label><input type="integer" name="integer" id="integer"/>
-  <button type="button">Update! name="update" </button>
-</form>
+  <h3> Name: <%=@recipe.name%></h3>
+  <h3> Ingredients: <%=@recipe.ingredients%></h3>
+  <h3> Cook Time: <%=@cook.time%></h3>
+  <p>
+  <form action="/recipes/<%=@recipe.id%>/delete" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type="submit" id="delete" value="delete">
+  </form>
+  <p>
+  <form action="/recipes/<%=@recipe.id%>/edit" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type="submit" id="edit" value="edit">
+  </form>
+
 </body>
 </html>
