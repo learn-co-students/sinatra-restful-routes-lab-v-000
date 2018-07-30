@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipes</title>
+  </head>
+
+  <body>
+<h1>Your newly created recipe is displayed here</h1>
+<% @recipes.all.each do |recipe| %>
+<div>
+  <p><%= recipe.name%> </p>
+  <p><%= recipe.ingredients %></p>
+  <p><%= recipe.ingredients %></p>
+  <a href="/recipes/<%= recipe.id %>">Link to /recipes/<%= recipe.id %> for Recipe: <%= recipe.name %> </a>
+</div>
+<% end %>
+<p><a href="/recipes/new"> to create a new recipe. click.</a> </p>
+</form>
+</body>
+</html>
+ for Recipe:
