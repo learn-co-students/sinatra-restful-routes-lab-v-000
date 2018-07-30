@@ -1,22 +1,16 @@
 <!DOCTYPE>
 <html>
 <head>
-<title> <h1> My Recipes App<h1> </title>
+<title><h1>My Recipes App<h1></title>
 </head>
 <body>
-  <h3> Name: <%=@recipe.name%></h3>
-  <h3> Ingredients: <%=@recipe.ingredients%></h3>
-  <h3> Cook Time: <%=@cook.time%></h3>
+  <h3>Recipe Name:<br>  <%=@recipe.name%></h3>
+  <h3>Ingredieints:  <%=@recipe.ingredients%></h3>
+  <h3>Cook Time:  <%=@recipe.cook_time%> minutes</h3>
   <p>
-  <form action="/recipes/<%=@recipe.id%>/delete" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="patch">
-    <input type="submit" id="delete" value="delete">
+    <form action="/recipes/<%=@recipe.id%>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <button type="submit" id="delete" value="delete">Delete</button>
   </form>
-  <p>
-  <form action="/recipes/<%=@recipe.id%>/edit" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="patch">
-    <input type="submit" id="edit" value="edit">
-  </form>
-
 </body>
 </html>

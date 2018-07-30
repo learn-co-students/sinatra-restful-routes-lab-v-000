@@ -1,3 +1,5 @@
+require 'pry'
+
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
@@ -13,38 +15,40 @@ class ApplicationController < Sinatra::Base
     erb :"/recipes/index"
   end
 
-  get '/recipes/new' do  # new action
+  get '/recipes/new' do  # new action - shows new recipe form
     erb :"recipes/new"
   end
 
-   post '/recipes' do   # new action
+   post '/recipes' do   # create action - create recipes
      @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
      redirect to "/recipes/#{@recipe.id}"
    end
 
-   get '/recipes/show' do    # show action
+   get '/recipes/:id' do    # show action
      @recipe = Recipe.find_by_id(params[:id])
-     erb :"recipes/show/#{@recipe.id}"
+     erb :"recipes/show"
    end
 
    get '/recipes/:id/edit' do  #edit action
-     Recipe.find_by_id(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
      erb :"recipes/edit"
    end
 
-   patch '/recipes/:id' do  # edit action
-     @recipe = Recipe.find_by_id(params[:id])
-     @recipe.name = params[:name]
-     @recipe.ingredients = params[:ingredients]
-     @recipe.cook_time = params[:cook_time]
-     @recipe.save
-     redirect to "/recipes/#{@recipe.id}/show"
-   end
+   patch '/recipes/:id/edit' do  # edit action
+     Recipe.find(params)
+       binding.pry
+       recipe.update(
+         name: params[:name],
+         ingredients: params[:ingredients],
+         cook_time: params[:cook_time])
+         redirect to "recipes/show"
+
+     end
 
    delete '/recipes/:id/delete' do # delete action
-     @recipe=Recipe.find_by_id(params[:id])
-     @recipe.delete
+     Recipe.find(params[:id]).destroy
      redirect to "/recipes/delete"
    end
+
 
 end
