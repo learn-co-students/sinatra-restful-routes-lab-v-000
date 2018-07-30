@@ -4,13 +4,14 @@
 <title><h1>My Recipes App<h1></title>
 </head>
 <body>
-  <h3>Recipe Name:<br>  <%=@recipe.name%></h3>
+  <h3>Recipe Name:  <%=@recipe.name%></h3>
   <h3>Ingredieints:  <%=@recipe.ingredients%></h3>
   <h3>Cook Time:  <%=@recipe.cook_time%> minutes</h3>
   <p>
     <form action="/recipes/<%=@recipe.id%>/delete" method="post">
     <input id="hidden" type="hidden" name="_method" value="delete">
     <button type="submit" id="delete" value="delete">Delete</button>
+  <p>
   </form>
 </body>
 </html>

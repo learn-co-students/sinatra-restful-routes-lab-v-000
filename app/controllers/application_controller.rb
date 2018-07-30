@@ -34,20 +34,20 @@ class ApplicationController < Sinatra::Base
      erb :"recipes/edit"
    end
 
-   patch '/recipes/:id/edit' do  # edit action
-     Recipe.find(params)
-       binding.pry
-       recipe.update(
-         name: params[:name],
-         ingredients: params[:ingredients],
-         cook_time: params[:cook_time])
-         redirect to "recipes/show"
+   patch '/recipes/:id' do  # edit action
+     @recipe=Recipe.find_by_id(params[:id])
+       @recipe=recipe.update(
+         @recipe.name=params[:name],
+         @recipe.ingredients=params[:ingredients],
+         @recipe.cook_time=params[:cook_time])
+         @recipe.save
+         redirect to "recipes/#{@recipe.id}"
 
      end
 
    delete '/recipes/:id/delete' do # delete action
      Recipe.find(params[:id]).destroy
-     redirect to "/recipes/delete"
+     redirect to "/recipes"
    end
 
 
