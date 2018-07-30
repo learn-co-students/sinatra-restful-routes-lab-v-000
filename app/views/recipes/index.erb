@@ -1,0 +1,9 @@
+<form>
+  <h1> My Recipes App<h1>
+    <ol>
+    <% @recipes.each do|recipe|%>
+    <li> Recipe Name:<%=recipe.name%><a href="/recipes/<%=recipe.id%>"</a></li>
+    <% end %>
+    <ol>
+</form>
+</html>
