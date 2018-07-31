@@ -1,0 +1,10 @@
+<h1><%=@current_recipe.name%></h1>
+<h2><%=@current_recipe.ingredients%></h2>
+<h3><%=@current_recipe.cook_time%></h3>
+
+<a href="/recipes/<%=@current_recipe.id%>/delete">Delete Recipe</a>
+
+<form method="post" action="/recipes/<%=@current_recipe.id%>">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
