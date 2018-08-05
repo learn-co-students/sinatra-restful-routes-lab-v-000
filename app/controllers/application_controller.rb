@@ -2,10 +2,11 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    disable :show_exceptions
   end
 
   get '/' do
-    erb :index
+    erb :welcome
   end
 
   # post '/recipes' do
@@ -16,7 +17,10 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes' do
-    @recipe = Recipe.create(:name => params[:recipe_name], :ingredients => params[:recipe_ingredients], :cook_time => params[:recipe_cook_time])
+    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
+    # binding.pry
+#     [1] pry(#<ApplicationController>)> @recipe
+# => <Recipe:0x000000033e4dd0 id: 3, name: nil, ingredients: nil, cook_time: nil>
 
   redirect to "/recipes/#{@recipe.id}"
   end
