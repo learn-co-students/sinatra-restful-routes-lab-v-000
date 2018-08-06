@@ -1,3 +1,5 @@
+require 'pry'
+
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
@@ -6,4 +8,18 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  get '/recipes/new' do
+    erb :newrecipe
+  end
+
+  post '/recipes/new' do
+    binding.pry
+    redirect "/recipes/#{Recipe.last.id}"
+    erb :newrecipe
+  end
+
+
+
+
 end
