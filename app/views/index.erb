@@ -1,1 +1,5 @@
 <h1>List of Recipes</h1>
+
+<% @recipes.each do |r| %>
+  <h2>Name: <%= r.name %> </h2>
+<% end %>
