@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "Recipe App" do
   let(:recipe_name) { "Bomb.com Mac and Cheese" }
@@ -107,7 +108,7 @@ describe "Recipe App" do
         "ingredients" => "pumpkin, flour, butter, sugar",
         "cook_time" => "1 hour"
       }
-
+      
       post '/recipes', params
       follow_redirect!
     end
