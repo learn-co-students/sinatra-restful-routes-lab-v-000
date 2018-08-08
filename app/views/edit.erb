@@ -1,9 +1,10 @@
 <h1>Please enter the information you would like to change</h1>
 
+<p>Current ingredients: <%=@recipe.ingredients%></p>
 <form action="/recipes/<%=@recipe.id%>/edit" method="post">
-  <input type="hidden" name="_method" value="patch">
+  <input id="hidden" type="hidden" name="_method" value="patch">
   <p>Name: <input type="text" name="name"></p>
   <p>Ingredients: <input type="text" name="ingredients"></p>
   <p>Cook Time: <input type="text" name="cook_time"></p>
-  <p><input type="submit"></p>
+  <p><input id="submit" type="submit"></p>
 </form>

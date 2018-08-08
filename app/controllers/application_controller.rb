@@ -8,11 +8,11 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/new' do
+  get '/recipes/new' do
     erb :new
   end
 
-  post '/new' do
+  post '/recipes' do
     @recipe = Recipe.new(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     @recipe.save
     redirect "/recipes/#{@recipe.id}"
@@ -44,7 +44,7 @@ class ApplicationController < Sinatra::Base
 
   get '/recipes/:id' do
     @recipe = Recipe.find(params[:id])
-    @ingredients = @recipe.ingredients.split
+    @ingredients = @recipe.ingredients.split(", ")
     erb :show
   end
 
