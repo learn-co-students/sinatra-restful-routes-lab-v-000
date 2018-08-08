@@ -1,0 +1,12 @@
+<h1>Here are all the recipes you have:</h1>
+
+<%@recipes.each do |recipe|%>
+<h2> <a href="/recipes/<%=recipe.id%>"><%=recipe.name%></a></h2>
+<ul>
+  <%@split = recipe.ingredients.split(", ")%>
+  <%@split.each do |item| %>
+  <li><%=item%></li>
+  <%end%>
+</ul>
+<h3>Cook Time: <%=recipe.cook_time%> minutes</h3>
+<%end%>
