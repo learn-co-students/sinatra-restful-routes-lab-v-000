@@ -1,6 +1,6 @@
 <% @recipes.each do | r | %>
 
   <p><%= r.name %></p>
-  <p><a href="/recipes/#{r.id}"></a></p>
+  <p><a href="/recipes/<%= r.id %>"></a></p>
 
 <% end %>

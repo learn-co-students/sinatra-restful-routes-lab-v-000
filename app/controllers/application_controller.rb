@@ -45,7 +45,17 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/:id/edit' do  #load edit form
-      @recipe = recipe.find_by_id(params[:id])
+#     binding.pry
+#     [1] pry(#<ApplicationController>)> params
+# => {"id"=>"1"}
+      @recipe = Recipe.find_by_id(params[:id])
+#       binding.pry 
+#       [2] pry(#<ApplicationController>)> @recipe
+# => #<Recipe:0x0000000376b530
+#  id: 1,
+#  name: "Bomb.com Mac and Cheese",
+#  ingredients: "milk, butter, cheese, elbow pasta",
+#  cook_time: "20 minutes"
       erb :edit
     end
 
