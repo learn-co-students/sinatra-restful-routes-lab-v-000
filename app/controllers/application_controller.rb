@@ -18,19 +18,6 @@ class ApplicationController < Sinatra::Base
 
   post '/recipes' do
     @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
-    # binding.pry
-    # [1] pry(#<ApplicationController>)> @recipe
-    # => #<Recipe:0x00000001e55b18
-    #  id: 3,
-    #  name: "pumpkin pie",
-    #  ingredients: "pumpkin, flour, butter, sugar",
-    #  cook_time: "1 hour">
-    # [2] pry(#<ApplicationController>)> params
-    # => {"name"=>"pumpkin pie",
-    #  "ingredients"=>"pumpkin, flour, butter, sugar",
-    #  "cook_time"=>"1 hour"}
-    # [3] pry(#<ApplicationController>)> @recipe.id
-    # => 3
 
   redirect to "/recipes/#{@recipe.id}"
   end
@@ -50,12 +37,11 @@ class ApplicationController < Sinatra::Base
     end
 
   patch '/recipes/:id' do #edit action
-    @recipe = recipe.find_by_id(params[:id])
-    @recipe.name = params[:recipe_name]
-    @recipe.content = params[:recipe_ingredients]
-    @recipe.content = params[:recipe_cook_time]
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.name = params[:name]
+    @recipe.ingredients = params[:ingredients]
+    @recipe.cook_time = params[:cook_time]
     @recipe.save
-    binding.pry
     redirect to "/recipes/#{@recipe.id}"
   end
 
