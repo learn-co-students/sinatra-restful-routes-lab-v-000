@@ -1,7 +1,7 @@
 <h2>Add A New Recipe</h2>
 <form method="POST" action="/recipes">
-<h2><label for="name">Name: <%=post.name%></label></h2>
-<h2><label for="ingredients">Ingredients: <%=post.ingredients%></label></h2>
-<h2><label for="cook_time">Cook Time: <%=post.cook_time%></label></h2>
-<input type="submit" value="submit">
+  <h2>Name: <input type="text" name="name"></h2>
+  <h2>Ingredients: <input type="text" name="ingredients"></h2>
+  <h2>Cook Time (minutes): <input type="text" name="cook_time"></h2>
+  <input type="submit" value="submit">
 </form>
