@@ -9,10 +9,8 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  # post '/recipes' do
   get '/recipes' do
     @recipes = Recipe.all
-    # binding.pry
     erb :index
   end
 
@@ -46,9 +44,7 @@ class ApplicationController < Sinatra::Base
   end
 
   delete '/recipes/:id/delete' do #delete action
-    # @recipe = recipe.find_by_id(params[:id])
-    @recipe = Recipe.find_by_id(@cookie.id)
-    # binding.pry
+    @recipe = Recipe.find_by_id(params[:id])
     @recipe.delete
     redirect to '/recipes'
   end
