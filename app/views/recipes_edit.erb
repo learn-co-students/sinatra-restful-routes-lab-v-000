@@ -1,0 +1,10 @@
+<h1>Edit your recipe</h1>
+<p class="error-msg"><%="All fields must be filled." if !!@recipe && !@recipe.valid?%></p>
+<form action="/recipes/<%=@recipe.id%>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type="hidden" name="id_test" value="<%=@recipe.id%>">
+    <input class="new" type="text" placeholder="Recipe Name" name="name" id="name" value="<%=@recipe.name%>">
+    <textarea class="new" name="ingredients" id="ingredients" cols="30" rows="10" placeholder="Ingredients"><%=@recipe.ingredients%></textarea>
+    <input class="new" type="text" placeholder="Cook Time" name="cook_time" id="cook_time" value="<%=@recipe.cook_time%>"">
+    <input class="new" id="submit" type="submit" value="Submit" name="submit">
+</form>

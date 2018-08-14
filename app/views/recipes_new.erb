@@ -1,0 +1,8 @@
+<h1>Enter your recipe</h1>
+<p class="error-msg"><%="All fields must be filled." if !!@recipe && !@recipe.valid?%></p>
+<form action="/recipes" method="post">
+    <input class="new" type="text" placeholder="Recipe Name" name="name" id="name">
+    <textarea class="new" name="ingredients" id="ingredients" cols="30" rows="10" placeholder="Ingredients"></textarea>
+    <input class="new" type="text" placeholder="Cook Time" name="cook_time" id="cook_time">
+    <input class="new" type="submit" value="Submit" name="submit">
+</form>
