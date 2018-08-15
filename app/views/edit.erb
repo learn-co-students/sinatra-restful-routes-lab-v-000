@@ -1,18 +1,19 @@
-<%= @recipe.name %><br>
-<%= @recipe.ingredients %><br>
-<%= @recipe.cook_time %><br>
-
-<form method="post" action="/recipes">
-  <label for="recipe_name">Recipe Name:<input type="text" id="recipe_name" name="recipe_name"></label></br>
-  <label for="recipe_ingredients">Recipe Ingredients:<input type="text" id="recipe_ingredients" name="recipe_ingredients"></label></br>
-  <label for="recipe_cook_time"><br>
-  <label for="recipe_cook_time">Recipe Cook Time:<input type="text" id="recipe_cook_time" name="recipe_cook_time"></label></br>
-  <button type="submit" value="submit">Submit</button>
-</form>
-
-<form action="/recipes/<%= @recipe.id %>" method="post">
-  <input id="hidden" type="hidden" name="_method" value="patch">
-  <input type="text" name="title">
-  <input type="text" name="content">
-  <input type="submit" value="submit">
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Edit Recipe</title>
+  </head>
+  <body>
+	  <h1><%= @recipe.name %></h1><br>
+	  <p><%= @recipe.ingredients %></p><br>
+	  <h4>Cook Time: <%= @recipe.cook_time %></h4><br>
+ 	  <form action="/recipes/<%=@recipe.id%>" method="POST">
+		  <input id="hidden" type="hidden" name="_method" value="patch">
+		  <h3>Enter the updated recipe NAME: <input type="text" name="name"></h3>
+		  <h3>Enter the updated recipe INGREDIENTS: <input type ="text" name="ingredients"></h3>
+		  <h3>Enter the updated COOKING TIME: <input type="text" name="cook_time"></h3>
+		  <input type="submit" value="submit">
+	  </form>
+  </body>
+</html>

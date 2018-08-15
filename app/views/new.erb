@@ -1,8 +1,15 @@
-<form method="post" action="/recipes">
-  <label for="recipe_name">Recipe Name:<input type="text" id="recipe_name" name="recipe_name"></label></br>
-  <label for="recipe_ingredients">Recipe Ingredients:<input type="text" id="recipe_ingredients" name="recipe_ingredients"></label></br>
-  <label for="recipe_cook_time"><br>
-  <label for="recipe_cook_time">Recipe Cook Time:<input type="text" id="recipe_cook_time" name="recipe_cook_time"></label></br>
-  <!-- <input type="submit" name="submit" value="submit">Submit</input> -->
-  <button type="submit" value="submit">Submit</button>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>New Recipe</title>
+  </head>
+  <body>
+	  <form action='/recipes' method="POST">
+		  <h3>Name of the Recipe: <input type="text" name="name"><h3>
+		  <h3>Ingredients: <input type="textarea" name="ingredients"><h3>
+		  <h3>Cooking Time <input type="text" name="cook_time"></h3>
+		  <input type="submit" value="submit">
+	  </form>
+  </body>
+</html>
