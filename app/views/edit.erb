@@ -2,6 +2,7 @@
   <form method='POST' action='/recipes/<%= @recipe.id %>'>
     <input id="hidden" type="hidden" name="_method" value="patch">
     <h4>Name: <%= @recipe.name %></h4>
+    binding.pry 
     <label for "name">Edit:</label>
     <input type="text" id="name" name="name">
     <h4>Ingredients: <%= @recipe.ingredients %></h4>
