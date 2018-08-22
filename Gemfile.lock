@@ -114,6 +114,7 @@ DEPENDENCIES
   json (>= 1.8.3)
   pry
   pry-nav
+  rack
   rack-test
   rake
   require_all
