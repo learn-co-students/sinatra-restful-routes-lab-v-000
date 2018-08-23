@@ -1,0 +1,10 @@
+<h1>Welcome To Recipes!</h1>
+<form action="/recipes" method="get">
+<%Recipe.all.each do |recipe|%>
+    <p><%=recipe.name%></p>
+    <p><%=recipe.ingredients%></p>
+      <p><%=recipe.cook_time%></p>
+<%end%>
+<a href="/recipes/1"></a>
+
+</form>
