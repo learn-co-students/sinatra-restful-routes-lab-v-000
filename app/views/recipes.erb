@@ -2,5 +2,5 @@
 
 <%@recipe.each_with_index do |recipe, index|%>
 
-<h2><%=index+1%>. <a href="/recipes/<%=recipe.id%>"><%=recipe.name%></a></h2>
+<h2><%=index+1%>. <a href="/recipe/<%=recipes.id%>"><%=recipe.name%></a></h2>
 <%end%>
