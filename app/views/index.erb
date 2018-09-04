@@ -1,0 +1,5 @@
+<h1>Recipe App Index Page</h1>
+
+<% @recipe.each do |rec| %>
+  <a href='/recipe/<%=rec.id%>'><%=rec.name%></a>
+<%end%>
