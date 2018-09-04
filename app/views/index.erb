@@ -1,0 +1,11 @@
+<h1>WELCOME TO GRANMAS RECIPE WEBSITE!</h1>
+<h2>Here are all the recipes </h2>
+
+<%@recipes.all do |recipe| %>
+<h3><%= recipe.name%></h3>
+<h3><%= recipe.ingredients%></h3>
+<h3><%= recipe.cook_time%></h3>
+<%end%>
+
+
+<a href="/recipes/new">Create a new recipe!</a>
