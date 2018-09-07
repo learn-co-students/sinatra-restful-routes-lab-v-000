@@ -32,6 +32,19 @@ class ApplicationController < Sinatra::Base
     redirect to '/recipes'
   end
 
+  get '/recipes/:id/edit' do  #load edit form
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
+  end
+
+patch '/recipes/:id' do #edit action
+  @recipe = Recipe.find_by_id(params[:id])
+  @recipe.title = params[:title]
+  @recipe.content = params[:content]
+  @recipe.save
+  redirect to "/recipes/#{@recipe.id}"
+end
+
 
 
 
