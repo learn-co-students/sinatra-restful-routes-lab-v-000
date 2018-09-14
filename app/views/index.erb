@@ -1,16 +1,17 @@
 <body>
-  <form method="post" action="/recipes/new">
-    <input type="text" name="name"><br>
-    <input type="text" name="ingredients"><br>
-    <input type="text" name="cook_time"><br>
+  <form method="post" action="/recipes">
+    <input type="text" name="name" placeholder="Name"><br>
+    <input type="text" name="ingredients" placeholder="Ingredients"><br>
+    <input type="text" name="cook_time" placeholder="Cooking Time"><br>
     <input type="submit" value="Submit"><br>
   </form>
   <br>
   <% @recipes.each do |recipe| %>
-    <p><%= recipe.name %></p><br>
-    <p><%= recipe.ingredients %></p><br>
-    <p><%= recipe.cook_time %></p><br>
-    <a href="/recipes/#{@recipe.id}/edit">Edit this recipe</a><br>
+    <p><%= recipe.id %></p>
+    <p><%= recipe.name %></p>
+    <p><%= recipe.ingredients %></p>
+    <p><%= recipe.cook_time %></p>
+    <a href='/recipes/#{recipe.id}'>View this recipe</a>
     <br>
   <% end %>
 </body>

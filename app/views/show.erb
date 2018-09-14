@@ -1,9 +1,11 @@
 <body>
-  <p><%= @recipe.name %></p><br>
-  <p><%= @recipe.ingredients %></p><br>
-  <p><%= @recipe.cook_time %></p><br>
+  <p><%= @recipe.id %></p>
+  <p><%= @recipe.name %></p>
+  <p><%= @recipe.ingredients %></p>
+  <p><%= @recipe.cook_time %></p>
+  <a href='/recipes/#{@recipe.id}/edit'>Edit This Recipe</a>
+  <form method="post" action="recipes/#{@recipe.id}">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete This Recipe">
+  </form>
 </body>
-<form method="post" action="recipes/#{@recipe.id}/delete">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
-</form>
