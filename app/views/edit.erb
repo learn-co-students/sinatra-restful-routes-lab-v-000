@@ -1,0 +1,9 @@
+<body>
+  <form method="post" action="/recipes/#{@recipe.id}/edit">
+    <input type="hidden" name="_method" value="patch">
+    <input type="text" name="name">
+    <input type="text" name="ingredients">
+    <input type="text" name="cook_time">
+    <input type="submit" value="Update">
+  </form>
+</body>
