@@ -1,11 +1,12 @@
 <body>
   <h1>Recipes</h1>
-  <% @recipes.each do |recipe| %>
-    <p><%= recipe.id %></p>
-    <p><%= recipe.name %></p>
-    <p><%= recipe.ingredients %></p>
-    <p><%= recipe.cook_time %></p>
-    <a href='/recipes/#{recipe.id}'>View this recipe</a>
+  <a href="/recipes/new">Create a new recipe</a>
+  <% @recipes.each do |r| %>
+    <p><%= r.id %></p>
+    <p><%= r.name %></p>
+    <p><%= r.ingredients %></p>
+    <p><%= r.cook_time %></p>
+    <a href='/recipes/#{r.id}'>View this recipe</a>
     <br>
   <% end %>
 </body>
