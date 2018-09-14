@@ -6,7 +6,7 @@
     <p><%= recipe.name %></p>
     <p><%= recipe.ingredients %></p>
     <p><%= recipe.cook_time %></p>
-    <a href="/recipes/#{recipe.id}">View this recipe</a>
+    <a href="/recipes/<%=@recipe.id%>">View this recipe</a>
     <br>
   <% end %>
 </body>
