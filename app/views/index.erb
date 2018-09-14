@@ -1,11 +1,5 @@
 <body>
-  <form method="post" action="/recipes">
-    <input type="text" name="name" placeholder="Name"><br>
-    <input type="text" name="ingredients" placeholder="Ingredients"><br>
-    <input type="text" name="cook_time" placeholder="Cooking Time"><br>
-    <input type="submit" value="Submit"><br>
-  </form>
-  <br>
+  <h1>Recipes</h1>
   <% @recipes.each do |recipe| %>
     <p><%= recipe.id %></p>
     <p><%= recipe.name %></p>

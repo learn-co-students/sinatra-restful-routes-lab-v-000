@@ -1,4 +1,8 @@
 <body>
+  <p><%= @recipe.id %></p>
+  <p><%= @recipe.name %></p>
+  <p><%= @recipe.ingredients %></p>
+  <p><%= @recipe.cook_time %></p>
   <form method="post" action="/recipes/#{@recipe.id}">
     <input type="hidden" name="_method" value="patch">
     <input type="text" name="name">
