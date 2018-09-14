@@ -5,7 +5,7 @@
   <p><%= @recipe.cook_time %></p>
   <!-- <a href='/recipes/#{@recipe.id}/edit'>Edit This Recipe</a> -->
   <form method="post" action="/recipes/#{@recipe.id}">
-    <input type="hidden" name="_method" value="delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete This Recipe">
   </form>
 </body>
