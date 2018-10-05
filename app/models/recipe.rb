@@ -1,1 +1,3 @@
-#Placeholder for a model
+class Recepie < ActiveRecord::Base
+
+end
