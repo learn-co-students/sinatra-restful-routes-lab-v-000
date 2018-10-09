@@ -6,3 +6,13 @@
         <li><%= ingredient %></li>
     <% end %>
 </ul>
+
+<form action="/recipes/<%= @recipe.id %>/edit" method="get">
+        <input id="hidden" type="hidden" name="_method" value="patch">
+        <input type="submit" id="button" value="edit">
+</form>
+
+<form action="/recipes/<%= @recipe.id %>/delete" method="post">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input type="submit" id="button" value="delete">
+</form>
