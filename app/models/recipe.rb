@@ -1,3 +1,3 @@
-class User < ActiveRecord::Base
+class Recipe < ActiveRecord::Base
 
-end
+endsss
