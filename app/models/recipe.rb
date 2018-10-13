@@ -1,3 +1,3 @@
 class Recipe < ActiveRecord::Base
 
-endsss
+end
