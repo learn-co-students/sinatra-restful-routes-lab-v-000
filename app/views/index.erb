@@ -1,0 +1,6 @@
+<h1>Recipes</h1>
+<% @recipes.each do |r| %>
+  <p>Name: <%= r.name %></p>
+  <a href="recipes/<%= r.id %>">View the recipe here</a>
+    <br>
+    <%end%>
