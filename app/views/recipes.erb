@@ -1,0 +1,13 @@
+<h1>recipes.erb</h1>
+<h2><%= @recipe.name %></h2>
+<br>
+<p>Ingredients: <%= @recipe.ingredients %></p>
+<p>Cook time: <%= @recipe.cook_time %></p>
+
+<a href="/recipes/<%= @recipe.id %>/edit">Edit this recipe</a>
+<br>
+<br>
+<form method="post" action="/recipes/<%= @recipe.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
