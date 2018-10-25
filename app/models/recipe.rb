@@ -1,1 +1,3 @@
-#Placeholder for a model
+class Recipe < ActiveRecord::Base
+  #name, ingredients, cook_time
+end
