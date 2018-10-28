@@ -1,0 +1,6 @@
+<h1>Recipe Index</h1>
+<ul>
+  <% @recipe.each do |r| %>
+    <li><a href="/recipes/<%= r.id %>"><%= r.name %></a></li>
+  <% end %>
+</ul>
