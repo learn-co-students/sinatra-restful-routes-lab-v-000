@@ -177,9 +177,6 @@ describe "Recipe App" do
       )
       visit  "/recipes/#{@cookie.id}"
 
-      #click the delete button
-      delete_button = (page.all(:css, "[name=_method][value=DELETE] ~ [type=submit]").to_a + page.all("[name=_method][value=delete] ~ [type=submit]").to_a).first
-
       click_button "delete"
     end
 
