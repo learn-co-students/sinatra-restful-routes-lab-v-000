@@ -4,6 +4,10 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
+  get '/recipes/new' do
+    erb :new
+  end
+
   get  '/recipes' do
     @recipes = Recipe.all
     erb :index
@@ -15,13 +19,10 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
-  get '/recipes/new' do
-    erb :new
-  end
-
   post '/recipes' do
     Recipe.create(params)
-    erb :show
+
+    redirect "/recipes/#{Recipe.last.id}"
   end
 
   delete '/recipes/:id/delete' do
