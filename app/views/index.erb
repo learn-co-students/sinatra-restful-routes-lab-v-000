@@ -1,8 +1,7 @@
 <h1> Recipes </h1>
-
+<ul>
 <% @recipes.each do |recipe| %>
 <% #binding.pry %>
-<%=recipe.name%>
-<a href="/recipes/#{recipe.id}">Recipe Page</a>
-<%#binding.pry%>
+<li><%=recipe.name%></li>
+
 <% end %>

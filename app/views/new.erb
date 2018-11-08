@@ -1,0 +1,12 @@
+new.erb
+<form action="/recipes" method="POST">
+  <label for="name">Name</label><br>
+  <input type="text" id = "name" name="recipe[name]"><br>
+  <%#binding.pry%>
+  <label for="ingredients">Ingredients</label><br>
+  <input type-"text" id = "ingredients" name="recipe[ingredients]"><br>
+  <label for="cook_time">Cook Time</label><br>
+  <input type-"text" id = "cook_time" name="recipe[cook_time]"><br>
+  <input type="submit" value="submit">
+  <%#>Submit</input> instead of value=...%>
+</form>
