@@ -1,9 +1,11 @@
 <form action="/recipes/<%= @recipe.id %>" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="patch">
-<h2>Current Name:<%= @recipe.name%></h2>
-  <h2>Current Ingredients:<%= @recipe.ingredients%></h2>
-
-  <input type="text" id = "name" name="name"><br>
-  <input type-"text" id = "ingredients" name="ingredients"><br>
-<input type= "submit" value= "submit">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label for="name">Name</label>
+  <input type="text" id = "name" name="name">
+    <%#binding.pry%>
+  <label for="ingredients">Ingredients</label>
+  <input type-"text" id = "ingredients" name="ingredients">
+  <label for="cook_time">Cook Time</label>
+  <input type-"text" id = "cook_time" name="cook_time">
+  <input type="submit" value="submit">
 </form>
