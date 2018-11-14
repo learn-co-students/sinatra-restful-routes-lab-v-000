@@ -1,0 +1,8 @@
+<h1><%="#{@recipe.name}"%></h1>
+<h3>Ingredients: </h3>
+<ul>
+  <% @recipe.ingredients.split(",").each do |ingredient|%>
+  <li><%="#{ingredient}"%></li>
+  <%end%>
+</ul>
+<h3>Cook Time: <%="#{@recipe.cook_time}"%></h3>
