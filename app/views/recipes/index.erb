@@ -1,0 +1,8 @@
+<h1>Recipes</h1>
+<h3><a href="/recipes/new">Add a new recipe</a></h3>
+
+<h3>All Recipes</h3>
+<%@recipes.each.with_index do |recipe,i|%>
+  <b><%=i+1%>. <a href='recipes/<%=recipe.id%>'><%=recipe.name%></a></b> -- /recipes/<%=recipe.id%> -- <%=recipe.cook_time%> -- <%=recipe.ingredients%></br></br>
+
+<%end%>
