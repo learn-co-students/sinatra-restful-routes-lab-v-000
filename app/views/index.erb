@@ -1,0 +1,10 @@
+<h1> List of Recipes! </h1>
+
+<% @recipes.each do |rec| %>
+  <form action="/recipes/<%=rec.id%>" method="get">
+    <h3><a href="/recipes/<%=rec.id%>"><%= rec.name %></a></h3>
+    
+  </form>
+   
+  
+<% end %>
