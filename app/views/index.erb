@@ -1,0 +1,14 @@
+<h1>All Recipes</h1>
+
+<p>
+  <%if @recipes && !@recipes.empty?%>
+  <%@recipes.each.with_index(1) do |recipe, index|%>
+    <p><%= index %>. <%= recipe.name %><br>
+      <a href="/recipes/<%=recipe.id%>"><%=recipe.name%>'s Homepage</a>
+    </p>
+
+  <% end %>
+  <%else%>
+  There are no recipes listed...
+  <%end %>
+</p>
