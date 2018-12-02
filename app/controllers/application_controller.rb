@@ -1,3 +1,5 @@
+require_relative '../../config/environment'
+
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
@@ -5,28 +7,23 @@ class ApplicationController < Sinatra::Base
   end
 
   # code actions here!
-
-  get '/recipes/new' do
-    erb :newrecipe
-  end
-
-  post '/recipes' do
-    recipe = Recipe.new(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
-    @recipes = Recipe.all
-    @id = recipe.id
-
-   if recipe.save
-     redirect "/recipes"
-    else
-      redirect "/error"
-    end
+  get '/' do
+    redirect to '/recipes'
   end
 
   get '/recipes' do
-    @recipe = Recipe.all
-    erb :show
+    @recipes = Recipe.all
+    erb :index
   end
 
+  get '/recipes/new' do
+    erb :new
+  end
+
+  post '/recipes' do
+    @recipe = Recipe.create(params)
+    redirect "/recipes/#{@recipe.id}"
+  end
 
   get '/recipes/:id' do
     @recipe = Recipe.find(params[:id])
@@ -42,10 +39,13 @@ class ApplicationController < Sinatra::Base
   patch "/recipes/:id" do
     @recipe = Recipe.find(params[:id])
     @recipe.update(params[:recipe])
-    redirect to "/recipes/#{ @recipe.id }"
+    redirect "/recipes/#{ @recipe.id }"
   end
 
-
+  delete "/recipes/:id" do
+    Recipe.destroy(params[:id])
+    redirect "/recipes"
+  end
 
   get "/error" do
     erb :error
