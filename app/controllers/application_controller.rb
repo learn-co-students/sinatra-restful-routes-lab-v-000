@@ -22,7 +22,11 @@ class ApplicationController < Sinatra::Base
 
   post '/recipes' do
     @recipe = Recipe.create(params)
-    redirect "/recipes/#{@recipe.id}"
+    if @recipe.save
+      redirect "/recipes/#{@recipe.id}"
+    else
+      erb :error
+    end
   end
 
   get '/recipes/:id' do
