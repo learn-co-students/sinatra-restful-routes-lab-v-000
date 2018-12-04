@@ -1,0 +1,19 @@
+<!DOCTYPEhtml>
+<html>
+  <head>
+    <title>Grammy's Recipes</title>
+  </head>
+
+  <body>
+    <p><h2><a href="/">Home</a> // <a href="recipes/new">New Entry</a></h2></p>
+
+    <%if @recipes && !@recipes.empty?%>
+      <%@recipes.each.with_index(1) do |recipe, index|%>
+      <p><%= index %>. <%= recipe.name %><br>
+      <a href="/recipes/<%=recipe.id%>"><%=recipe.name%></a></p>
+      <% end %>
+    <%else%>
+      New Recipes Will Display Here
+    <%end %>
+  </body>
+<html>
