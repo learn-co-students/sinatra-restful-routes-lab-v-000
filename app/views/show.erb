@@ -1,0 +1,19 @@
+<!DOCTYPEhtml>
+<html>
+  <head>
+    <title>Grammy's Recipes</title>
+  </head>
+
+  <body>
+    <h1><%= @recipe.name %></h1>
+    <h3>Ingredients</h3>
+    <p><%= @recipe.ingredients %>></p>
+    <p><em>Cook Time:</em> <%= @recipe.cook_time %></p>
+    <p></p>
+
+    <form action="/recipes/<%=@recipe.id%>" method="POST">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+    </form>
+  </body>
+<html>

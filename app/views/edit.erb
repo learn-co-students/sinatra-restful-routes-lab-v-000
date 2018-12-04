@@ -1,0 +1,21 @@
+<!DOCTYPEhtml>
+<html>
+  <head>
+    <title>Grammy's Recipes</title>
+  </head>
+
+  <body>
+    <h1>Edit Your Recipe</h1>
+
+    <form method="POST" action="/recipes/<%= @recipe.id %>">
+      <input id="hidden" type="hidden" name="_method" value="patch">
+      <p>Name: <%= @recipe.name %> <br>
+      <label for="name">Updated Name: </label><input type="text" name="name" id="name"> </p>
+      <p>Ingredients: <%= @recipe.ingredients %> <br>
+      <label for="ingredients">Updated Ingredients: </label><input type="text" name="ingredients" id="ingredients"></p>
+      <p>Cook Time: <%= @recipe.cook_time %> <br>
+        <label for="cook_time">Updated Cook Time: </label><input type="text" name="cook_time" id="cook_time"></p>
+        <input type="submit" value="Update">
+      </form>
+  </body>
+<html>
