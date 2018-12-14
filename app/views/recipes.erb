@@ -5,13 +5,17 @@
 </head>
   <body>
     <h1>List of my Recipes:</h1>
-    <% @recipes.each do |recipe| %>
+    <!-- <% @recipes.each do |recipe| %>
       <p>Name: <%=recipe.name%> </p>
       <p>Ingredients: <%=recipe.ingredients%> </p>
       <p>Cooking Time: <%=recipe.cook_time%> </p>
       <a href="/recipes/:id/edit">Edit this recipe</a>
       <br/>
       <br/>
-      <% end %>
+      <% end %> -->
+      <% @recipes.each do |recipe|%>
+        <% recipe_link="/recipes/#{recipe.id}" %>
+        <p><a href= "<%=recipe_link%>"> <%=recipe.name%></a></p>
+        <% end %>
   </body>
 </html>
