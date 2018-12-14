@@ -1,3 +1,3 @@
-class Recipes
-
+class Recipe
+ # the
 end
