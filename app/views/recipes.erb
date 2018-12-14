@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> My Recipes</recipes>
-  </head>
+  <title>All My Recipes</title>
+</head>
   <body>
-    <h1>Create a new Recipe</h1>
-    <label for "name"
-    
+    <h1>List of my Recipes:</h1>
+    <% @recipes.each do |recipe| %>
+      <p>Name: <%=recipe.name%> </p>
+      <p>Ingredients: <%=recipe.ingredients%> </p>
+      <p>Cooking Time: <%=recipe.cook_time%> </p>
+      <a href="/recipes/:id/edit">Edit this recipe</a>
+      <br/>
+      <br/>
+      <% end %>
+  </body>
 </html>

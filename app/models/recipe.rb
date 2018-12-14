@@ -1,3 +1,3 @@
-class Recipe
- # the
+class Recipe <ActiveRecord::Base
+
 end
