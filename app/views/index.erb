@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Recipes</title>
+  <title>All My Recipes</title>
 </head>
   <body>
-    <h1>Test</h1>
-    <a href="/recipes/new">Create a new recipe</a>
-    <br/>
-    <a href="/recipes">View all recipes</a>
+    <h1>List of my Recipes:</h1>
+      <% @recipes.each do |recipe|%>
+        <% recipe_link="/recipes/#{recipe.id}" %>
+        <p><a href= "<%=recipe_link%>"> <%=recipe.name%></a></p>
+        <% end %>
   </body>
 </html>
