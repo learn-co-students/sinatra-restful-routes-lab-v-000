@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
-  </head>
-  <body id="page-top">
-    <h1>Submit Your Recipe Here!</h1>
-    <form method="POST" action="/recipes">
-      <label for="name">Name:</label>
-      <input id="name" type="text" name="name"><br>
-      <label for="ingredients">Ingredients:</label>
-      <input id="ingredients" type="text" name="ingredients">
-      <label for="cook_time">Cook Time:</label>
-      <input id="cook_time" type="text" name="cook_time">
-      <input type="submit" value="Submit">
-    </form>
-  </body>
-</html>
+<h2> All Recipes </h2>
+<% @recipes.each do |recipe| %>
+  <h2><a href="/recipes/<%= recipe.id %>"><%=recipe.name%></a></h2>
+<% end %>
