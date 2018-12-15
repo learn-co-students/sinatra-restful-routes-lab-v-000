@@ -3,7 +3,13 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
+  
+  get '/articles/new' do
+    erb :new
+  end
 
-  # code actions here!
-
+  post '/recipes' do
+    @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
+    redirect to "/recipes/#{@recipe.id}"
+  end
 end
