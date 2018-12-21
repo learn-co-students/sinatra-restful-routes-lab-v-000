@@ -20,4 +20,9 @@ class ApplicationController < Sinatra::Base
     @new_recipe.save
     redirect to "/recipes/#{@new_recipe.id}"
   end
+
+  get '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :recipe
+  end
 end
