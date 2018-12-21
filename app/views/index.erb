@@ -1,7 +1,6 @@
 <h1>Recipes</h1>
 <% @recipes.each do |recipe| %>
-  <%= recipe.name %><br>
-  <%= recipe.indredients %><br>
+  <h3><%= recipe.name %></h3>
+  <%= recipe.ingredients %><br>
   <%= recipe.cook_time %>
 <% end %>
-Does text show up after loop
