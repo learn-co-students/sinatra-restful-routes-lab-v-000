@@ -26,6 +26,15 @@ class ApplicationController < Sinatra::Base
     erb :recipe
   end
 
+  patch '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.name = params[:name]
+    @recipe.ingredients = params[:ingredients]
+    @recipe.time_cook = params[:time_cook]
+    @recipe.save
+    redirect to "/recipes/#{@recipe.id}"
+  end
+
   get '/recipes/:id/edit' do
     @recipe = Recipe.find_by_id(params[:id])
     erb :edit
