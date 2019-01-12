@@ -1,0 +1,8 @@
+<h1>Recipes</h1>
+
+<ol>
+  <% @recipes.each_with_index do |recipe, i| %>
+  <% i += 1 %>
+  <li><a href="/recipes/<%= i %>"><%= recipe.name %></a></li>
+  <% end %>
+</ol>

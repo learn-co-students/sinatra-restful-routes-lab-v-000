@@ -1,0 +1,10 @@
+<h1>Add New Recipe</h1>
+
+<%= @message %>
+
+<form class="" action="/recipes" method="post">
+  <p><input type="text" name="name" placeholder="Name"></p>
+  <p><textarea name="ingredients" rows="8" cols="22" placeholder="Ingredients"></textarea></p>
+  <p><input type="text" name="cook_time" placeholder="Cooking time (minutes)"></p>
+  <p><input type="submit" id="submit" value="Submit"></p>
+</form>
