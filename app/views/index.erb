@@ -1,0 +1,5 @@
+<h1>Recipes:</h1>
+<%@recipes.each_with_index do |recipe, index|%>
+<p><%="#{index}. #{recipe.name}"%></p>
+<a href='/recipes/<%="#{recipe.id}"%>'> Recipe Page</a>
+<%end%>
