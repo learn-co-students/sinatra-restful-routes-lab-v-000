@@ -1,0 +1,102 @@
+D, [2019-01-24T16:06:45.183271 #45956] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Run options: include {:focus=>true}
+
+All examples were filtered out; ignoring {:focus=>true}
+
+Recipe App
+  Index page '/recipes'
+    responds with a 200 status code
+    displays a list of recipes
+    contains links to each recipe's show page
+  show page '/recipes/:id'
+    responds with a 200 status code
+    displays the recipe's name
+    displays the recipe's ingredients
+    displays the recipe's cook time
+    contains a form to delete the recipe (FAILED - 1)
+    deletes via a DELETE request (FAILED - 2)
+  edit page '/recipes/:id/edit'
+    responds with a 200 status code
+    contains a form to edit the recipe
+    displays the recipe's ingredients before editing
+    submits via a patch request
+  new page '/recipes/new'
+    responds with a 200 status code
+    contains a form to create the recipe
+    posts the form back to create a new recipe
+  creating a new recipe
+    creates a new recipe and saves to the database
+    redirects to the recipe show page
+  updating a recipe
+    updates the recipe
+    redirects to the recipe show page
+  deleting a recipe
+    deletes a recipe (FAILED - 3)
+
+Failures:
+
+  1) Recipe App show page '/recipes/:id' contains a form to delete the recipe
+     Failure/Error: expect(page.find(:css, "form")[:action]).to eq("/recipes/#{@recipe1.id}")
+
+     Capybara::ElementNotFound:
+       Unable to find css "form"
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/finders.rb:302:in `block in synced_resolve'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/base.rb:82:in `synchronize'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/finders.rb:293:in `synced_resolve'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/finders.rb:48:in `find'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/session.rb:732:in `block (2 levels) in <class:Session>'
+     # ./spec/sinatra_restful_routes_lab_spec.rb:61:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/base.rb:101:in `cleaning'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/configuration.rb:52:in `block (2 levels) in cleaning'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/configuration.rb:53:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  2) Recipe App show page '/recipes/:id' deletes via a DELETE request
+     Failure/Error: expect(page.find(:css, "form input[name=_method]", :visible => false)[:value]).to match(/delete/i)
+
+     Capybara::ElementNotFound:
+       Unable to find css "form input[name=_method]"
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/finders.rb:302:in `block in synced_resolve'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/base.rb:82:in `synchronize'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/finders.rb:293:in `synced_resolve'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/finders.rb:48:in `find'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/session.rb:732:in `block (2 levels) in <class:Session>'
+     # ./spec/sinatra_restful_routes_lab_spec.rb:65:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/base.rb:101:in `cleaning'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/configuration.rb:52:in `block (2 levels) in cleaning'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/configuration.rb:53:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+  3) Recipe App deleting a recipe deletes a recipe
+     Failure/Error: click_button "delete"
+
+     Capybara::ElementNotFound:
+       Unable to find button "delete"
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/finders.rb:302:in `block in synced_resolve'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/base.rb:82:in `synchronize'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/finders.rb:293:in `synced_resolve'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/finders.rb:48:in `find'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/node/actions.rb:58:in `click_button'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/session.rb:732:in `block (2 levels) in <class:Session>'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/gems/capybara-3.10.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+     # ./spec/sinatra_restful_routes_lab_spec.rb:180:in `block (3 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:25:in `block (3 levels) in <top (required)>'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/generic/base.rb:16:in `cleaning'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/base.rb:101:in `cleaning'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/configuration.rb:52:in `block (2 levels) in cleaning'
+     # /Users/heathermiller/.rvm/gems/ruby-2.5.3/bundler/gems/database_cleaner-14626296ef31/lib/database_cleaner/configuration.rb:53:in `cleaning'
+     # ./spec/spec_helper.rb:24:in `block (2 levels) in <top (required)>'
+
+Finished in 1.32 seconds (files took 7 seconds to load)
+21 examples, 3 failures
+
+Failed examples:
+
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:60 # Recipe App show page '/recipes/:id' contains a form to delete the recipe
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:64 # Recipe App show page '/recipes/:id' deletes via a DELETE request
+rspec ./spec/sinatra_restful_routes_lab_spec.rb:183 # Recipe App deleting a recipe deletes a recipe
+
