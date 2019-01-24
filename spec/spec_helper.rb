@@ -36,3 +36,4 @@ def app
 end
 
 Capybara.app = app
+
