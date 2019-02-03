@@ -58,7 +58,7 @@ describe "Recipe App" do
     end
 
     it "contains a form to delete the recipe" do
-      expect(page.find(:css, "form")[:action]).to eq("/recipes/#{@recipe1.id}")
+      expect(page.find(:css, "form")[:action]).to eq("/recipes/#{@recipe1.id}/delete")
     end
 
     it 'deletes via a DELETE request' do
