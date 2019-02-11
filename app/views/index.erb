@@ -1,0 +1,9 @@
+<h1>Welcome to Your Recipes Storage Space!</h1>
+<ul>
+	<% @recipes.each do |recipe| %>
+		<li>Name: <%= recipe.name %></li>
+		<li>Ingredients: <%= recipe.ingredients %></li>
+		<li>Cook Time: <%= recipe.cook_time %></li>
+		<a href="/recipes/<%= recipe.id %>"></a>
+	<% end %>
+</ul>
