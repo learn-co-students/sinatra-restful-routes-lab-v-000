@@ -1,0 +1,7 @@
+<% @recipes.each do |recipe| %>
+  <form action="/recipes/<%= recipe.name %>" method="post">
+    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.ingredients %></a></li>
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="DELETE THIS BOOK">
+  </form>
+<% end %>
