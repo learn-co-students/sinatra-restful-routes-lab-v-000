@@ -3,10 +3,10 @@
 <a href="/recipes/new"> Add a recipe!</a>
 
 <% @recipes.each do |recipe| %>
-  <p><%= recipe.id %></p>
-  <p><%= recipe.name %></p>
-  <p><%= recipe.ingredients %></p>
-  <p><%= recipe.cook_time %></p>
-  <a href="/recipes/<%=recipe.id%>">View this recipe</a>
-  <br>
+  <%= recipe.id %>
+  <%= recipe.name %>
+  <%= recipe.ingredients %>
+  <%= recipe.cook_time %>
+  <a href="/recipes/<%=recipe.id%>">View recipe</a>
+  
 <% end %>
