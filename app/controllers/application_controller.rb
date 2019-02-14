@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes' do  #index action
-      raise params.inspect
+      binding.pry
      @recipes = Recipe.all
       erb :index
   end
