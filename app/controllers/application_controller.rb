@@ -4,10 +4,6 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get '/' do
-      erb :index
-  end
-
   get '/recipes' do  #index action
       raise params.inspect
      @recipes = Recipe.all
