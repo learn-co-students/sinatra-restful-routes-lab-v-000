@@ -10,6 +10,8 @@ gem 'rake'
 gem 'require_all'
 gem 'shotgun'
 gem 'json'
+gem 'pry'
+gem 'rb-readline'
 
 group :test do
   gem 'rspec'
@@ -18,4 +20,5 @@ group :test do
   gem 'capybara'
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+  gem 'rb-readline'
 end
