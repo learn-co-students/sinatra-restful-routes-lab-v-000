@@ -1,0 +1,10 @@
+
+<form action="/recipes/<%= @recipe.id %>" method="post"> <!-- /delete not needed -->
+  <h1> <%= @recipe.name %> </h1>
+  <h1> <%= @recipe.ingredients %>  </h1>
+  <h1> <%= @recipe.cook_time %> </h1>
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
+
+<!-- Show has the delete patch -->
