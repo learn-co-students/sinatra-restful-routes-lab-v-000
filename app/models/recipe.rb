@@ -1,1 +1,2 @@
-#Placeholder for a model
+class Reipe < ActiveRecord::Base
+end
