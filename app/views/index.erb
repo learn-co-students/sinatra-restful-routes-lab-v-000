@@ -3,8 +3,6 @@ Index Page
 <p><%=recipe.name%></p>
 <p><%=recipe.ingredients%></p>
 <p><%=recipe.cook_time%></p>
-<p><%="/recip
-es/#{@recipe.id}"%></p>
-
+<a href=<%="/recipes/#{recipe.id}"%>>View Recipe</a>
 ~~~~~~~~~~~~~~~~~~~~~~~~
 <%end%>
