@@ -1,5 +1,7 @@
-<h1>All Recipes:</h1>
+<h2>All Recipes:</h2>
 
-<% @all_recipes.each do |r| %>
-  <li><%= r.name %></li>
-<%end%>
+<ul>
+  <% @all_recipes.each do |recipe| %>
+    <li><%= recipe.name %></li>
+  <% end %>
+</ul>
