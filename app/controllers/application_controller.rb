@@ -9,17 +9,18 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/recipes' do
-    # @recipe = Recipe.create(:name =>params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
     @all_recipes = Recipe.all
-    binding.pry
     erb :index
   end
 
+  get '/recipes/:id' do
+    # binding.pry
+    @recipe = Recipe.find(session[:id])
+    erb :show
+  end
+  
+  
+  
+  
+  
 end
-
-
-# #<Recipe:0x00000002bb4fe8
-#   id: 2,
-#   name: "waldorf salad",
-#   ingredients: "apples, cabbage, oil, vinegar",
-#   cook_time: 0>,
