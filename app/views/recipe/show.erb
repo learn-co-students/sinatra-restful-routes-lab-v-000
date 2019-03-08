@@ -1,0 +1,14 @@
+<h2><%= @recipe.name %></h2>
+<ol>
+    <% @recipe.ingredients.split(", ").each do |item| %>
+        <li><%= item %></li>
+    <% end %>
+</ol>
+<p>Cook Time: <%= @recipe.cook_time %></p>
+
+<%= @recipe.ingredients %>
+
+<form action="/recipes/<%= @recipe.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+</form>
