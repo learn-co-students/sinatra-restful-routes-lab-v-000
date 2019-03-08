@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
   post '/recipes' do
   @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
   @recipe.save
-  redirect "/recipe/#{@recipe.id}"
+  redirect "/recipes/#{@recipe.id}"
   end
   
   #show the information for one recipe based on the id
@@ -30,13 +30,29 @@ class ApplicationController < Sinatra::Base
   
   ## Below are the controller routes to update a recipes
   
+  get '/recipes/:id/edit' do 
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
+  end
+ 
+patch '/recipes/:id' do 
+  @recipe = Recipe.find_by_id(params[:id])
+  @recipe.name = params[:name]
+  @recipe.ingredients = params[:ingredients]
+  @recipe.cook_time = params[:cook_time]
+  @recipe.save 
+  redirect to "/recipes/#{@recipe.id}"
+end
+  
+
   ##Controller route to delete 
   
-  delete '/recipes/:id/delete' do #delete action
-  @recipe = Recipe.find_by_id(params[:id])
-  @recipe.delete
-  redirect to '/recipes'
-end
+  delete '/recipes/:id' do #delete action
+   @recipe = Recipe.find_by_id(params[:id])
+   @recipe.delete
+   redirect to '/recipes'
+  end
+
   
 
 end
