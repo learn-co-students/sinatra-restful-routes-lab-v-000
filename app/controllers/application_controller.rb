@@ -1,3 +1,5 @@
+require './config/environment'
+
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
@@ -7,7 +9,7 @@ class ApplicationController < Sinatra::Base
   get '/recipes/new' do
     erb :new
   end
-  
+
   get '/recipes' do
     @recipes = Recipe.all
     erb :index
@@ -36,10 +38,11 @@ class ApplicationController < Sinatra::Base
     redirect to "/recipes/#{@recipe.id}"
   end
 
-  delete '/recipes/:id/delete' do #delete action
+  delete '/recipes/:id' do #delete action
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.delete
     redirect to '/recipes'
   end
+
 
 end
