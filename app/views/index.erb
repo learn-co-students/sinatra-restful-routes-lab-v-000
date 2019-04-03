@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  
+  <body>
+    
+    <% @recipes.each do |recipe|%>
+    <p><a href="/recipes/<%= recipe.id %>"></p>
+    <p><%= recipe.name %></p>
+    <p><%= recipe.ingredients %></p>
+    <p><%= recipe.cook_time %></p>
+    <% end %>
+    
+    <form action="\" method="POST">
+      <input type="text" name="recipe_name">
+      <input type="text" name="recipe_ingredients">
+      <input type="text" name="recipe_cook_time">
+      <input type="submit" value="Submit">
+    </form>
+    
+  </body>
+  
+  
+</html>
+
