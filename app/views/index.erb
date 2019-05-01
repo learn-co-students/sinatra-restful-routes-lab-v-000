@@ -1,6 +1,6 @@
 <h1>Recipes</h1>
 <%@recipes.each do |r|%>
 <h2><%=r.name%></h2>
-<p><%=r.ingredients%></p>
-<p><%=r.cook_time%></p>
+<p>Ingredients: <%=r.ingredients%></p>
+<p>Cook Time: <%=r.cook_time%></p>
 <%end%>
