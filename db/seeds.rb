@@ -1,0 +1,2 @@
+recipe_1 = Recipe.create(:name => "Chicken Nom Nom", :ingredients => "chicken, garlic, love", :cook_time => "20 min")
+recipe_2 = Recipe.create(:name => "Beef Nom Nom", :ingredients => "beef, rice, sweat and tears", :cook_time => "time is a flat circle")
