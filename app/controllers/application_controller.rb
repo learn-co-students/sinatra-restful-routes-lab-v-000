@@ -21,8 +21,10 @@ class ApplicationController < Sinatra::Base
 
   #new post created
   post '/recipes' do
-    @new_recipe= Recipe.create(:name => params[name], :ingredients => params[ingredients], :cook_time => params[cook_time])
-    redirect to '/recipes/'+ @new_recipe.id
+    
+    @new_recipe= Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+
+    redirect to '/recipes/'+ @new_recipe.id.to_s
 #      redirect "/recipes/#{@new_recipe.id}"
   end
 
@@ -37,10 +39,18 @@ class ApplicationController < Sinatra::Base
 
   #edit post
   get '/recipes/:id/edit' do
-
     @recipe= Recipe.find_by(:id =>  params[:id])
     erb :edit
   end
+
+  patch '/recipes/:id' do
+      #  binding.pry
+       @mod= Recipe.find(params[:id])
+       @mod.update(params[:recipe])
+
+     redirect "/recipes/#{@mod.id}"  #esta forma se llama interpolation
+  end
+
 
     # end
 
