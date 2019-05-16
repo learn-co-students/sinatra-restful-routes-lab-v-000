@@ -14,6 +14,7 @@ gem 'json'
 group :test do
   gem 'rspec'
   gem 'pry'
+  gem 'rb-readline'
   gem 'pry-nav'
   gem 'capybara'
   gem 'rack-test'
