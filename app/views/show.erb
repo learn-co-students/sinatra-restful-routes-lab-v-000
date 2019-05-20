@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Recipe Page</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
+  </head>
+  <body>
+    Name: <%= @recipe.name %>
+    Ingredients: <%= @recipe.ingredients %>
+    Cook time: <%= @recipe.cook_time %>
+
+
+    <form method="POST" action="/recipes/<%=@recipe.id%>">
+      <input type="hidden" name="_method" value="DELETE" />
+      <input type="submit" value="delete" />
+    </form>
+
+  </body>
+  </html>
