@@ -20,14 +20,14 @@ class ApplicationController < Sinatra::Base
     erb :new
   end 
   
-  post '/recipes/new' do 
+  post '/recipes' do 
     @recipe = Recipe.new
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
     @recipe.cook_time = params[:cook_time]
     @recipe.save
     if @recipe 
-      redirect "/recipes/#{@recipe.id}"
+      redirect to "/recipes/#{@recipe.id}"
     end
   end 
   
