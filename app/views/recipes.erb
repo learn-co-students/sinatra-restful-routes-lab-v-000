@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>My Recipes Collection</title>
+    </head>
+    <body>
+      <h1>My Saved Recipes</h1>
+      
+      <ul>
+        <%@recipes.each do |r|%>
+          <li><h4><a href="/recipes/<%=r.id%>"><%=r.name%></a></h4></li>
+        <%end%>
+        
+      </ul>
+  </body>
+</html>
