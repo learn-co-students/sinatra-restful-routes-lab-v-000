@@ -1,2 +1,2 @@
-class Recipe
+class Recipe < ActiveRecord::Base
 end
