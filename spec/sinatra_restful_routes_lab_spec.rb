@@ -153,7 +153,7 @@ describe "Recipe App" do
       fill_in :cook_time, :with => "30 minutes"
 
       page.find(:css, "[type=submit]").click
-      binding.pry
+
     end
 
     it "updates the recipe" do
