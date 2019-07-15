@@ -1,0 +1,11 @@
+  <% Recipe.all.select do |recipe| %>
+  <% recipe.id == params[:id] %>
+    <h2>Recipe Name: <%= recipe.name %></h2>
+    <p>Ingredients: <%= recipe.ingredients %></p>
+    <p>Cook time: <%= recipe.cook_time %> minutes</p>
+  <% end %>
+  
+<form action="/recipes/<%= params[:id] %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>

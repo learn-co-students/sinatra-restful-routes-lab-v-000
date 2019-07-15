@@ -1,0 +1,5 @@
+<h1>Recipes</h1>
+  <% Recipe.all.each do |recipe| %>
+    <h2>Recipe Name: <%= recipe.name %></h2>
+    <a href="/recipes/<%=recipe.id%>">Link to Recipe</a>
+  <% end %>
