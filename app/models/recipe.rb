@@ -1,4 +1,4 @@
 #Placeholder for a model
-class Recipe < Sinatra::Base 
+class Recipe < ActiveRecord::Base 
   
 end 
