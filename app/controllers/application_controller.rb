@@ -1,3 +1,4 @@
+require 'pry'
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
@@ -14,7 +15,8 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/recipes' do 
-     @recipe = Recipe.new(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
+     @recipe = Recipe.create(:name => params[:recipe][:name], 
+     :ingredients => params[:recipe][:ingredients], :cook_time => params[:recipe][:cook_time])
     redirect to "/recipes/#{@recipe.id}"
 
   end
@@ -26,10 +28,11 @@ class ApplicationController < Sinatra::Base
   
   get '/recipes/:id/edit' do 
     @recipe = Recipe.find_by_id(params[:id])
+    binding.pry 
     erb :edit
   end
   
-  patch '/recipes/:id' do 
+  patch '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
@@ -44,7 +47,7 @@ class ApplicationController < Sinatra::Base
   
   delete '/recipes/:id' do 
     @recipe = Recipe.find_by_id(params[:id])
-    @recipe.delete
+    @recipe.destroy 
     redirect to '/recipes'
   end 
 
