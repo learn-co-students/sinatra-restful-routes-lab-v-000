@@ -22,7 +22,7 @@ class ApplicationController < Sinatra::Base
   
   # Show action -
   get '/recipes/:id' do
-    @recipe = Recipe.find_by_id(params[:id])
+    @recipe = Recipe.find(params[:id])
     
     erb :show
   end
@@ -53,7 +53,7 @@ class ApplicationController < Sinatra::Base
   # Delete action -
   delete '/recipes/:id' do
     @recipe = Recipe.find(params[:id])
-    @recipe.delete
+    @recipe.destroy
     
     redirect to '/recipes'
   end
