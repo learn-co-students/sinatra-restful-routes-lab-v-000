@@ -1,1 +1,14 @@
-Here is the index page!
+<h1>Your Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+  <h2><em><%= recipe.name %></em></h2>
+  <p>
+    Ingredients: 
+    <ul>
+      <% recipe.ingredients.split(",").each do |ingredient| %>
+        <li><%= ingredient %></li>
+      <% end %>
+    </ul>
+    Cook Time: <%= recipe.cook_time %>
+  </p>
+<% end %>
