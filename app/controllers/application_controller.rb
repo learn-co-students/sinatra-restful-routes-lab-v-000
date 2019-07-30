@@ -8,5 +8,19 @@ class ApplicationController < Sinatra::Base
     @recipes = Recipe.all
     erb :index
   end
+  
+  get '/recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    
+    if @recipe
+      erb :show
+    else 
+      redirect '/error'
+    end
+  end
+  
+  get '/error' do
+    erb :error
+  end
 
 end
