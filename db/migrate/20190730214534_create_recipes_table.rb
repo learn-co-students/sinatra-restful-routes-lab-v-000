@@ -7,3 +7,5 @@ class CreateRecipesTable < ActiveRecord::Migration
     end 
   end
 end
+
+# Note: I think the convention is to name this migration CreateRecipes, not CreateRecipesTable.
