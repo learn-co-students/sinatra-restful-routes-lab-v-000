@@ -2,13 +2,14 @@
 
 <% @recipes.each do |recipe| %>
   <h2><em><%= recipe.name %></em></h2>
-  <p>
+  <a href="/recipes/<%= recipe.id %>">Go to recipe page</a>
+  <!-- <p>
     Ingredients: 
     <ul>
-      <% recipe.ingredients.split(",").each do |ingredient| %>
-        <li><%= ingredient %></li>
-      <% end %>
+      <%# recipe.ingredients.split(",").each do |ingredient| %>
+        <li><%#= ingredient %></li>
+      <%# end %>
     </ul>
-    Cook Time: <%= recipe.cook_time %>
-  </p>
+    Cook Time: <%#= recipe.cook_time %>
+  </p> -->
 <% end %>
