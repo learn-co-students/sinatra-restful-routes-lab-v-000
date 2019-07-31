@@ -1,7 +1,17 @@
+<h1>Edit your recipe here!</h1>
+
 <form method="post" action="/recipes/<%= @recipe.id %>">
   <p>
-    <label for="ingredients">Ingredients:</label><br />
+    <label for="name"><strong>Name:</strong></label>
+    <input type="text" id="name" name="name" value="<%= @recipe.name %>" />
+  </p>
+  <p>
+    <label for="ingredients"><strong>Ingredients:</strong></label><br />
     <textarea id="ingredients" name="ingredients"><%= @recipe.ingredients %></textarea>
+  </p>
+  <p>
+    <label for="cook_time"><strong>Cooking Time:</strong></label>
+    <input type="text" id="cook_time" name="cook_time" value="<%= @recipe.cook_time %>" />
   </p>
 </form>
 
