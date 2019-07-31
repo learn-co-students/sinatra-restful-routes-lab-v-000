@@ -1,18 +1,22 @@
 <h1>Edit your recipe here!</h1>
 
 <form method="post" action="/recipes/<%= @recipe.id %>">
+  <input type="hidden" id="hidden" name="_method" value="patch" />
+  
   <p>
     <label for="name"><strong>Name:</strong></label>
-    <input type="text" id="name" name="name" value="<%= @recipe.name %>" />
+    <input type="text" id="name" name="recipe[name]" value="<%= @recipe.name %>" />
   </p>
   <p>
     <label for="ingredients"><strong>Ingredients:</strong></label><br />
-    <textarea id="ingredients" name="ingredients"><%= @recipe.ingredients %></textarea>
+    <textarea id="ingredients" name="recipe[ingredients]"><%= @recipe.ingredients %></textarea>
   </p>
   <p>
     <label for="cook_time"><strong>Cooking Time:</strong></label>
-    <input type="text" id="cook_time" name="cook_time" value="<%= @recipe.cook_time %>" />
+    <input type="text" id="cook_time" name="recipe[cook_time]" value="<%= @recipe.cook_time %>" />
   </p>
+  
+  <input type="submit" id="patch" value="Save your changes" />
 </form>
 
 <!-- Here's another way to use a textarea with a form: https://www.w3schools.com/tags/att_textarea_form.asp -->
