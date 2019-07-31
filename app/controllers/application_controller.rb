@@ -44,7 +44,8 @@ class ApplicationController < Sinatra::Base
     
     recipe.update(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
     
-    redirect to "/recipes/#{@recipe.id}"
+    redirect to "/recipes/#{recipe.id}"
+    # Interestingly, as I discovered in Shotgun, I mistakenly wrote @recipe.id above, yet the tests didn't catch it!
   end
   
   delete '/recipes/:id' do
