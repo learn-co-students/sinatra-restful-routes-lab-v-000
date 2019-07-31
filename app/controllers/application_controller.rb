@@ -3,15 +3,15 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
-
-  get '/recipes' do
-    @recipes = Recipe.all
-    erb :index
+  
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
   end
   
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
-    
+    binding.pry
     if @recipe
       erb :show
     else 
@@ -23,9 +23,9 @@ class ApplicationController < Sinatra::Base
     erb :error
   end
   
-  get '/recipes/:id/edit' do
-    @recipe = Recipe.find_by_id(params[:id])
-    erb :edit
+  get '/recipes' do
+    @recipes = Recipe.all
+    erb :index
   end
   
   patch '/recipes/:id' do 
