@@ -5,18 +5,20 @@
   
   <p>
     <label for="name"><strong>Name:</strong></label>
-    <input type="text" id="name" name="recipe[name]" value="<%= @recipe.name %>" />
+    <input type="text" id="name" name="name" value="<%= @recipe.name %>" />
   </p>
   <p>
     <label for="ingredients"><strong>Ingredients:</strong></label><br />
-    <textarea id="ingredients" name="recipe[ingredients]"><%= @recipe.ingredients %></textarea>
+    <textarea id="ingredients" name="ingredients"><%= @recipe.ingredients %></textarea>
   </p>
   <p>
     <label for="cook_time"><strong>Cooking Time:</strong></label>
-    <input type="text" id="cook_time" name="recipe[cook_time]" value="<%= @recipe.cook_time %>" />
+    <input type="text" id="cook_time" name="cook_time" value="<%= @recipe.cook_time %>" />
   </p>
   
   <input type="submit" id="patch" value="Save your changes" />
 </form>
+
+<!-- It may be a good idea to use nested params in the future, but they won't pass the tests here. -->
 
 <!-- Here's another way to use a textarea with a form: https://www.w3schools.com/tags/att_textarea_form.asp -->

@@ -9,6 +9,17 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
   
+  get '/recipes/new' do
+    erb :new 
+  end
+  
+  post '/recipes' do
+    @recipe = Recipe.create(params)
+    # I think this works, but it's usually better to call #new and #save instead.
+    binding.pry
+    redirect to "/recipes/#{@recipe.id}"
+  end
+  
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
     
