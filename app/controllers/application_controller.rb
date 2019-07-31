@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
   post '/recipes' do
     @recipe = Recipe.create(params)
     # I think this works, but it's usually better to call #new and #save instead.
-    binding.pry
+    
     redirect to "/recipes/#{@recipe.id}"
   end
   
@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
     if @recipe
       erb :show
     else 
-      redirect '/error' # I added this part, for an edge case.
+      redirect to "/error" # I added this part, for an edge case.
     end
   end
   
@@ -40,7 +40,11 @@ class ApplicationController < Sinatra::Base
   end
   
   patch '/recipes/:id' do 
-    #binding.pry
+    recipe = Recipe.find_by_id(params[:id])
+    
+    recipe.update(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    
+    redirect to "/recipes/#{@recipe.id}"
   end
   
   delete '/recipes/:id' do
