@@ -22,5 +22,9 @@ class ApplicationController < Sinatra::Base
   get '/error' do
     erb :error
   end
+  
+  delete '/recipes/:id' do
+    binding.pry
+  end
 
 end

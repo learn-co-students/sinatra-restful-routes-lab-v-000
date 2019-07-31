@@ -3,7 +3,9 @@
 <% @recipes.each do |recipe| %>
   <h2><em><%= recipe.name %></em></h2>
   <a href="/recipes/<%= recipe.id %>">Go to recipe page</a>
-  <!-- <p>
+<% end %>
+
+<!-- <p>
     Ingredients: 
     <ul>
       <%# recipe.ingredients.split(",").each do |ingredient| %>
@@ -12,4 +14,3 @@
     </ul>
     Cook Time: <%#= recipe.cook_time %>
   </p> -->
-<% end %>
