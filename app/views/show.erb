@@ -1,1 +1,11 @@
-This is your recipe.
+<h1><em><%= @recipe.name %></em></h1>
+
+<p>
+  Ingredients: 
+  <ul>
+    <% @recipe.ingredients.split(",").each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+  </ul>
+  Cook Time: <%= @recipe.cook_time %>
+</p>
