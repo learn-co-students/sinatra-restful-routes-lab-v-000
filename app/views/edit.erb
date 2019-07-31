@@ -1,6 +1,8 @@
 <form method="post" action="/recipes/<%= @recipe.id %>">
   <p>
     <label for="ingredients">Ingredients:</label>
-    <input type="textarea" id="ingredients" name="ingredients" value="<%= @recipe.ingredients %>" />
+    <textarea id="ingredients" name="ingredients"><%= @recipe.ingredients %></textarea>
   </p>
 </form>
+
+<!-- Here's another way to use a textarea with a form: https://www.w3schools.com/tags/att_textarea_form.asp -->
