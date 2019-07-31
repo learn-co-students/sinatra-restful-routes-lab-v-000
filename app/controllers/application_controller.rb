@@ -15,12 +15,17 @@ class ApplicationController < Sinatra::Base
     if @recipe
       erb :show
     else 
-      redirect '/error'
+      redirect '/error' # I added this part, for an edge case.
     end
   end
   
   get '/error' do
     erb :error
+  end
+  
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
   end
   
   delete '/recipes/:id' do

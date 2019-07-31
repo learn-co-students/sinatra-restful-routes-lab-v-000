@@ -1,0 +1,6 @@
+<form method="post" action="/recipes/<%= @recipe.id %>">
+  <p>
+    <label for="ingredients">Ingredients:</label>
+    <input type="textarea" id="ingredients" name="ingredients" value="<%= @recipe.ingredients %>" />
+  </p>
+</form>
