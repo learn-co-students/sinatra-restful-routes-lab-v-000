@@ -1,0 +1,26 @@
+<h1>Create your recipe here!</h1>
+
+<form method="post" action="/recipes">
+  <p>
+    <label for="name"><strong>Name:</strong></label>
+    <input type="text" id="name" name="name" />
+  </p>
+  <p>
+    <label for="ingredients"><strong>Ingredients:</strong></label><br />
+    <textarea id="ingredients" name="ingredients"></textarea>
+  </p>
+  <p>
+    <label for="cook_time"><strong>Cooking Time:</strong></label>
+    <input type="text" id="cook_time" name="cook_time" />
+  </p>
+  
+  <input type="submit" id="submit" value="Create Recipe" />
+</form>
+
+<p>
+  <a href="/recipes">Back to recipes</a>
+</p>
+
+<!-- It may be a good idea to use nested params in the future, but they won't pass the tests here. -->
+
+<!-- Here's another way to use a textarea with a form: https://www.w3schools.com/tags/att_textarea_form.asp -->

@@ -1,0 +1,33 @@
+<h1><em><%= @recipe.name %></em></h1>
+
+<p>
+  Ingredients: <%= @recipe.ingredients %>
+</p>
+
+<p>
+  Cooking Time: <%= @recipe.cook_time %>
+</p>
+
+<p>
+  <a href="/recipes/<%= @recipe.id %>/edit"><button>Edit this recipe</button></a>
+</p>
+
+<!-- Remember to use the = sign above ^^^^^^^ -->
+
+<form method="post" action="/recipes/<%= @recipe.id %>">
+  <input type="hidden" id="hidden" name="_method" value="delete" />
+  <input type="submit" id="delete" value="Delete this recipe" />
+</form>
+
+<p>
+  <a href="/recipes">View all recipes</a>
+</p>
+
+<!-- Idea for another time: -->
+
+<!-- Ingredients: 
+  <ul>
+    <%# @recipe.ingredients.split(",").each do |ingredient| %>
+      <li><%#= ingredient %></li>
+    <%# end %>
+  </ul> -->
