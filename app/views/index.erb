@@ -1,0 +1,9 @@
+this is the index.erb
+
+<h1> Your recipes are Here</h1>
+
+<% @recipes.each do |recipe|%>
+<p>  <a href="/recipes/<%= recipe.id %>">Name: <%= recipe.name %></a></p>
+<p>    Ingredients: <%= recipe.ingredients %></p>
+<p>    Cook time <%= recipe.cook_time %></p>
+<% end %> 
