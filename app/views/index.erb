@@ -1,0 +1,11 @@
+<h1>RESTful Recipies</h1>
+
+<% @recipes.each do |r| %>
+  <article>
+    <h3><a href="/recipes/<%= r.id %>"><%= r.name %></a></h3>
+    <p><%= r.ingredients %></p>
+    <p><%= r.cook_time %></p>
+  </article>
+<% end %>
+
+<a href="/recipes/new">Create New Recipe</a>
