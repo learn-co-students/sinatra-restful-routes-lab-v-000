@@ -1,5 +1,4 @@
 class ApplicationController < Sinatra::Base
-  # register Sinatra::ActiveRecordExtension
   set :views, Proc.new { File.join(root, "../views/") }
 
   configure do
@@ -7,11 +6,16 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get '/recipes/new' do #loads new form
+  get '/recipes/new' do #displays new form
     erb :new
   end
 
-  get '/recipes' do #loads index page
+  post '/recipes' do #creates a new recipe
+    @recipe = Recipe.create(params)
+    redirect to "/recipes/#{@recipe.id}"
+  end
+
+  get '/recipes' do #loads index of all recipes
     @recipes = Recipe.all
     erb :index
   end
@@ -33,6 +37,12 @@ class ApplicationController < Sinatra::Base
     @recipe.cook_time = params[:cook_time]
     @recipe.save
     redirect to "/recipes/#{@recipe.id}"
+  end
+
+  delete '/recipes/:id' do #deletes a recipe
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.delete
+    redirect to '/recipes/'
   end
 
 end
