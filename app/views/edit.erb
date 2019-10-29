@@ -8,7 +8,7 @@
     
     <label for="edit">Update Recipe Below</label>
     <form action="/recipes/<%= @recipe.id %>" method="POST">
-      <input id="hidden" type="hidden" name="_method" value="patch">
+      <input id="hidden" type="hidden" name="_method" value="put">
       Name: <input type="text" name="name"><br>
       Ingredients: <input type="text" name="ingredients"><br>
       Cook Time: <input type="text" name="cook_time"><br>
