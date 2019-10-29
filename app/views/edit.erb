@@ -2,9 +2,9 @@
 <html>
   <body>
     <label for="recipe">Your Recipe</label>
-    <h1>Name: <%=@recipe.name %> </h1><br>
-    <p>Ingredients: <%=@recipe.ingredients %></p><br>
-    <p>Cook Time: <%=@recipe.cook_time %></p><br>
+    <p>Name: <%=@recipe.name %><br>
+    Ingredients: <%=@recipe.ingredients %><br>
+    Cook Time: <%=@recipe.cook_time %></p><br>
     
     <label for="edit">Update Recipe Below</label>
     <form action="/recipes/<%= @recipe.id %>" method="POST">

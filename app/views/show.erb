@@ -1,13 +1,14 @@
 <!DOCTYPE HTML>
 <html>
   <body>
-    <h1>Name: <%=@recipe.name %> </h1><br>
-    <p>Ingredients: <%=@recipe.ingredients %></p><br>
-    <p>Cook Time: <%=@recipe.cook_time.to_s %></p><br>
+    <p>Name: <%=@recipe.name %><br>
+    Ingredients: <%=@recipe.ingredients %><br>
+    Cook Time: <%=@recipe.cook_time %></p><br>
     <form action="/recipes/<%= @recipe.id %>" method="POST">
       <input id="hidden" type="hidden" name="_method" value="delete">
       <input type="submit" value="delete"><br>
     </form><br>
-    <a href="/recipes">Back to all recipes</a><a hred="/recipes/<%= @recipe.id %>/edit">Edit Page</a>
+    <a href="/recipes">Back to all recipes</a>
+    <a href="/recipes/<%= @recipe.id %>/edit">Edit Page</a>
    </body>
 </html>
