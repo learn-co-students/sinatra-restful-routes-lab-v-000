@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do 
-    redirect to '/recipes'
+    redirect to "/recipes"
   end
 
 
@@ -30,7 +30,6 @@ class ApplicationController < Sinatra::Base
 
   get '/recipes/:id/edit' do
     @recipe = Recipe.find_by_id(params[:id])
-    #binding.pry
     erb :edit 
   end
 
@@ -49,3 +48,4 @@ class ApplicationController < Sinatra::Base
     redirect to '/recipes'
   end
 end 
+
