@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1>Here are Gramdma's Recipes</h1>
+<% @recipes = Recipe.all %>
+<% @recipes.each do |x| %>
+<p><a href="/recipes/<%=x.id%>"><%= x.name %></a></p>
+<% end %>
+
+<p>To add a new recipe, click <a href="/recipes/new">here</a></p>
+</body>
+</html>
