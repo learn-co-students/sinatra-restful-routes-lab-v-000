@@ -25,7 +25,7 @@ did!), we're going to be building a web app to store those recipes for you!
 
 5.  Create a third controller action that uses RESTful routes and renders a form
     to edit a single recipe. This controller action should update the entry in the
-    database with the changes, and then redirect to the recipe show page
+    database with the changes, and then redirect to the recipe show page.
 
 6.  Create a controller action (index action) that displays all the recipes in
     the database.
