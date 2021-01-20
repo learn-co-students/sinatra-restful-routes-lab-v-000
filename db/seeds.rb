@@ -1,0 +1,1 @@
+Recipe.create(name: "pizza", ingredients: "whole lotta cheese", cook_time: "15 min")
