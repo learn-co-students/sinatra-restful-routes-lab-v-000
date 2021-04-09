@@ -1,0 +1,16 @@
+<h3> Your are editing:</h3>
+<h5>Name: <%= @recipe.name %></h5>
+<p>Ingredients: <%= @recipe.ingredients %></p>
+<p>Cook Time: <%= @recipe.cook_time %></p>
+
+<form action='/recipes/<%= @recipe.id %>' method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label for="name">Recipe Name: </label>
+  <p><input type="text" name="name"/></p>
+  <label for="ingredients">Ingredients: </label>
+  <p><input type="text" name="ingredients"/></p>
+  <label for="cook_time">Cook Time: </label>
+  <p><input type="text" name="cook_time"/></p>
+  </br>
+  <input type="submit"/>
+</form>
