@@ -18,4 +18,8 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
+  delete '/recipes/:id' do
+    
+  end
+
 end
