@@ -7,8 +7,7 @@ class ApplicationController < Sinatra::Base
   # code actions here!
   get '/recipes' do
     # binding.pry
-    @recipes = Recipe.all
-      
+    @recipes = Recipe.all   
     erb :index
   end
 
@@ -18,8 +17,13 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
+  get '/recipes/:id/edit' do
+    erb :edit
+  end
+
   delete '/recipes/:id' do
     
   end
 
+  
 end
