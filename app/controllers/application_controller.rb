@@ -12,9 +12,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/new' do
-
+    erb :new
   end
-  
+
   get '/recipes/:id' do
     # binding.pry
     @recipe = Recipe.find_by(:id => params[:id])
@@ -27,8 +27,12 @@ class ApplicationController < Sinatra::Base
   end
 
   delete '/recipes/:id' do
-    
   end
 
-  
+  post '/recipes' do
+    recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    erb :show
+  end
 end
+
+
